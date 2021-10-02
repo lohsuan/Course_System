@@ -22,13 +22,27 @@ namespace CourseSystem
 
             InitializeComponent();
             AddCheckBoxColumn();
-            submissionConfirmButton.Enabled = false;
+            _submitConfirmButton.Enabled = false;
 
-            selectCourseDataGridView.DataSource = courseInfo;
+            _selectCourseDataGridView.DataSource = courseInfo;
             foreach (KeyValuePair<string, string> entry in dataGridViewHeader)
             {
-                selectCourseDataGridView.Columns[entry.Key].HeaderText = entry.Value;
+                _selectCourseDataGridView.Columns[entry.Key].HeaderText = entry.Value;
             }
+        }
+
+        // enable submissionConfirmButton if any checkbox was checked
+        private void SelectCourseDataGridViewCellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in _selectCourseDataGridView.Rows)
+            {
+                if ((bool)row.Cells[0].EditedFormattedValue)
+                {
+                    _submitConfirmButton.Enabled = true;
+                    return;
+                }
+            }
+            _submitConfirmButton.Enabled = false;
         }
 
         // add checkbox column
@@ -36,11 +50,19 @@ namespace CourseSystem
         {
             DataGridViewCheckBoxColumn selectCourseCheckBoxColumn = new DataGridViewCheckBoxColumn();
             selectCourseCheckBoxColumn.HeaderText = "選";
-            selectCourseDataGridView.Columns.Add(selectCourseCheckBoxColumn);
+            _selectCourseDataGridView.Columns.Add(selectCourseCheckBoxColumn);
         }
 
         // prepare Chinese-English Dictionary for dataGridViewHeader
         private void PrepareDataGridViewHeader(Dictionary<string, string> dataGridViewHeader)
+        {
+            AddClassBasicInfoInHeaderDictionary(dataGridViewHeader);
+            AddClassAdvancedInfoInHeaderDictionary(dataGridViewHeader);
+            AddClassTimeInHeaderDictionary(dataGridViewHeader);
+        }
+
+        // add basic class information in Chinese-English Dictionary
+        private static void AddClassBasicInfoInHeaderDictionary(Dictionary<string, string> dataGridViewHeader)
         {
             dataGridViewHeader.Add("Number", "課號");
             dataGridViewHeader.Add("Name", "課程名稱");
@@ -50,6 +72,11 @@ namespace CourseSystem
             dataGridViewHeader.Add("RequiredType", "修");
             dataGridViewHeader.Add("Teacher", "教師");
             dataGridViewHeader.Add("Classroom", "教室");
+        }
+
+        // add advanced class information in Chinese-English Dictionary
+        private static void AddClassAdvancedInfoInHeaderDictionary(Dictionary<string, string> dataGridViewHeader)
+        {
             dataGridViewHeader.Add("NumberOfStudent", "人");
             dataGridViewHeader.Add("Note", "教學大綱與進度表");
             dataGridViewHeader.Add("NumberOfDropStudent", "撤");
@@ -58,7 +85,6 @@ namespace CourseSystem
             dataGridViewHeader.Add("Syllabus", "備註");
             dataGridViewHeader.Add("Audit", "隨班附讀");
             dataGridViewHeader.Add("Experiment", "實驗實習");
-            AddClassTimeInHeaderDictionary(dataGridViewHeader);
         }
 
         // add class time in Chinese-English Dictionary
@@ -71,20 +97,6 @@ namespace CourseSystem
             dataGridViewHeader.Add("ClassTimeThursday", "四");
             dataGridViewHeader.Add("ClassTimeFriday", "五");
             dataGridViewHeader.Add("ClassTimeSaturday", "六");
-        }
-
-        // enable submissionConfirmButton if any checkbox was checked
-        private void SelectCourseDataGridViewCellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            foreach (DataGridViewRow row in selectCourseDataGridView.Rows)
-            {
-                if ((bool)row.Cells[0].EditedFormattedValue)
-                {
-                    submissionConfirmButton.Enabled = true;
-                    return;
-                }
-            }
-            submissionConfirmButton.Enabled = false;
         }
     }
 }

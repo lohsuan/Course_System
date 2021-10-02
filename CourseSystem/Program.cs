@@ -13,8 +13,8 @@ namespace CourseSystem
         static void Main(string[] args)
         {
             Model model = new Model();
-            Form selectCourseform = new SelectCourseForm(model);
-            Application.Run(selectCourseform);
+            Form selectCourseForm = new SelectCourseForm(model);
+            Application.Run(selectCourseForm);
         }
     }
 }

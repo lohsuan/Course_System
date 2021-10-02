@@ -49,25 +49,23 @@ namespace CourseSystem
             {
                 HtmlNodeCollection nodeTableDatas = node.ChildNodes;
                 nodeTableDatas.RemoveAt(0); // 移除 #text
-
-                AddCourseInfoDto(courseInfoDtos, nodeTableDatas);
+                courseInfoDtos.Add(CourseInfoDtoFactory(nodeTableDatas));
             }
             return courseInfoDtos;
         }
 
-        // 加入每列課程
-        private static void AddCourseInfoDto(List<CourseInfoDto> courseInfoDtos, HtmlNodeCollection nodeTableDatas)
+        // factory for making CourseInfoDto
+        private static CourseInfoDto CourseInfoDtoFactory(HtmlNodeCollection nodeTableDatas)
         {
-            courseInfoDtos.Add(
-                new CourseInfoDto(
-                    nodeTableDatas[NUMBER].InnerText.Trim(), nodeTableDatas[NAME].InnerText.Trim(), nodeTableDatas[STAGE].InnerText.Trim(),
-                    nodeTableDatas[CREDIT].InnerText.Trim(), nodeTableDatas[HOUR].InnerText.Trim(), nodeTableDatas[REQUIRE_TYPE].InnerText.Trim(),
-                    nodeTableDatas[TEACHER].InnerText.Trim(), nodeTableDatas[CLASS_TIME_SUNDAY].InnerText.Trim(), nodeTableDatas[CLASS_TIME_MONDAY].InnerText.Trim(),
-                    nodeTableDatas[CLASS_TIME_TUESDAY].InnerText.Trim(), nodeTableDatas[CLASS_TIME_WEDNESDAY].InnerText.Trim(), nodeTableDatas[CLASS_TIME_THURSDAY].InnerText.Trim(),
-                    nodeTableDatas[CLASS_TIME_FRIDAY].InnerText.Trim(), nodeTableDatas[CLASS_TIME_SATURDAY].InnerText.Trim(), nodeTableDatas[CLASSROOM].InnerText.Trim(),
-                    nodeTableDatas[NUMBER_OF_STUDENT].InnerText.Trim(), nodeTableDatas[NUMBER_OF_DROP_STUDENT].InnerText.Trim(), nodeTableDatas[TEACHER_ASSISTANT].InnerText.Trim(),
-                    nodeTableDatas[LANGUAGE].InnerText.Trim(), nodeTableDatas[SYLLABUS].InnerText.Trim(), nodeTableDatas[NOTE].InnerText.Trim(),
-                    nodeTableDatas[AUDIT].InnerText.Trim(), nodeTableDatas[EXPERIMENT].InnerText.Trim()));
+            return new CourseInfoDto(
+                nodeTableDatas[NUMBER].InnerText.Trim(), nodeTableDatas[NAME].InnerText.Trim(), nodeTableDatas[STAGE].InnerText.Trim(),
+                nodeTableDatas[CREDIT].InnerText.Trim(), nodeTableDatas[HOUR].InnerText.Trim(), nodeTableDatas[REQUIRE_TYPE].InnerText.Trim(),
+                nodeTableDatas[TEACHER].InnerText.Trim(), nodeTableDatas[CLASS_TIME_SUNDAY].InnerText.Trim(), nodeTableDatas[CLASS_TIME_MONDAY].InnerText.Trim(),
+                nodeTableDatas[CLASS_TIME_TUESDAY].InnerText.Trim(), nodeTableDatas[CLASS_TIME_WEDNESDAY].InnerText.Trim(), nodeTableDatas[CLASS_TIME_THURSDAY].InnerText.Trim(),
+                nodeTableDatas[CLASS_TIME_FRIDAY].InnerText.Trim(), nodeTableDatas[CLASS_TIME_SATURDAY].InnerText.Trim(), nodeTableDatas[CLASSROOM].InnerText.Trim(),
+                nodeTableDatas[NUMBER_OF_STUDENT].InnerText.Trim(), nodeTableDatas[NUMBER_OF_DROP_STUDENT].InnerText.Trim(), nodeTableDatas[TEACHER_ASSISTANT].InnerText.Trim(),
+                nodeTableDatas[LANGUAGE].InnerText.Trim(), nodeTableDatas[SYLLABUS].InnerText.Trim(), nodeTableDatas[NOTE].InnerText.Trim(),
+                nodeTableDatas[AUDIT].InnerText.Trim(), nodeTableDatas[EXPERIMENT].InnerText.Trim());
         }
 
         // 移除不需要的網站資訊
