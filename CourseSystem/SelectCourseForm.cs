@@ -31,7 +31,7 @@ namespace CourseSystem
             }
         }
 
-        // enable submissionConfirmButton if any checkbox was checked
+        // enable _submitConfirmButton if any checkbox was checked
         private void SelectCourseDataGridViewCellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             foreach (DataGridViewRow row in _selectCourseDataGridView.Rows)
