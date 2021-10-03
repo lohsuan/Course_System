@@ -34,6 +34,8 @@ namespace CourseSystem
         private const int NOTE = 20;
         private const int AUDIT = 21;
         private const int EXPERIMENT = 22;
+        private string[] _courseHeaderKeys = { CourseHeaderConstant.NUMBER_HEADER_KEY, CourseHeaderConstant.NAME_HEADER_KEY, CourseHeaderConstant.STAGE_HEADER_KEY, CourseHeaderConstant.CREDIT_HEADER_KEY, CourseHeaderConstant.HOUR_HEADER_KEY, CourseHeaderConstant.REQUIRED_TYPE_HEADER_KEY, CourseHeaderConstant.TEACHER_HEADER_KEY, CourseHeaderConstant.CLASSROOM_HEADER_KEY, CourseHeaderConstant.NUMBER_OF_STUDENT_HEADER_KEY, CourseHeaderConstant.NOTE_HEADER_KEY, CourseHeaderConstant.NUMBER_OF_DROP_STUDENT_HEADER_KEY, CourseHeaderConstant.TEACHER_ASSISTANT_HEADER_KEY, CourseHeaderConstant.LANGUAGE_HEADER_KEY, CourseHeaderConstant.SYLLABUS_HEADER_KEY, CourseHeaderConstant.AUDIT_HEADER_KEY, CourseHeaderConstant.EXPERIMENT_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_SUNDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_MONDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_TUESDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_WEDNESDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_THURSDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_FRIDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_SATURDAY_HEADER_KEY };
+        private string[] _courseHeaderValues = { CourseHeaderConstant.NUMBER_HEADER_VALUE, CourseHeaderConstant.NAME_HEADER_VALUE, CourseHeaderConstant.STAGE_HEADER_VALUE, CourseHeaderConstant.CREDIT_HEADER_VALUE, CourseHeaderConstant.HOUR_HEADER_VALUE, CourseHeaderConstant.REQUIRED_TYPE_HEADER_VALUE, CourseHeaderConstant.TEACHER_HEADER_VALUE, CourseHeaderConstant.CLASSROOM_HEADER_VALUE, CourseHeaderConstant.NUMBER_OF_STUDENT_HEADER_VALUE, CourseHeaderConstant.NOTE_HEADER_VALUE, CourseHeaderConstant.NUMBER_OF_DROP_STUDENT_HEADER_VALUE, CourseHeaderConstant.TEACHER_ASSISTANT_HEADER_VALUE, CourseHeaderConstant.LANGUAGE_HEADER_VALUE, CourseHeaderConstant.SYLLABUS_HEADER_VALUE, CourseHeaderConstant.AUDIT_HEADER_VALUE, CourseHeaderConstant.EXPERIMENT_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_SUNDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_MONDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_TUESDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_WEDNESDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_THURSDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_FRIDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_SATURDAY_HEADER_VALUE };
 
         // using HtmlAgilityPack to parse course information
         public static List<CourseInfoDto> GetCourseInfo()
@@ -52,6 +54,17 @@ namespace CourseSystem
                 courseInfoDtos.Add(CourseInfoDtoFactory(nodeTableDatas));
             }
             return courseInfoDtos;
+        }
+
+        // get course header text of school timetable
+        public Dictionary<string, string> GetCourseHeader()
+        {
+            Dictionary<string, string> courseHeader = new Dictionary<string, string>();
+            for (int courseHeaderIndex = 0; courseHeaderIndex < _courseHeaderKeys.Length; courseHeaderIndex++)
+            {
+                courseHeader.Add(_courseHeaderKeys[courseHeaderIndex], _courseHeaderValues[courseHeaderIndex]);
+            }
+            return courseHeader;
         }
 
         // factory for making CourseInfoDto

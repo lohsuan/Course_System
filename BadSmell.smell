@@ -189,38 +189,41 @@
             <Smell>
               <Id>1</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>78 目前物件 CourseSystem.Course，使用物件的方法或屬性次數：0次，Envy到對象物件 HtmlAgilityPack.HtmlNodeCollection，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：HtmlAgilityPack.HtmlNodeCollection.Count 以及 HtmlAgilityPack.HtmlNodeCollection.RemoveAt(int)</HashCode>
+              <HashCode>91 目前物件 CourseSystem.Course，使用物件的方法或屬性次數：0次，Envy到對象物件 HtmlAgilityPack.HtmlNodeCollection，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：HtmlAgilityPack.HtmlNodeCollection.Count 以及 HtmlAgilityPack.HtmlNodeCollection.RemoveAt(int)</HashCode>
               <Severity>Warning</Severity>
               <Weight>1</Weight>
               <Project>CourseSystem</Project>
-              <File>D:\college\3junior\windows programming\108820001\CourseSystem\Course.cs</File>
-              <Line>78</Line>
-              <StartLine>77</StartLine>
+              <File>D:\college\3junior\windows programming\108820001\CourseSystem\Model\Course.cs</File>
+              <Line>91</Line>
+              <StartLine>90</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>78</EndLine>
+              <EndLine>91</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 CourseSystem.Course，使用物件的方法或屬性次數：0次，Envy到對象物件 HtmlAgilityPack.HtmlNodeCollection，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：HtmlAgilityPack.HtmlNodeCollection.Count 以及 HtmlAgilityPack.HtmlNodeCollection.RemoveAt(int)</Comment>
               <Auto>false</Auto>
             </Smell>
           </Reviews>
           <HashCodeIgnoreList />
-          <HashCodeRequestIgnoreList>
-            <string>78 目前物件 CourseSystem.Course，使用物件的方法或屬性次數：0次，Envy到對象物件 HtmlAgilityPack.HtmlNodeCollection，使用物件方法或屬性次數：2次，使用到的方法或屬性為以下：HtmlAgilityPack.HtmlNodeCollection.Count 以及 HtmlAgilityPack.HtmlNodeCollection.RemoveAt(int)</string>
-          </HashCodeRequestIgnoreList>
+          <HashCodeRequestIgnoreList />
           <AnalysisFileManager>
             <AnalysisFiles>
               <AnalysisFile>
-                <RelativePath>Course.cs</RelativePath>
+                <RelativePath>Model\Course.cs</RelativePath>
                 <ProjectName>CourseSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>CourseInfoDto.cs</RelativePath>
+                <RelativePath>Model\CourseHeaderConstant.cs</RelativePath>
                 <ProjectName>CourseSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model.cs</RelativePath>
+                <RelativePath>Model\CourseInfoDto.cs</RelativePath>
+                <ProjectName>CourseSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\Model.cs</RelativePath>
                 <ProjectName>CourseSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
@@ -240,18 +243,18 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>SelectCourseForm.cs</RelativePath>
+                <RelativePath>View\SelectCourseForm.cs</RelativePath>
                 <ProjectName>CourseSystem</ProjectName>
                 <AnalysisFileType>ViewOrController</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>SelectCourseForm.Designer.cs</RelativePath>
+                <RelativePath>View\SelectCourseForm.Designer.cs</RelativePath>
                 <ProjectName>CourseSystem</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>502</ProductionLoc>
+          <ProductionLoc>536</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>
