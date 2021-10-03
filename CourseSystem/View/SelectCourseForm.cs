@@ -12,12 +12,17 @@ namespace CourseSystem
 {
     public partial class SelectCourseForm : Form
     {
+        private Model _model;
         public SelectCourseForm(Model model)
         {
+            this._model = model;
             List<CourseInfoDto> courseInfo = model.GetCourseInfo();
             Dictionary<string, string> dataGridViewHeader = model.GetCourseHeader();
 
             InitializeComponent();
+            // handle unupdate checkbox problem when user click the same checkbox to fast
+            this._selectCourseDataGridView.CellContentDoubleClick += SelectCourseDataGridViewCellContentClick;
+
             AddCheckBoxColumn();
             _submitConfirmButton.Enabled = false;
 
@@ -31,13 +36,11 @@ namespace CourseSystem
         // enable _submitConfirmButton if any checkbox was checked
         private void SelectCourseDataGridViewCellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewRow row in _selectCourseDataGridView.Rows)
+            _model.UpdateCourseChecked(e.RowIndex);
+            if (_model.IsAnyCourseChecked())
             {
-                if ((bool)row.Cells[0].EditedFormattedValue)
-                {
-                    _submitConfirmButton.Enabled = true;
-                    return;
-                }
+                _submitConfirmButton.Enabled = true;
+                return;
             }
             _submitConfirmButton.Enabled = false;
         }
@@ -49,7 +52,6 @@ namespace CourseSystem
             selectCourseCheckBoxColumn.HeaderText = "選";
             _selectCourseDataGridView.Columns.Add(selectCourseCheckBoxColumn);
         }
-        
     }
 }
 

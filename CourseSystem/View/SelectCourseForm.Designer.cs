@@ -35,13 +35,13 @@ namespace CourseSystem
             ((System.ComponentModel.ISupportInitialize)(this._selectCourseDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // selectCourseDataGridView
+            // _selectCourseDataGridView
             // 
             this._selectCourseDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this._selectCourseDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this._selectCourseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._selectCourseDataGridView.Location = new System.Drawing.Point(1, 0);
-            this._selectCourseDataGridView.Name = "selectCourseDataGridView";
+            this._selectCourseDataGridView.Name = "_selectCourseDataGridView";
             this._selectCourseDataGridView.RowHeadersVisible = false;
             this._selectCourseDataGridView.RowHeadersWidth = 51;
             this._selectCourseDataGridView.RowTemplate.Height = 27;
@@ -49,21 +49,21 @@ namespace CourseSystem
             this._selectCourseDataGridView.TabIndex = 2;
             this._selectCourseDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SelectCourseDataGridViewCellContentClick);
             // 
-            // submissionConfirmButton
+            // _submitConfirmButton
             // 
             this._submitConfirmButton.AutoSize = true;
             this._submitConfirmButton.Location = new System.Drawing.Point(1431, 515);
-            this._submitConfirmButton.Name = "submissionConfirmButton";
+            this._submitConfirmButton.Name = "_submitConfirmButton";
             this._submitConfirmButton.Size = new System.Drawing.Size(218, 70);
             this._submitConfirmButton.TabIndex = 3;
             this._submitConfirmButton.Text = "確認送出";
             this._submitConfirmButton.UseVisualStyleBackColor = true;
             // 
-            // viewOutcomeButton
+            // _viewOutcomeButton
             // 
             this._viewOutcomeButton.AutoSize = true;
             this._viewOutcomeButton.Location = new System.Drawing.Point(1666, 514);
-            this._viewOutcomeButton.Name = "viewOutcomeButton";
+            this._viewOutcomeButton.Name = "_viewOutcomeButton";
             this._viewOutcomeButton.Size = new System.Drawing.Size(211, 71);
             this._viewOutcomeButton.TabIndex = 4;
             this._viewOutcomeButton.Text = "查看選課結果";

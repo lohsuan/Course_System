@@ -4,6 +4,8 @@ namespace CourseSystem
 {
     public class CourseInfoDto
     {
+        bool _isChecked = false;
+
         public CourseInfoDto(string number, string name, string stage, string credit, string hour, 
             string requiredType, string teacher, string classTimeSunday, string classTimeMonday, string classTimeTuesday,
             string classTimeWednesday, string classTimeThursday, string classTimeFriday, string classTimeSaturday, string classroom, 
@@ -33,6 +35,18 @@ namespace CourseSystem
             this.Note = note;
             this.Audit = audit;
             this.Experiment = experiment;
+        }
+
+        //  update course checked state
+        public void UpdateChecked()
+        {
+            _isChecked = !_isChecked;
+        }
+
+        // get course checked state
+        public bool IsChecked()
+        {
+            return _isChecked;
         }
 
         public string Number
