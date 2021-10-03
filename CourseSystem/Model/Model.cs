@@ -5,7 +5,6 @@ namespace CourseSystem
 {
     public class Model
     {
-
         // get parsed course information
         public List<CourseInfoDto> GetCourseInfo()
         {

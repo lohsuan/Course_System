@@ -12,10 +12,8 @@ namespace CourseSystem
 {
     public partial class SelectCourseForm : Form
     {
-        private Model _model;
         public SelectCourseForm(Model model)
         {
-            this._model = model;
             List<CourseInfoDto> courseInfo = model.GetCourseInfo();
             Dictionary<string, string> dataGridViewHeader = model.GetCourseHeader();
 
