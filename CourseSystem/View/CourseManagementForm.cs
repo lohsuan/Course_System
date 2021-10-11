@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,13 +10,11 @@ using System.Windows.Forms;
 
 namespace CourseSystem
 {
-    class Program
+    public partial class CourseManagementForm : Form
     {
-        // 程式進入點
-        static void Main(string[] args)
+        public CourseManagementForm()
         {
-            StartUpForm startUpForm = new StartUpForm();
-            Application.Run(startUpForm);
+            InitializeComponent();
         }
     }
 }

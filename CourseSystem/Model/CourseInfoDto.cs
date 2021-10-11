@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
 namespace CourseSystem
 {
@@ -47,6 +48,15 @@ namespace CourseSystem
         public bool IsChecked()
         {
             return _isChecked;
+        }
+
+        // get classtime
+        public List<string> GetClassTime()
+        {
+            return new List<string> 
+            { 
+                ClassTimeSunday, ClassTimeMonday , ClassTimeTuesday, ClassTimeWednesday, ClassTimeThursday, ClassTimeFriday, ClassTimeSaturday
+            };
         }
 
         public string Number
