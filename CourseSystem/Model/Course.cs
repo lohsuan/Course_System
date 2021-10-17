@@ -6,6 +6,8 @@ namespace CourseSystem
 {
     class Course
     {
+        private const char LINE_SEPARATER = '\n';
+        private string _departmentName = "";
         private string[] _courseHeaderKeys = { CourseHeaderConstant.NUMBER_HEADER_KEY, CourseHeaderConstant.NAME_HEADER_KEY, CourseHeaderConstant.STAGE_HEADER_KEY, CourseHeaderConstant.CREDIT_HEADER_KEY, CourseHeaderConstant.HOUR_HEADER_KEY, CourseHeaderConstant.REQUIRED_TYPE_HEADER_KEY, CourseHeaderConstant.TEACHER_HEADER_KEY, CourseHeaderConstant.CLASSROOM_HEADER_KEY, CourseHeaderConstant.NUMBER_OF_STUDENT_HEADER_KEY, CourseHeaderConstant.NOTE_HEADER_KEY, CourseHeaderConstant.NUMBER_OF_DROP_STUDENT_HEADER_KEY, CourseHeaderConstant.TEACHER_ASSISTANT_HEADER_KEY, CourseHeaderConstant.LANGUAGE_HEADER_KEY, CourseHeaderConstant.SYLLABUS_HEADER_KEY, CourseHeaderConstant.AUDIT_HEADER_KEY, CourseHeaderConstant.EXPERIMENT_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_SUNDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_MONDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_TUESDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_WEDNESDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_THURSDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_FRIDAY_HEADER_KEY, CourseHeaderConstant.CLASS_TIME_SATURDAY_HEADER_KEY };
         private string[] _courseHeaderValues = { CourseHeaderConstant.NUMBER_HEADER_VALUE, CourseHeaderConstant.NAME_HEADER_VALUE, CourseHeaderConstant.STAGE_HEADER_VALUE, CourseHeaderConstant.CREDIT_HEADER_VALUE, CourseHeaderConstant.HOUR_HEADER_VALUE, CourseHeaderConstant.REQUIRED_TYPE_HEADER_VALUE, CourseHeaderConstant.TEACHER_HEADER_VALUE, CourseHeaderConstant.CLASSROOM_HEADER_VALUE, CourseHeaderConstant.NUMBER_OF_STUDENT_HEADER_VALUE, CourseHeaderConstant.NOTE_HEADER_VALUE, CourseHeaderConstant.NUMBER_OF_DROP_STUDENT_HEADER_VALUE, CourseHeaderConstant.TEACHER_ASSISTANT_HEADER_VALUE, CourseHeaderConstant.LANGUAGE_HEADER_VALUE, CourseHeaderConstant.SYLLABUS_HEADER_VALUE, CourseHeaderConstant.AUDIT_HEADER_VALUE, CourseHeaderConstant.EXPERIMENT_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_SUNDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_MONDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_TUESDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_WEDNESDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_THURSDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_FRIDAY_HEADER_VALUE, CourseHeaderConstant.CLASS_TIME_SATURDAY_HEADER_VALUE };
 
@@ -39,6 +41,12 @@ namespace CourseSystem
             return courseHeader;
         }
 
+        // get department name
+        public string GetDepartmentName()
+        {
+            return _departmentName;
+        }
+
         // factory for making CourseInfoDto
         private CourseInfoDto CourseInfoDtoFactory(HtmlNodeCollection nodeTableDatas)
         {
@@ -61,8 +69,8 @@ namespace CourseSystem
         private void RemoveNoUseTableRow(HtmlNodeCollection nodeTableRow)
         {
             nodeTableRow.RemoveAt(0); // 移除 tbody
-            string[] department = nodeTableRow[0].InnerText.Split('\n');
-            Department.AddDepartmentName(department[0]);
+            string[] department = nodeTableRow[0].InnerText.Split(LINE_SEPARATER);
+            _departmentName = department[0];
             nodeTableRow.RemoveAt(0); // 移除 <tr>資工三
             nodeTableRow.RemoveAt(0); // 移除 table header
             nodeTableRow.RemoveAt(GetLastRowIndex(nodeTableRow)); // 移除 <tr>小計
@@ -73,5 +81,6 @@ namespace CourseSystem
         {
             return nodeTableRow.Count - 1;
         }
+
     }
 }

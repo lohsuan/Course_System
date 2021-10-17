@@ -12,19 +12,18 @@ namespace CourseSystem
 {
     public partial class StartUpForm : Form
     {
-        StartUpFormPresentationModel _startUpFormPresentationModel;
+        Model _model;
         public StartUpForm()
         {
+            _model = new Model();
             InitializeComponent();
-            _startUpFormPresentationModel = new StartUpFormPresentationModel();
-
         }
 
         // on _courseSelectingSystemButton click
         private void OpenCourseSelectingSystem(object sender, EventArgs e)
         {
             this._courseSelectingSystemButton.Enabled = false;
-            CourseSelectingForm courseSelectingForm = new CourseSelectingForm();
+            CourseSelectingForm courseSelectingForm = new CourseSelectingForm(_model);
             courseSelectingForm.Show();
             courseSelectingForm.FormClosed += this.HandleCourseSelectingSystemClose;
         }
@@ -33,7 +32,7 @@ namespace CourseSystem
         private void OpenCourseManagementSystem(object sender, EventArgs e)
         {
             this._courseManagementSystemButton.Enabled = false;
-            CourseManagementForm courseManagementForm = new CourseManagementForm();
+            CourseManagementForm courseManagementForm = new CourseManagementForm(_model);
             courseManagementForm.Show();
             courseManagementForm.FormClosed += this.HandleCourseManagementSystemClose;
         }

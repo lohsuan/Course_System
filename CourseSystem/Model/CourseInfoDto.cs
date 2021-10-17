@@ -1,12 +1,11 @@
 ﻿
+using System;
 using System.Collections.Generic;
 
 namespace CourseSystem
 {
     public class CourseInfoDto
     {
-        bool _isChecked = false;
-
         public CourseInfoDto(string number, string name, string stage, string credit, string hour, 
             string requiredType, string teacher, string classTimeSunday, string classTimeMonday, string classTimeTuesday,
             string classTimeWednesday, string classTimeThursday, string classTimeFriday, string classTimeSaturday, string classroom, 
@@ -38,16 +37,37 @@ namespace CourseSystem
             this.Experiment = experiment;
         }
 
-        //  update course checked state
-        public void UpdateChecked()
+        public CourseInfoDto(CourseInfoDto previousCourseInfoDto)
         {
-            _isChecked = !_isChecked;
+            this.Number = previousCourseInfoDto.Number;
+            this.Name = previousCourseInfoDto.Name;
+            this.Stage = previousCourseInfoDto.Stage;
+            this.Credit = previousCourseInfoDto.Credit;
+            this.Hour = previousCourseInfoDto.Hour;
+            this.RequiredType = previousCourseInfoDto.RequiredType;
+            this.Teacher = previousCourseInfoDto.Teacher;
+            this.ClassTimeSunday = previousCourseInfoDto.ClassTimeSunday;
+            this.ClassTimeMonday = previousCourseInfoDto.ClassTimeMonday;
+            this.ClassTimeTuesday = previousCourseInfoDto.ClassTimeTuesday;
+            this.ClassTimeWednesday = previousCourseInfoDto.ClassTimeWednesday;
+            this.ClassTimeThursday = previousCourseInfoDto.ClassTimeThursday;
+            this.ClassTimeFriday = previousCourseInfoDto.ClassTimeFriday;
+            this.ClassTimeSaturday = previousCourseInfoDto.ClassTimeSaturday;
+            this.Classroom = previousCourseInfoDto.Classroom;
+            this.NumberOfStudent = previousCourseInfoDto.NumberOfStudent;
+            this.NumberOfDropStudent = previousCourseInfoDto.NumberOfDropStudent;
+            this.TeacherAssistant = previousCourseInfoDto.TeacherAssistant;
+            this.Language = previousCourseInfoDto.Language;
+            this.Syllabus = previousCourseInfoDto.Syllabus;
+            this.Note = previousCourseInfoDto.Note;
+            this.Audit = previousCourseInfoDto.Audit;
+            this.Experiment = previousCourseInfoDto.Experiment;
         }
 
-        // get course checked state
-        public bool IsChecked()
-        {
-            return _isChecked;
+        // override of Equal in CourseInfoDto
+        public bool Equals(CourseInfoDto other)
+        {                
+            return this.Number.Equals(other.Number);
         }
 
         // get classtime

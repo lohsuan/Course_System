@@ -6,20 +6,27 @@ using System.Threading.Tasks;
 
 namespace CourseSystem
 {
-    public static class Department
+    public class Department
     {
-        private static List<string> _departmentName = new List<string>();
+        private List<CourseInfoDto> _courseInfoDtos = new List<CourseInfoDto>();
+        private string _departmentName = "";
 
-        // add department name
-        public static void AddDepartmentName(string departmentName)
+        public Department(string departmentName, List<CourseInfoDto> courseInfoDtos)
         {
-            _departmentName.Add(departmentName);
+            _departmentName = departmentName;
+            _courseInfoDtos = courseInfoDtos;
+        }
+
+        // get class' course
+        public List<CourseInfoDto> GetCourseInfoDtos()
+        {
+            return _courseInfoDtos;
         }
 
         // get department name
-        public static string GetDepartmentName(int index)
+        public string GetDepartmentName()
         {
-            return _departmentName[index];
+            return _departmentName;
         }
     }
 }

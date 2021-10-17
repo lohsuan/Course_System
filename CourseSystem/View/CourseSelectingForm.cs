@@ -5,26 +5,31 @@ namespace CourseSystem
 {
     public partial class CourseSelectingForm : Form
     {
+        private const int COURSE_NUMBER = 1;
         private CourseSelectingFormPresentationModel _viewModel;
+        private Model _model;
         private int _currentTabIndex;
-
-        public CourseSelectingForm()
+        private List<DataGridView> _dataGridViews = new List<DataGridView>();
+        public CourseSelectingForm(Model model)
         {
-            this._viewModel = new CourseSelectingFormPresentationModel();
+            _model = model;
+            this._viewModel = new CourseSelectingFormPresentationModel(model);
             InitializeComponent();
             // handle unupdate checkbox problem when user click the same checkbox to fast
             this._firstTabDataGridView.CellContentDoubleClick += ClickDataGridViewCellContent;
-            this._secondTabDataGridView.CellContentClick += ClickDataGridViewCellContent;
-            SetUp();
+            _dataGridViews.Add(_firstTabDataGridView);
+            _dataGridViews.Add(_secondTabDataGridView);
+            SetUpTab();
         }
 
         // prepare the initial course view
-        private void SetUp()
+        private void SetUpTab()
         {
             _submitConfirmButton.Enabled = false;
+            this._secondTabDataGridView.CellContentClick += ClickDataGridViewCellContent;
+            this._secondTabDataGridView.CellContentDoubleClick += ClickDataGridViewCellContent;
             AddCheckBoxColumn(_firstTabDataGridView);
             AddCheckBoxColumn(_secondTabDataGridView);
-
             _firstTabDataGridView.DataSource = _viewModel.GetCourseInfo(0);
             _secondTabDataGridView.DataSource = _viewModel.GetCourseInfo(1);
             Dictionary<string, string> dataGridViewHeader = _viewModel.GetCourseHeader();
@@ -37,50 +42,69 @@ namespace CourseSystem
             _tabPage2.Controls.Add(_secondTabDataGridView);
             _tabPage1.Text = _viewModel.GetDepartmentName(0);
             _tabPage2.Text = _viewModel.GetDepartmentName(1);
-
         }
 
         // when checkbox of dataGridView is clicked
         private void ClickDataGridViewCellContent(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
-            {
                 CheckOutCheckBoxAndConfirmButtonProperty(e);
-            }
         }
 
         // enable _submitConfirmButton if any checkbox was checked
         private void CheckOutCheckBoxAndConfirmButtonProperty(DataGridViewCellEventArgs e)
         {
-            _viewModel.UpdateCourseChecked(_currentTabIndex, e.RowIndex);
-            if (_viewModel.IsAnyCourseChecked())
-            {
-                _submitConfirmButton.Enabled = true;
-                return;
-            }
-            _submitConfirmButton.Enabled = false;
+            string courseNumber = _dataGridViews[_currentTabIndex].Rows[e.RowIndex].Cells[COURSE_NUMBER].Value.ToString();
+            _viewModel.UpdateCourseChecked(_currentTabIndex, courseNumber);
+            _submitConfirmButton.Enabled = _viewModel.IsAnyCourseChecked();
         }
 
         // on _submitConfirmButton click
         private void ConfirmAndSubmitCourse(object sender, System.EventArgs e)
         {
             string message = _viewModel.CheckCoursesValidMessage();
+            if (_viewModel.IsAddCourseSuccess())
+            {
+                _submitConfirmButton.Enabled = false;
+                SelectCheckedCourse();
+                ReloadNotSelectedCourse();
+            }
             MessageBox.Show(message);
+        }
+
+        // selecte and uncheck checked course
+        private void SelectCheckedCourse()
+        {
+            _viewModel.SelectAndCancelCheckedCourse();
+        }
+
+        // uncheck all course and check box
+        private void ReloadNotSelectedCourse()
+        {
+            List<List<CourseInfoDto>> notSelectedCourses = _viewModel.GetNotSelectedCourse();
+            for (int i = 0; i < _dataGridViews.Count; i++)
+            {
+                _dataGridViews[i].DataSource = notSelectedCourses[i];
+            }
         }
 
         // on _viewOutcomeButton click
         private void OpenCourseSelectionResultForm(object sender, System.EventArgs e)
         {
             this._viewOutcomeButton.Enabled = false;
-            CourseSelectionResultForm courseSelectionResultForm = new CourseSelectionResultForm();
-            courseSelectionResultForm.Show();
-            courseSelectionResultForm.FormClosed += this.HandleCourseSelectionResultFormClose;
+            CourseSelectionResultForm courseSelectionResultForm = new CourseSelectionResultForm(_model);
+            courseSelectionResultForm.ShowDialog();
+            if (courseSelectionResultForm.DialogResult == DialogResult.Cancel)
+            {
+                HandleCourseSelectionResultFormClose();
+            }
         }
 
         // on CourseSelectionResultForm closed
-        private void HandleCourseSelectionResultFormClose(object sender, FormClosedEventArgs e)
+        private void HandleCourseSelectionResultFormClose()
         {
             this._viewOutcomeButton.Enabled = true;
+            ReloadNotSelectedCourse();
         }
 
         // add checkbox column

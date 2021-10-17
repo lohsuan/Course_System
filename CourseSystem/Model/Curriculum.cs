@@ -8,22 +8,25 @@ namespace CourseSystem
 {
     public class Curriculum
     {
-        private List<CourseInfoDto> _curriculums;
-
-        public Curriculum(List<CourseInfoDto> curriculums)
-        {
-            this._curriculums = curriculums;
-        }
+        private List<CourseInfoDto> _selectedCourse = new List<CourseInfoDto>();
 
         // get curriculum
-        public List<CourseInfoDto> GetCourses()
+        public List<CourseInfoDto> GetCurriculum()
         {
-            return _curriculums;
+            return _selectedCourse;
         }
 
-        public string GetDepartmentName(int index)
+        // add course to curriculum
+        internal void AddCourse(List<CourseInfoDto> checkedCourses)
         {
-            return Department.GetDepartmentName(index);
+            _selectedCourse.AddRange(checkedCourses);
+        }
+
+        // delete course from curriculum
+        internal void RemoveCourse(string courseNumber)
+        {
+            CourseInfoDto course = _selectedCourse.Find(x => x.Number.Equals(courseNumber));
+            _selectedCourse.Remove(course);
         }
     }
 }

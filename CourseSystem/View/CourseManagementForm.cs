@@ -12,7 +12,7 @@ namespace CourseSystem
 {
     public partial class CourseManagementForm : Form
     {
-        public CourseManagementForm()
+        public CourseManagementForm(Model model)
         {
             InitializeComponent();
         }
