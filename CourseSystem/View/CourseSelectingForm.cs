@@ -20,6 +20,7 @@ namespace CourseSystem
             _dataGridViews.Add(_firstTabDataGridView);
             _dataGridViews.Add(_secondTabDataGridView);
             SetUpTab();
+            ReloadNotSelectedCourse();
         }
 
         // prepare the initial course view
@@ -75,7 +76,7 @@ namespace CourseSystem
         // selecte and uncheck checked course
         private void SelectCheckedCourse()
         {
-            _viewModel.SelectAndCancelCheckedCourse();
+            _viewModel.SelectCheckedCourse();
         }
 
         // uncheck all course and check box

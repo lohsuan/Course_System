@@ -172,15 +172,15 @@ namespace CourseSystem
         }
 
         // select checked course
-        public void SelectAndCancelCheckedCourse()
+        public void SelectCheckedCourse()
         {
             _model.SelectCheckedCourseToCurriculum(_checkedCourses);
-            _checkedCourses.Clear();
         }
 
         // get selected row index
         internal List<List<CourseInfoDto>> GetNotSelectedCourse()
         {
+            _checkedCourses.Clear();
             _notCheckedCourses.Clear();
             List<CourseInfoDto> curriculum = _model.GetCurriculum();
             List<Department> departments = _model.GetDepartments();
