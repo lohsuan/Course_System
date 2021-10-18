@@ -45,13 +45,13 @@ namespace CourseSystem
         }
 
         // update course checked state
-        public void UpdateCourseChecked(int tabIndex, string courseNumber)
+        public void UpdateCourseChecked(int tabIndex, string id)
         {
             CourseInfoDto course;
-            course = _notCheckedCourses.Find(x => x.Number.Equals(courseNumber));
+            course = _notCheckedCourses.Find(x => x.Id.Equals(id));
             if (course == null)
             {
-                course = _checkedCourses.Find(x => x.Number.Equals(courseNumber));
+                course = _checkedCourses.Find(x => x.Id.Equals(id));
                 _notCheckedCourses.Add(course);
                 _checkedCourses.Remove(course);
             }
@@ -201,7 +201,7 @@ namespace CourseSystem
             {
                 if (!curriculum.Contains(courseInfoDto))
                 {
-                    classNotSelectedCourse.Add(new CourseInfoDto(courseInfoDto));
+                    classNotSelectedCourse.Add(courseInfoDto);
                     _notCheckedCourses.Add(courseInfoDto);
                 }
             }

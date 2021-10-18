@@ -35,39 +35,13 @@ namespace CourseSystem
             this.Note = note;
             this.Audit = audit;
             this.Experiment = experiment;
-        }
-
-        public CourseInfoDto(CourseInfoDto previousCourseInfoDto)
-        {
-            this.Number = previousCourseInfoDto.Number;
-            this.Name = previousCourseInfoDto.Name;
-            this.Stage = previousCourseInfoDto.Stage;
-            this.Credit = previousCourseInfoDto.Credit;
-            this.Hour = previousCourseInfoDto.Hour;
-            this.RequiredType = previousCourseInfoDto.RequiredType;
-            this.Teacher = previousCourseInfoDto.Teacher;
-            this.ClassTimeSunday = previousCourseInfoDto.ClassTimeSunday;
-            this.ClassTimeMonday = previousCourseInfoDto.ClassTimeMonday;
-            this.ClassTimeTuesday = previousCourseInfoDto.ClassTimeTuesday;
-            this.ClassTimeWednesday = previousCourseInfoDto.ClassTimeWednesday;
-            this.ClassTimeThursday = previousCourseInfoDto.ClassTimeThursday;
-            this.ClassTimeFriday = previousCourseInfoDto.ClassTimeFriday;
-            this.ClassTimeSaturday = previousCourseInfoDto.ClassTimeSaturday;
-            this.Classroom = previousCourseInfoDto.Classroom;
-            this.NumberOfStudent = previousCourseInfoDto.NumberOfStudent;
-            this.NumberOfDropStudent = previousCourseInfoDto.NumberOfDropStudent;
-            this.TeacherAssistant = previousCourseInfoDto.TeacherAssistant;
-            this.Language = previousCourseInfoDto.Language;
-            this.Syllabus = previousCourseInfoDto.Syllabus;
-            this.Note = previousCourseInfoDto.Note;
-            this.Audit = previousCourseInfoDto.Audit;
-            this.Experiment = previousCourseInfoDto.Experiment;
+            this.Id = System.Guid.NewGuid().ToString();
         }
 
         // override of Equal in CourseInfoDto
         public bool Equals(CourseInfoDto other)
         {                
-            return this.Number.Equals(other.Number);
+            return this.Id.Equals(other.Id);
         }
 
         // get classtime
@@ -77,6 +51,11 @@ namespace CourseSystem
             { 
                 ClassTimeSunday, ClassTimeMonday , ClassTimeTuesday, ClassTimeWednesday, ClassTimeThursday, ClassTimeFriday, ClassTimeSaturday
             };
+        }
+
+        public string Id
+        {
+            get;
         }
 
         public string Number
@@ -159,11 +138,6 @@ namespace CourseSystem
             get; set;
         }
 
-        public string Note
-        {
-            get; set;
-        }
-
         public string NumberOfDropStudent
         {
             get; set;
@@ -175,6 +149,11 @@ namespace CourseSystem
         }
 
         public string Language
+        {
+            get; set;
+        }
+        
+        public string Note
         {
             get; set;
         }

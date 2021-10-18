@@ -19,12 +19,12 @@ namespace CourseSystem
             this._firstTabDataGridView.CellContentDoubleClick += ClickDataGridViewCellContent;
             _dataGridViews.Add(_firstTabDataGridView);
             _dataGridViews.Add(_secondTabDataGridView);
-            SetUpTab();
+            SetUpDataGridView();
             ReloadNotSelectedCourse();
         }
 
         // prepare the initial course view
-        private void SetUpTab()
+        private void SetUpDataGridView()
         {
             _submitConfirmButton.Enabled = false;
             this._secondTabDataGridView.CellContentClick += ClickDataGridViewCellContent;
@@ -39,6 +39,14 @@ namespace CourseSystem
                 _firstTabDataGridView.Columns[entry.Key].HeaderText = entry.Value;
                 _secondTabDataGridView.Columns[entry.Key].HeaderText = entry.Value;
             }
+            _firstTabDataGridView.Columns[1].Visible = false;
+            _secondTabDataGridView.Columns[1].Visible = false;
+            SetUpTab();
+        }
+
+        // set tab control and tab text
+        private void SetUpTab()
+        {
             _tabPage1.Controls.Add(_firstTabDataGridView);
             _tabPage2.Controls.Add(_secondTabDataGridView);
             _tabPage1.Text = _viewModel.GetDepartmentName(0);

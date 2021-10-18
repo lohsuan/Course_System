@@ -23,9 +23,9 @@ namespace CourseSystem
         }
 
         // delete course from curriculum
-        internal void RemoveCourse(string courseNumber)
+        internal void RemoveCourse(string id)
         {
-            CourseInfoDto course = _selectedCourse.Find(x => x.Number.Equals(courseNumber));
+            CourseInfoDto course = _selectedCourse.Find(x => x.Id.Equals(id));
             _selectedCourse.Remove(course);
         }
     }

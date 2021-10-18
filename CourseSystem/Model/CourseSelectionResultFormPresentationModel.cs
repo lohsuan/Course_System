@@ -23,9 +23,9 @@ namespace CourseSystem
         }
 
         // unselect course
-        internal void CancelSelectCourse(string courseNumber)
+        internal void CancelSelectCourse(string id)
         {
-            _model.CancelSelectCourseFromCurriculum(courseNumber);
+            _model.CancelSelectCourseFromCurriculum(id);
         }
     }
 }

@@ -5,7 +5,7 @@ namespace CourseSystem
 {
     public partial class CourseSelectionResultForm : Form
     {
-        private const int COURSE_NUMBER = 1;
+        private const int ID = 1;
         private CourseSelectionResultFormPresentationModel _viewModel;
         private Model _model;
         public CourseSelectionResultForm(Model model)
@@ -17,7 +17,7 @@ namespace CourseSystem
             List<CourseInfoDto> courseInfoDtos = _viewModel.GetCurriculum();
             foreach (var course in courseInfoDtos)
             {
-                string[] courseRow = { course.Number, course.Name, course.Stage, course.Credit, course.Hour,
+                string[] courseRow = { course.Id, course.Number, course.Name, course.Stage, course.Credit, course.Hour,
             course.RequiredType, course.Teacher, course.ClassTimeSunday, course.ClassTimeMonday, course.ClassTimeTuesday,
             course.ClassTimeWednesday, course.ClassTimeThursday, course.ClassTimeFriday, course.ClassTimeSaturday, course.Classroom,
             course.NumberOfStudent, course.NumberOfDropStudent, course.TeacherAssistant, course.Language,
@@ -25,6 +25,7 @@ namespace CourseSystem
                 _courseSelectionResultDataGridView.Rows.Add(courseRow);
             }
             PrepareDeleteButtonColumn();
+            _courseSelectionResultDataGridView.Columns[1].Visible = false;
         }
 
         // prepare delete button cloumn
@@ -43,8 +44,8 @@ namespace CourseSystem
         {
             if (e.ColumnIndex == 0)
             {
-                string courseNumber = _courseSelectionResultDataGridView.Rows[e.RowIndex].Cells[COURSE_NUMBER].Value.ToString();
-                _viewModel.CancelSelectCourse(courseNumber);
+                string id = _courseSelectionResultDataGridView.Rows[e.RowIndex].Cells[ID].Value.ToString();
+                _viewModel.CancelSelectCourse(id);
                 _courseSelectionResultDataGridView.Rows.RemoveAt(e.RowIndex);
             }
         }

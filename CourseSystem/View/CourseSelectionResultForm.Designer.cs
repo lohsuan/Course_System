@@ -30,6 +30,7 @@ namespace CourseSystem
         private void InitializeComponent()
         {
             this._courseSelectionResultDataGridView = new System.Windows.Forms.DataGridView();
+            this._id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._stage = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +64,7 @@ namespace CourseSystem
             this._courseSelectionResultDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this._courseSelectionResultDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._courseSelectionResultDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._id,
             this._number,
             this._name,
             this._stage,
@@ -94,6 +96,13 @@ namespace CourseSystem
             this._courseSelectionResultDataGridView.Size = new System.Drawing.Size(1406, 567);
             this._courseSelectionResultDataGridView.TabIndex = 0;
             this._courseSelectionResultDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickDataGridViewCellContent);
+            // 
+            // _id
+            // 
+            this._id.HeaderText = "Id";
+            this._id.MinimumWidth = 6;
+            this._id.Name = "_id";
+            this._id.Width = 48;
             // 
             // _number
             // 
@@ -294,6 +303,7 @@ namespace CourseSystem
         #endregion
 
         private System.Windows.Forms.DataGridView _courseSelectionResultDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn _id;
         private System.Windows.Forms.DataGridViewTextBoxColumn _number;
         private System.Windows.Forms.DataGridViewTextBoxColumn _name;
         private System.Windows.Forms.DataGridViewTextBoxColumn _stage;

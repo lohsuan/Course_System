@@ -52,9 +52,9 @@ namespace CourseSystem
         }
 
         // unselect course from curriculum
-        internal void CancelSelectCourseFromCurriculum(string courseNumber)
+        internal void CancelSelectCourseFromCurriculum(string id)
         {
-            _curriculum.RemoveCourse(courseNumber);
+            _curriculum.RemoveCourse(id);
         }
 
         // get curriculum(selected course)
