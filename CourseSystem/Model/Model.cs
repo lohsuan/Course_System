@@ -6,9 +6,9 @@ namespace CourseSystem
     public class Model
     {
         private string[] _coursePathes = { CourseConstant.COMPUTER_SCIENCE_JUNIOR_CLASS_URL, CourseConstant.ELECTRIC_ENGINEERING_JUNIOR_CLASS_URL };
-        List<Department> _departments = new List<Department>();
-        Curriculum _curriculum = new Curriculum();
-        List<CourseInfoDto> _courses = new List<CourseInfoDto>();
+        List<Department> _departments = new List<Department>(); // read only, storing each department's course
+        Curriculum _curriculum = new Curriculum(); // storing selected course
+        List<CourseInfoDto> _courses = new List<CourseInfoDto>(); // storing all departments' courses
 
         // get parsed course information
         public List<CourseInfoDto> GetCourseInfo(int classIndex)
