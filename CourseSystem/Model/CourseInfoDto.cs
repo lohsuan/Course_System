@@ -6,12 +6,15 @@ namespace CourseSystem
 {
     public class CourseInfoDto
     {
+        private string _departmentName;
+
         public CourseInfoDto(string number, string name, string stage, string credit, string hour, 
             string requiredType, string teacher, string classTimeSunday, string classTimeMonday, string classTimeTuesday,
             string classTimeWednesday, string classTimeThursday, string classTimeFriday, string classTimeSaturday, string classroom, 
             string numberOfStudent, string numberOfDropStudent, string teacherAssistant, string language, 
-            string note, string syllabus, string audit, string experiment)
+            string note, string syllabus, string audit, string experiment, string departmentName)
         {
+            this.Id = Guid.NewGuid().ToString();
             this.Number = number;
             this.Name = name;
             this.Stage = stage;
@@ -35,7 +38,7 @@ namespace CourseSystem
             this.Note = note;
             this.Audit = audit;
             this.Experiment = experiment;
-            this.Id = System.Guid.NewGuid().ToString();
+            this._departmentName = departmentName;
         }
 
         // override of Equal in CourseInfoDto
@@ -51,6 +54,12 @@ namespace CourseSystem
             { 
                 ClassTimeSunday, ClassTimeMonday , ClassTimeTuesday, ClassTimeWednesday, ClassTimeThursday, ClassTimeFriday, ClassTimeSaturday
             };
+        }
+
+        // get departmentname
+        public string GetDepartmentName()
+        {
+            return _departmentName;
         }
 
         public string Id
@@ -172,5 +181,6 @@ namespace CourseSystem
         {
             get; set;
         }
+
     }
 }

@@ -62,7 +62,7 @@ namespace CourseSystem
                 nodeTableDatas[CourseConstant.NUMBER_OF_DROP_STUDENT].InnerText.Trim(), nodeTableDatas[CourseConstant.TEACHER_ASSISTANT].InnerText.Trim(),
                 nodeTableDatas[CourseConstant.LANGUAGE].InnerText.Trim(), nodeTableDatas[CourseConstant.SYLLABUS].InnerText.Trim(), 
                 nodeTableDatas[CourseConstant.NOTE].InnerText.Trim(), nodeTableDatas[CourseConstant.AUDIT].InnerText.Trim(), 
-                nodeTableDatas[CourseConstant.EXPERIMENT].InnerText.Trim());
+                nodeTableDatas[CourseConstant.EXPERIMENT].InnerText.Trim(), _departmentName);
         }
 
         // 移除不需要的網站資訊

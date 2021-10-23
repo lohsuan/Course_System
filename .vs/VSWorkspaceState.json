@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CourseSystem",
+    "\\CourseSystem\\Model",
+    "\\CourseSystem\\View"
   ],
-  "SelectedNode": "\\108820001.sln",
+  "SelectedNode": "\\CourseSystem\\View\\CourseManagementForm.Designer.cs",
   "PreviewInSolutionExplorer": false
 }

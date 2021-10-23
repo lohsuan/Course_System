@@ -52,6 +52,7 @@
     <Compile Include="Model\CourseConstant.cs" />
     <Compile Include="Model\CourseHeaderConstant.cs" />
     <Compile Include="Model\CourseInfoDto.cs" />
+    <Compile Include="Model\CourseManagementFormPresentationModel.cs" />
     <Compile Include="Model\CourseSelectingFormPresentationModel.cs" />
     <Compile Include="Model\CourseSelectionResultFormPresentationModel.cs" />
     <Compile Include="Model\Curriculum.cs" />

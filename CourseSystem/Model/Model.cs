@@ -62,5 +62,11 @@ namespace CourseSystem
         {
             return _curriculum.GetCurriculum();
         }
+
+        // get all course
+        internal List<CourseInfoDto> GetAllCourses()
+        {
+            return _courses;
+        }
     }
 }
