@@ -29,7 +29,7 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/17 08:56:25.991</sourceFile>
+      <sourceFile>2021/10/23 19:37:42.963</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -62,12 +62,89 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/18 20:07:00.574</sourceFile>
+      <sourceFile>2021/10/24 21:52:15.323</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
     <violations />
+  </sourcecode>
+  <sourcecode name="CourseManagementFormPresentationModel.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2021/10/01 21:20:53.539</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2021/10/24 21:59:12.898</sourceFile>
+      <parser>2021/10/01 21:20:53.539</parser>
+      <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="SpacingAndNewLine17" ruleCheckId="SN0017">
+        <context>ICS(空白與空行-17)</context>
+        <line>14</line>
+        <index>435</index>
+        <endIndex>436</endIndex>
+        <startLine>14</startLine>
+        <startColumn>1</startColumn>
+        <endLine>14</endLine>
+        <endColumn>2</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="DelegateAndEvent1" ruleCheckId="DE0001">
+        <context>ICS(Delegate與Event-1)</context>
+        <line>12</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
+        <context>Literal constants(字面常數)-"CourseEditModeText"</context>
+        <line>35</line>
+        <index>1118</index>
+        <endIndex>1137</endIndex>
+        <startLine>35</startLine>
+        <startColumn>20</startColumn>
+        <endLine>35</endLine>
+        <endColumn>39</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
+        <context>Literal constants(字面常數)-"SelectedCourseNumberText"</context>
+        <line>36</line>
+        <index>1161</index>
+        <endIndex>1186</endIndex>
+        <startLine>36</startLine>
+        <startColumn>20</startColumn>
+        <endLine>36</endLine>
+        <endColumn>45</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="Method1" ruleCheckId="MT0001">
+        <context>ICS(函式-1)</context>
+        <line>40</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
+        <context>Literal constants(字面常數)-"編輯課程"</context>
+        <line>51</line>
+        <index>1591</index>
+        <endIndex>1596</endIndex>
+        <startLine>51</startLine>
+        <startColumn>28</startColumn>
+        <endLine>51</endLine>
+        <endColumn>33</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
+        <context>Literal constants(字面常數)-"新增課程"</context>
+        <line>52</line>
+        <index>1623</index>
+        <endIndex>1628</endIndex>
+        <startLine>52</startLine>
+        <startColumn>24</startColumn>
+        <endLine>52</endLine>
+        <endColumn>29</endColumn>
+        <warning>False</warning>
+      </violation>
+    </violations>
   </sourcecode>
   <sourcecode name="CourseSelectingFormPresentationModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
@@ -117,7 +194,7 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/18 21:36:52.368</sourceFile>
+      <sourceFile>2021/10/24 21:29:10.643</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -172,23 +249,68 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/17 09:24:41.944</sourceFile>
+      <sourceFile>2021/10/24 21:58:01.467</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations />
+    <violations>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="SpacingAndNewLine17" ruleCheckId="SN0017">
+        <context>ICS(空白與空行-17)</context>
+        <line>40</line>
+        <index>1393</index>
+        <endIndex>1394</endIndex>
+        <startLine>40</startLine>
+        <startColumn>1</startColumn>
+        <endLine>40</endLine>
+        <endColumn>2</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
+        <context>Literal constants(字面常數)-"Text"</context>
+        <line>18</line>
+        <index>590</index>
+        <endIndex>595</endIndex>
+        <startLine>18</startLine>
+        <startColumn>50</startColumn>
+        <endLine>18</endLine>
+        <endColumn>55</endColumn>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="LiteralConstants" ruleCheckId="LC0001">
+        <context>Literal constants(字面常數)-"Text"</context>
+        <line>20</line>
+        <index>680</index>
+        <endIndex>685</endIndex>
+        <startLine>20</startLine>
+        <startColumn>45</startColumn>
+        <endLine>20</endLine>
+        <endColumn>50</endColumn>
+        <warning>False</warning>
+      </violation>
+    </violations>
   </sourcecode>
   <sourcecode name="CourseManagementForm.Designer.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/14 13:52:14.368</sourceFile>
+      <sourceFile>2021/10/24 21:43:09.193</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
     </timestamps>
-    <violations />
+    <violations>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="Variable1" ruleCheckId="VR0001">
+        <context>ICS(變數-1)</context>
+        <line>499</line>
+        <warning>False</warning>
+      </violation>
+      <violation namespace="KellyPalRules.KellyPalAnalyzer" rule="Variable1" ruleCheckId="VR0001">
+        <context>ICS(變數-1)</context>
+        <line>505</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
   </sourcecode>
   <sourcecode name="CourseSelectingForm.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
@@ -238,7 +360,7 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/17 20:33:52.655</sourceFile>
+      <sourceFile>2021/10/23 19:40:57.703</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>

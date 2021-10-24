@@ -41,6 +41,35 @@ namespace CourseSystem
             this._departmentName = departmentName;
         }
 
+        public CourseInfoDto()
+        {
+            //this.Id = "";
+            //this.Number = "";
+            //this.Name = "";
+            //this.Stage = "";
+            //this.Credit = "";
+            //this.Hour = "";
+            //this.RequiredType = "";
+            //this.Teacher = "";
+            //this.ClassTimeSunday = "";
+            //this.ClassTimeMonday = "";
+            //this.ClassTimeTuesday = "";
+            //this.ClassTimeWednesday = "";
+            //this.ClassTimeThursday = "";
+            //this.ClassTimeFriday = "";
+            //this.ClassTimeSaturday = "";
+            //this.Classroom = "";
+            //this.NumberOfStudent = "";
+            //this.NumberOfDropStudent = "";
+            //this.TeacherAssistant = "";
+            //this.Language = "";
+            //this.Syllabus = "";
+            //this.Note = "";
+            //this.Audit = "";
+            //this.Experiment = "";
+            //this._departmentName = "";
+        }
+
         // override of Equal in CourseInfoDto
         public bool Equals(CourseInfoDto other)
         {                

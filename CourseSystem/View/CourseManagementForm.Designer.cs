@@ -449,7 +449,7 @@ namespace CourseSystem
             this._courseListBox.Name = "_courseListBox";
             this._courseListBox.Size = new System.Drawing.Size(265, 559);
             this._courseListBox.TabIndex = 0;
-            this._courseListBox.Click += new System.EventHandler(this.ClickCourseListBox);
+            this._courseListBox.SelectedIndexChanged += new System.EventHandler(this.ChangeCourseListBoxIndex);
             // 
             // _classManageTabPage
             // 

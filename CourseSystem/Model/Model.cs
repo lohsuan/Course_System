@@ -20,6 +20,12 @@ namespace CourseSystem
             return courseInfoDtos;
         }
 
+        // GetCourseByIndex
+        internal CourseInfoDto GetCourseByIndex(int selectedIndex)
+        {
+            return _courses[selectedIndex];
+        }
+
         // get department by index
         internal List<CourseInfoDto> GetDepartment(int tabIndex)
         {
@@ -68,5 +74,6 @@ namespace CourseSystem
         {
             return _courses;
         }
+
     }
 }
