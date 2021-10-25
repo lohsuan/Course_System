@@ -58,7 +58,10 @@ namespace CourseSystem
             this._hourComboBox = new System.Windows.Forms.ComboBox();
             this._requireTypeComboBox = new System.Windows.Forms.ComboBox();
             this._courseStatusComboBox = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this._classTimedataGridView = new System.Windows.Forms.DataGridView();
+            this._courseListBox = new System.Windows.Forms.ListBox();
+            this._classManageTabPage = new System.Windows.Forms.TabPage();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._hourOfClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._sunday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._monday = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,13 +70,10 @@ namespace CourseSystem
             this._thursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._friday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._saturday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._courseListBox = new System.Windows.Forms.ListBox();
-            this._classManageTabPage = new System.Windows.Forms.TabPage();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this._tabControl.SuspendLayout();
             this._courseManageTabPage.SuspendLayout();
             this._editCourseGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._classTimedataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // _tabControl
@@ -143,7 +143,7 @@ namespace CourseSystem
             this._editCourseGroupBox.Controls.Add(this._hourComboBox);
             this._editCourseGroupBox.Controls.Add(this._requireTypeComboBox);
             this._editCourseGroupBox.Controls.Add(this._courseStatusComboBox);
-            this._editCourseGroupBox.Controls.Add(this.dataGridView1);
+            this._editCourseGroupBox.Controls.Add(this._classTimedataGridView);
             this._editCourseGroupBox.Location = new System.Drawing.Point(286, 15);
             this._editCourseGroupBox.Name = "_editCourseGroupBox";
             this._editCourseGroupBox.Size = new System.Drawing.Size(920, 559);
@@ -310,6 +310,9 @@ namespace CourseSystem
             // 
             this._classComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._classComboBox.FormattingEnabled = true;
+            this._classComboBox.Items.AddRange(new object[] {
+            "資工三",
+            "電子三甲"});
             this._classComboBox.Location = new System.Drawing.Point(325, 208);
             this._classComboBox.Name = "_classComboBox";
             this._classComboBox.Size = new System.Drawing.Size(121, 23);
@@ -356,11 +359,11 @@ namespace CourseSystem
             this._courseStatusComboBox.Size = new System.Drawing.Size(121, 23);
             this._courseStatusComboBox.TabIndex = 1;
             // 
-            // dataGridView1
+            // _classTimedataGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._classTimedataGridView.AllowUserToAddRows = false;
+            this._classTimedataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._classTimedataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._hourOfClass,
             this._sunday,
             this._monday,
@@ -369,77 +372,13 @@ namespace CourseSystem
             this._thursday,
             this._friday,
             this._saturday});
-            this.dataGridView1.Location = new System.Drawing.Point(16, 251);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(880, 300);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // _hourOfClass
-            // 
-            this._hourOfClass.HeaderText = "節數";
-            this._hourOfClass.MinimumWidth = 6;
-            this._hourOfClass.Name = "_hourOfClass";
-            this._hourOfClass.ReadOnly = true;
-            this._hourOfClass.Width = 70;
-            // 
-            // _sunday
-            // 
-            this._sunday.HeaderText = "日";
-            this._sunday.MinimumWidth = 6;
-            this._sunday.Name = "_sunday";
-            this._sunday.ReadOnly = true;
-            this._sunday.Width = 80;
-            // 
-            // _monday
-            // 
-            this._monday.HeaderText = "一";
-            this._monday.MinimumWidth = 6;
-            this._monday.Name = "_monday";
-            this._monday.ReadOnly = true;
-            this._monday.Width = 80;
-            // 
-            // _tuesday
-            // 
-            this._tuesday.HeaderText = "二";
-            this._tuesday.MinimumWidth = 6;
-            this._tuesday.Name = "_tuesday";
-            this._tuesday.ReadOnly = true;
-            this._tuesday.Width = 80;
-            // 
-            // _wednesday
-            // 
-            this._wednesday.HeaderText = "三";
-            this._wednesday.MinimumWidth = 6;
-            this._wednesday.Name = "_wednesday";
-            this._wednesday.ReadOnly = true;
-            this._wednesday.Width = 80;
-            // 
-            // _thursday
-            // 
-            this._thursday.HeaderText = "四";
-            this._thursday.MinimumWidth = 6;
-            this._thursday.Name = "_thursday";
-            this._thursday.ReadOnly = true;
-            this._thursday.Width = 80;
-            // 
-            // _friday
-            // 
-            this._friday.HeaderText = "五";
-            this._friday.MinimumWidth = 6;
-            this._friday.Name = "_friday";
-            this._friday.ReadOnly = true;
-            this._friday.Width = 80;
-            // 
-            // _saturday
-            // 
-            this._saturday.HeaderText = "六";
-            this._saturday.MinimumWidth = 6;
-            this._saturday.Name = "_saturday";
-            this._saturday.ReadOnly = true;
-            this._saturday.Width = 80;
+            this._classTimedataGridView.Location = new System.Drawing.Point(16, 251);
+            this._classTimedataGridView.Name = "_classTimedataGridView";
+            this._classTimedataGridView.RowHeadersVisible = false;
+            this._classTimedataGridView.RowHeadersWidth = 51;
+            this._classTimedataGridView.RowTemplate.Height = 27;
+            this._classTimedataGridView.Size = new System.Drawing.Size(880, 300);
+            this._classTimedataGridView.TabIndex = 0;
             // 
             // _courseListBox
             // 
@@ -449,7 +388,7 @@ namespace CourseSystem
             this._courseListBox.Name = "_courseListBox";
             this._courseListBox.Size = new System.Drawing.Size(265, 559);
             this._courseListBox.TabIndex = 0;
-            this._courseListBox.Click += new System.EventHandler(this.ClickCourseListBox);
+            this._courseListBox.SelectedIndexChanged += new System.EventHandler(this.ChangeCourseListBoxIndex);
             // 
             // _classManageTabPage
             // 
@@ -467,6 +406,63 @@ namespace CourseSystem
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // _hourOfClass
+            // 
+            this._hourOfClass.HeaderText = "節數";
+            this._hourOfClass.MinimumWidth = 6;
+            this._hourOfClass.Name = "_hourOfClass";
+            this._hourOfClass.ReadOnly = true;
+            this._hourOfClass.Width = 70;
+            // 
+            // _sunday
+            // 
+            this._sunday.HeaderText = "日";
+            this._sunday.MinimumWidth = 6;
+            this._sunday.Name = "_sunday";
+            this._sunday.Width = 80;
+            // 
+            // _monday
+            // 
+            this._monday.HeaderText = "一";
+            this._monday.MinimumWidth = 6;
+            this._monday.Name = "_monday";
+            this._monday.Width = 80;
+            // 
+            // _tuesday
+            // 
+            this._tuesday.HeaderText = "二";
+            this._tuesday.MinimumWidth = 6;
+            this._tuesday.Name = "_tuesday";
+            this._tuesday.Width = 80;
+            // 
+            // _wednesday
+            // 
+            this._wednesday.HeaderText = "三";
+            this._wednesday.MinimumWidth = 6;
+            this._wednesday.Name = "_wednesday";
+            this._wednesday.Width = 80;
+            // 
+            // _thursday
+            // 
+            this._thursday.HeaderText = "四";
+            this._thursday.MinimumWidth = 6;
+            this._thursday.Name = "_thursday";
+            this._thursday.Width = 80;
+            // 
+            // _friday
+            // 
+            this._friday.HeaderText = "五";
+            this._friday.MinimumWidth = 6;
+            this._friday.Name = "_friday";
+            this._friday.Width = 80;
+            // 
+            // _saturday
+            // 
+            this._saturday.HeaderText = "六";
+            this._saturday.MinimumWidth = 6;
+            this._saturday.Name = "_saturday";
+            this._saturday.Width = 80;
+            // 
             // CourseManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -480,7 +476,7 @@ namespace CourseSystem
             this._courseManageTabPage.ResumeLayout(false);
             this._editCourseGroupBox.ResumeLayout(false);
             this._editCourseGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._classTimedataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -496,7 +492,7 @@ namespace CourseSystem
         private System.Windows.Forms.Button _addCourseButton;
         private System.Windows.Forms.ComboBox _requireTypeComboBox;
         private System.Windows.Forms.ComboBox _courseStatusComboBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView _classTimedataGridView;
         private System.Windows.Forms.ComboBox _classComboBox;
         private System.Windows.Forms.ComboBox _hourComboBox;
         private System.Windows.Forms.Label _number;

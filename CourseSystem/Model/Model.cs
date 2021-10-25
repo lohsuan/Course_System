@@ -10,14 +10,28 @@ namespace CourseSystem
         Curriculum _curriculum = new Curriculum(); // storing selected course
         List<CourseInfoDto> _courses = new List<CourseInfoDto>(); // storing all departments' courses
 
+        // initial parsed course information
+        public void ParseCourseInfo()
+        {
+            Course course = new Course();
+            for (int i = 0; i < _coursePathes.Length; i++)
+            {
+                List<CourseInfoDto> courseInfoDtos = course.CourseInfoCrawler(_coursePathes[i]);
+                _departments.Add(new Department(course.GetDepartmentName(), courseInfoDtos));
+                _courses.AddRange(courseInfoDtos);
+            }
+        }
+
         // get parsed course information
         public List<CourseInfoDto> GetCourseInfo(int classIndex)
         {
-            Course course = new Course();
-            List<CourseInfoDto> courseInfoDtos = course.CourseInfoCrawler(_coursePathes[classIndex]);
-            _departments.Add(new Department(course.GetDepartmentName(), courseInfoDtos));
-            _courses.AddRange(courseInfoDtos);
-            return courseInfoDtos;
+            return _departments[classIndex].GetCourseInfoDtos();
+        }
+
+        // GetCourseByIndex
+        internal CourseInfoDto GetCourseByIndex(int selectedIndex)
+        {
+            return _courses[selectedIndex];
         }
 
         // get department by index
@@ -68,5 +82,6 @@ namespace CourseSystem
         {
             return _courses;
         }
+
     }
 }

@@ -9,8 +9,8 @@ namespace CourseSystem
         public StartUpForm()
         {
             _model = new Model();
-            CourseSelectingForm courseSelectingForm = new CourseSelectingForm(_model);
             InitializeComponent();
+            _model.ParseCourseInfo();
         }
 
         // on _courseSelectingSystemButton click
