@@ -11,7 +11,7 @@ namespace CourseSystem
         List<CourseInfoDto> _courses = new List<CourseInfoDto>(); // storing all departments' courses
 
         // initial parsed course information
-        public void ParseCourseInfo()
+        public void CrawlCourseInfoFromWeb()
         {
             Course course = new Course();
             for (int i = 0; i < _coursePathes.Length; i++)

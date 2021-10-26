@@ -41,33 +41,36 @@ namespace CourseSystem
             this._departmentName = departmentName;
         }
 
-        public CourseInfoDto()
+        public CourseInfoDto() 
         {
-            //this.Id = "";
-            //this.Number = "";
-            //this.Name = "";
-            //this.Stage = "";
-            //this.Credit = "";
-            //this.Hour = "";
-            //this.RequiredType = "";
-            //this.Teacher = "";
-            //this.ClassTimeSunday = "";
-            //this.ClassTimeMonday = "";
-            //this.ClassTimeTuesday = "";
-            //this.ClassTimeWednesday = "";
-            //this.ClassTimeThursday = "";
-            //this.ClassTimeFriday = "";
-            //this.ClassTimeSaturday = "";
-            //this.Classroom = "";
-            //this.NumberOfStudent = "";
-            //this.NumberOfDropStudent = "";
-            //this.TeacherAssistant = "";
-            //this.Language = "";
-            //this.Syllabus = "";
-            //this.Note = "";
-            //this.Audit = "";
-            //this.Experiment = "";
-            //this._departmentName = "";
+        }
+
+        public CourseInfoDto(CourseInfoDto other)
+        {
+            this.Number = other.Number;
+            this.Name = other.Name;
+            this.Stage = other.Stage;
+            this.Credit = other.Credit;
+            this.Hour = other.Hour;
+            this.RequiredType = other.RequiredType;
+            this.Teacher = other.Teacher;
+            this.ClassTimeSunday = other.ClassTimeSunday;
+            this.ClassTimeMonday = other.ClassTimeMonday;
+            this.ClassTimeTuesday = other.ClassTimeTuesday;
+            this.ClassTimeWednesday = other.ClassTimeWednesday;
+            this.ClassTimeThursday = other.ClassTimeThursday;
+            this.ClassTimeFriday = other.ClassTimeFriday;
+            this.ClassTimeSaturday = other.ClassTimeSaturday;
+            this.Classroom = other.Classroom;
+            this.NumberOfStudent = other.NumberOfStudent;
+            this.NumberOfDropStudent = other.NumberOfDropStudent;
+            this.TeacherAssistant = other.TeacherAssistant;
+            this.Language = other.Language;
+            this.Syllabus = other.Syllabus;
+            this.Note = other.Note;
+            this.Audit = other.Audit;
+            this.Experiment = other.Experiment;
+            this._departmentName = other._departmentName;
         }
 
         // override of Equal in CourseInfoDto
@@ -89,6 +92,12 @@ namespace CourseSystem
         public string GetDepartmentName()
         {
             return _departmentName;
+        }
+
+        // set department name
+        internal void SetDepartmentName(string departmentName)
+        {
+            _departmentName = departmentName;
         }
 
         public string Id

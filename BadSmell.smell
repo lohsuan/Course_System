@@ -211,6 +211,11 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Model\CourseManagementFormPresentationModel.cs</RelativePath>
+                <ProjectName>CourseSystem</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Model\CourseSelectingFormPresentationModel.cs</RelativePath>
                 <ProjectName>CourseSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -297,7 +302,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>1688</ProductionLoc>
+          <ProductionLoc>2382</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

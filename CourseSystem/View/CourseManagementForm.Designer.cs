@@ -29,7 +29,6 @@ namespace CourseSystem
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this._tabControl = new System.Windows.Forms.TabControl();
             this._courseManageTabPage = new System.Windows.Forms.TabPage();
             this._saveButton = new System.Windows.Forms.Button();
@@ -58,10 +57,7 @@ namespace CourseSystem
             this._hourComboBox = new System.Windows.Forms.ComboBox();
             this._requireTypeComboBox = new System.Windows.Forms.ComboBox();
             this._courseStatusComboBox = new System.Windows.Forms.ComboBox();
-            this._classTimedataGridView = new System.Windows.Forms.DataGridView();
-            this._courseListBox = new System.Windows.Forms.ListBox();
-            this._classManageTabPage = new System.Windows.Forms.TabPage();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this._classTimeDataGridView = new System.Windows.Forms.DataGridView();
             this._hourOfClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._sunday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._monday = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,10 +66,12 @@ namespace CourseSystem
             this._thursday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._friday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._saturday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._courseListBox = new System.Windows.Forms.ListBox();
+            this._classManageTabPage = new System.Windows.Forms.TabPage();
             this._tabControl.SuspendLayout();
             this._courseManageTabPage.SuspendLayout();
             this._editCourseGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._classTimedataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this._classTimeDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // _tabControl
@@ -143,7 +141,7 @@ namespace CourseSystem
             this._editCourseGroupBox.Controls.Add(this._hourComboBox);
             this._editCourseGroupBox.Controls.Add(this._requireTypeComboBox);
             this._editCourseGroupBox.Controls.Add(this._courseStatusComboBox);
-            this._editCourseGroupBox.Controls.Add(this._classTimedataGridView);
+            this._editCourseGroupBox.Controls.Add(this._classTimeDataGridView);
             this._editCourseGroupBox.Location = new System.Drawing.Point(286, 15);
             this._editCourseGroupBox.Name = "_editCourseGroupBox";
             this._editCourseGroupBox.Size = new System.Drawing.Size(920, 559);
@@ -296,6 +294,8 @@ namespace CourseSystem
             this._numberTextBox.Name = "_numberTextBox";
             this._numberTextBox.Size = new System.Drawing.Size(118, 25);
             this._numberTextBox.TabIndex = 6;
+            this._numberTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
+            this._numberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckNumberInput);
             // 
             // _number
             // 
@@ -330,6 +330,7 @@ namespace CourseSystem
             this._hourComboBox.Name = "_hourComboBox";
             this._hourComboBox.Size = new System.Drawing.Size(121, 23);
             this._hourComboBox.TabIndex = 3;
+            this._hourComboBox.SelectedIndexChanged += new System.EventHandler(this.ChangedComboBoxSelectedIndex);
             // 
             // _requireTypeComboBox
             // 
@@ -359,11 +360,11 @@ namespace CourseSystem
             this._courseStatusComboBox.Size = new System.Drawing.Size(121, 23);
             this._courseStatusComboBox.TabIndex = 1;
             // 
-            // _classTimedataGridView
+            // _classTimeDataGridView
             // 
-            this._classTimedataGridView.AllowUserToAddRows = false;
-            this._classTimedataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._classTimedataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this._classTimeDataGridView.AllowUserToAddRows = false;
+            this._classTimeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._classTimeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._hourOfClass,
             this._sunday,
             this._monday,
@@ -372,39 +373,13 @@ namespace CourseSystem
             this._thursday,
             this._friday,
             this._saturday});
-            this._classTimedataGridView.Location = new System.Drawing.Point(16, 251);
-            this._classTimedataGridView.Name = "_classTimedataGridView";
-            this._classTimedataGridView.RowHeadersVisible = false;
-            this._classTimedataGridView.RowHeadersWidth = 51;
-            this._classTimedataGridView.RowTemplate.Height = 27;
-            this._classTimedataGridView.Size = new System.Drawing.Size(880, 300);
-            this._classTimedataGridView.TabIndex = 0;
-            // 
-            // _courseListBox
-            // 
-            this._courseListBox.FormattingEnabled = true;
-            this._courseListBox.ItemHeight = 15;
-            this._courseListBox.Location = new System.Drawing.Point(11, 15);
-            this._courseListBox.Name = "_courseListBox";
-            this._courseListBox.Size = new System.Drawing.Size(265, 559);
-            this._courseListBox.TabIndex = 0;
-            this._courseListBox.SelectedIndexChanged += new System.EventHandler(this.ChangeCourseListBoxIndex);
-            // 
-            // _classManageTabPage
-            // 
-            this._classManageTabPage.Location = new System.Drawing.Point(4, 25);
-            this._classManageTabPage.Name = "_classManageTabPage";
-            this._classManageTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this._classManageTabPage.Size = new System.Drawing.Size(1269, 644);
-            this._classManageTabPage.TabIndex = 1;
-            this._classManageTabPage.Text = "班級管理";
-            this._classManageTabPage.UseVisualStyleBackColor = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this._classTimeDataGridView.Location = new System.Drawing.Point(16, 251);
+            this._classTimeDataGridView.Name = "_classTimeDataGridView";
+            this._classTimeDataGridView.RowHeadersVisible = false;
+            this._classTimeDataGridView.RowHeadersWidth = 51;
+            this._classTimeDataGridView.RowTemplate.Height = 27;
+            this._classTimeDataGridView.Size = new System.Drawing.Size(880, 300);
+            this._classTimeDataGridView.TabIndex = 0;
             // 
             // _hourOfClass
             // 
@@ -463,6 +438,26 @@ namespace CourseSystem
             this._saturday.Name = "_saturday";
             this._saturday.Width = 80;
             // 
+            // _courseListBox
+            // 
+            this._courseListBox.FormattingEnabled = true;
+            this._courseListBox.ItemHeight = 15;
+            this._courseListBox.Location = new System.Drawing.Point(11, 15);
+            this._courseListBox.Name = "_courseListBox";
+            this._courseListBox.Size = new System.Drawing.Size(265, 559);
+            this._courseListBox.TabIndex = 0;
+            this._courseListBox.SelectedIndexChanged += new System.EventHandler(this.ChangeCourseListBoxIndex);
+            // 
+            // _classManageTabPage
+            // 
+            this._classManageTabPage.Location = new System.Drawing.Point(4, 25);
+            this._classManageTabPage.Name = "_classManageTabPage";
+            this._classManageTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this._classManageTabPage.Size = new System.Drawing.Size(1269, 644);
+            this._classManageTabPage.TabIndex = 1;
+            this._classManageTabPage.Text = "班級管理";
+            this._classManageTabPage.UseVisualStyleBackColor = true;
+            // 
             // CourseManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -476,7 +471,7 @@ namespace CourseSystem
             this._courseManageTabPage.ResumeLayout(false);
             this._editCourseGroupBox.ResumeLayout(false);
             this._editCourseGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._classTimedataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._classTimeDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -492,13 +487,12 @@ namespace CourseSystem
         private System.Windows.Forms.Button _addCourseButton;
         private System.Windows.Forms.ComboBox _requireTypeComboBox;
         private System.Windows.Forms.ComboBox _courseStatusComboBox;
-        private System.Windows.Forms.DataGridView _classTimedataGridView;
+        private System.Windows.Forms.DataGridView _classTimeDataGridView;
         private System.Windows.Forms.ComboBox _classComboBox;
         private System.Windows.Forms.ComboBox _hourComboBox;
         private System.Windows.Forms.Label _number;
         private System.Windows.Forms.Label _name;
         private System.Windows.Forms.TextBox _numberTextBox;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Label _class;
         private System.Windows.Forms.Label _hour;
         private System.Windows.Forms.TextBox _syllabusTextBox;
