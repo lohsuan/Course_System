@@ -106,7 +106,7 @@ namespace CourseSystem
             this._saveButton.TabIndex = 3;
             this._saveButton.Text = "儲存";
             this._saveButton.UseVisualStyleBackColor = true;
-            this._saveButton.Click += new System.EventHandler(this._saveButton_Click);
+            this._saveButton.Click += new System.EventHandler(this.ClickSaveButton);
             // 
             // _addCourseButton
             // 
@@ -365,6 +365,7 @@ namespace CourseSystem
             // _classTimeDataGridView
             // 
             this._classTimeDataGridView.AllowUserToAddRows = false;
+            this._classTimeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this._classTimeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this._classTimeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._hourOfClass,
@@ -390,56 +391,48 @@ namespace CourseSystem
             this._hourOfClass.MinimumWidth = 6;
             this._hourOfClass.Name = "_hourOfClass";
             this._hourOfClass.ReadOnly = true;
-            this._hourOfClass.Width = 70;
             // 
             // _sunday
             // 
             this._sunday.HeaderText = "日";
             this._sunday.MinimumWidth = 6;
             this._sunday.Name = "_sunday";
-            this._sunday.Width = 80;
             // 
             // _monday
             // 
             this._monday.HeaderText = "一";
             this._monday.MinimumWidth = 6;
             this._monday.Name = "_monday";
-            this._monday.Width = 80;
             // 
             // _tuesday
             // 
             this._tuesday.HeaderText = "二";
             this._tuesday.MinimumWidth = 6;
             this._tuesday.Name = "_tuesday";
-            this._tuesday.Width = 80;
             // 
             // _wednesday
             // 
             this._wednesday.HeaderText = "三";
             this._wednesday.MinimumWidth = 6;
             this._wednesday.Name = "_wednesday";
-            this._wednesday.Width = 80;
             // 
             // _thursday
             // 
             this._thursday.HeaderText = "四";
             this._thursday.MinimumWidth = 6;
             this._thursday.Name = "_thursday";
-            this._thursday.Width = 80;
             // 
             // _friday
             // 
             this._friday.HeaderText = "五";
             this._friday.MinimumWidth = 6;
             this._friday.Name = "_friday";
-            this._friday.Width = 80;
             // 
             // _saturday
             // 
             this._saturday.HeaderText = "六";
             this._saturday.MinimumWidth = 6;
             this._saturday.Name = "_saturday";
-            this._saturday.Width = 80;
             // 
             // _courseListBox
             // 

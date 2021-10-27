@@ -7,11 +7,17 @@ namespace CourseSystem
 
     class CourseManagementFormPresentationModel
     {
+        enum Mode
+        {
+            Add,
+            Edit
+        }
         private const char SPACE_KEY = ' ';
         private const char DOT = '.';
         private Model _model;
         private CourseInfoDto _currentCourse = new CourseInfoDto();
         private CourseInfoDto _editedCourse = new CourseInfoDto();
+        private Mode _mode = Mode.Edit;
 
         public CourseManagementFormPresentationModel(Model model)
         {
@@ -30,6 +36,7 @@ namespace CourseSystem
         // GetSelectedCourseInfo to groupbox
         internal void UpdateSelectedCourse(int selectedIndex)
         {
+            _mode = Mode.Edit;
             _currentCourse = _model.GetCourseByIndex(selectedIndex);
             _editedCourse = new CourseInfoDto(_currentCourse);
         }
@@ -232,7 +239,23 @@ namespace CourseSystem
         // save course
         internal void UpdateOrAddCourse()
         {
-            _currentCourse.UpdateCourse(_editedCourse);
+            if (_mode.Equals(Mode.Edit))
+            {
+                _currentCourse.UpdateCourse(_editedCourse);
+                _model.NotifyCourseUpdated();
+            }
+            else
+            {
+                _model.AddCourse(_editedCourse);
+                _model.NotifyCourseCreated();
+            }
+        }
+
+        // add course mode
+        internal void AddCourseMode()
+        {
+            _mode = Mode.Add;
+            _editedCourse = new CourseInfoDto();
         }
     }
 }

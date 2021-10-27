@@ -189,15 +189,15 @@
             <Smell>
               <Id>1</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>45 目前物件 CourseSystem.CourseManagementFormPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSystem.CourseInfoDto，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：CourseSystem.CourseInfoDto.Number 以及 CourseSystem.CourseInfoDto.Name 以及 CourseSystem.CourseInfoDto.Stage 以及 CourseSystem.CourseInfoDto.Credit 以及 CourseSystem.CourseInfoDto.Teacher</HashCode>
+              <HashCode>52 目前物件 CourseSystem.CourseManagementFormPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSystem.CourseInfoDto，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：CourseSystem.CourseInfoDto.Number 以及 CourseSystem.CourseInfoDto.Name 以及 CourseSystem.CourseInfoDto.Stage 以及 CourseSystem.CourseInfoDto.Credit 以及 CourseSystem.CourseInfoDto.Teacher</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>CourseSystem</Project>
               <File>D:\college\3junior\windows programming\108820001\CourseSystem\Model\CourseManagementFormPresentationModel.cs</File>
-              <Line>45</Line>
-              <StartLine>45</StartLine>
+              <Line>52</Line>
+              <StartLine>52</StartLine>
               <StartCol>16</StartCol>
-              <EndLine>45</EndLine>
+              <EndLine>52</EndLine>
               <EndCol>170</EndCol>
               <Comment>目前物件 CourseSystem.CourseManagementFormPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSystem.CourseInfoDto，使用物件方法或屬性次數：5次，使用到的方法或屬性為以下：CourseSystem.CourseInfoDto.Number 以及 CourseSystem.CourseInfoDto.Name 以及 CourseSystem.CourseInfoDto.Stage 以及 CourseSystem.CourseInfoDto.Credit 以及 CourseSystem.CourseInfoDto.Teacher</Comment>
               <Auto>false</Auto>
@@ -205,15 +205,15 @@
             <Smell>
               <Id>2</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>48 目前物件 CourseSystem.CourseManagementFormPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSystem.CourseInfoDto，使用物件方法或屬性次數：16次，使用到的方法或屬性為以下：CourseSystem.CourseInfoDto.Number 以及 CourseSystem.CourseInfoDto.Number 以及 CourseSystem.CourseInfoDto.Name 以及 CourseSystem.CourseInfoDto.Name 以及 CourseSystem.CourseInfoDto.Stage 以及 CourseSystem.CourseInfoDto.Stage 以及 CourseSystem.CourseInfoDto.Credit 以及 CourseSystem.CourseInfoDto.Credit 以及 CourseSystem.CourseInfoDto.Teacher 以及 CourseSystem.CourseInfoDto.Teacher 以及 CourseSystem.CourseInfoDto.TeacherAssistant 以及 CourseSystem.CourseInfoDto.TeacherAssistant 以及 CourseSystem.CourseInfoDto.Language 以及 CourseSystem.CourseInfoDto.Language 以及 CourseSystem.CourseInfoDto.Syllabus 以及 CourseSystem.CourseInfoDto.Syllabus</HashCode>
+              <HashCode>55 目前物件 CourseSystem.CourseManagementFormPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSystem.CourseInfoDto，使用物件方法或屬性次數：16次，使用到的方法或屬性為以下：CourseSystem.CourseInfoDto.Number 以及 CourseSystem.CourseInfoDto.Number 以及 CourseSystem.CourseInfoDto.Name 以及 CourseSystem.CourseInfoDto.Name 以及 CourseSystem.CourseInfoDto.Stage 以及 CourseSystem.CourseInfoDto.Stage 以及 CourseSystem.CourseInfoDto.Credit 以及 CourseSystem.CourseInfoDto.Credit 以及 CourseSystem.CourseInfoDto.Teacher 以及 CourseSystem.CourseInfoDto.Teacher 以及 CourseSystem.CourseInfoDto.TeacherAssistant 以及 CourseSystem.CourseInfoDto.TeacherAssistant 以及 CourseSystem.CourseInfoDto.Language 以及 CourseSystem.CourseInfoDto.Language 以及 CourseSystem.CourseInfoDto.Syllabus 以及 CourseSystem.CourseInfoDto.Syllabus</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>CourseSystem</Project>
               <File>D:\college\3junior\windows programming\108820001\CourseSystem\Model\CourseManagementFormPresentationModel.cs</File>
-              <Line>48</Line>
-              <StartLine>47</StartLine>
+              <Line>55</Line>
+              <StartLine>54</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>48</EndLine>
+              <EndLine>55</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 CourseSystem.CourseManagementFormPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSystem.CourseInfoDto，使用物件方法或屬性次數：16次，使用到的方法或屬性為以下：CourseSystem.CourseInfoDto.Number 以及 CourseSystem.CourseInfoDto.Number 以及 CourseSystem.CourseInfoDto.Name 以及 CourseSystem.CourseInfoDto.Name 以及 CourseSystem.CourseInfoDto.Stage 以及 CourseSystem.CourseInfoDto.Stage 以及 CourseSystem.CourseInfoDto.Credit 以及 CourseSystem.CourseInfoDto.Credit 以及 CourseSystem.CourseInfoDto.Teacher 以及 CourseSystem.CourseInfoDto.Teacher 以及 CourseSystem.CourseInfoDto.TeacherAssistant 以及 CourseSystem.CourseInfoDto.TeacherAssistant 以及 CourseSystem.CourseInfoDto.Language 以及 CourseSystem.CourseInfoDto.Language 以及 CourseSystem.CourseInfoDto.Syllabus 以及 CourseSystem.CourseInfoDto.Syllabus</Comment>
               <Auto>false</Auto>
@@ -221,15 +221,15 @@
             <Smell>
               <Id>3</Id>
               <SmellType>Feature Envy(依戀情節)</SmellType>
-              <HashCode>54 目前物件 CourseSystem.CourseManagementFormPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSystem.CourseInfoDto，使用物件方法或屬性次數：6次，使用到的方法或屬性為以下：CourseSystem.CourseInfoDto.RequiredType 以及 CourseSystem.CourseInfoDto.RequiredType 以及 CourseSystem.CourseInfoDto.Hour 以及 CourseSystem.CourseInfoDto.Hour 以及 CourseSystem.CourseInfoDto.GetDepartmentName() 以及 CourseSystem.CourseInfoDto.GetDepartmentName()</HashCode>
+              <HashCode>61 目前物件 CourseSystem.CourseManagementFormPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSystem.CourseInfoDto，使用物件方法或屬性次數：6次，使用到的方法或屬性為以下：CourseSystem.CourseInfoDto.RequiredType 以及 CourseSystem.CourseInfoDto.RequiredType 以及 CourseSystem.CourseInfoDto.Hour 以及 CourseSystem.CourseInfoDto.Hour 以及 CourseSystem.CourseInfoDto.GetDepartmentName() 以及 CourseSystem.CourseInfoDto.GetDepartmentName()</HashCode>
               <Severity>Red</Severity>
               <Weight>1</Weight>
               <Project>CourseSystem</Project>
               <File>D:\college\3junior\windows programming\108820001\CourseSystem\Model\CourseManagementFormPresentationModel.cs</File>
-              <Line>54</Line>
-              <StartLine>53</StartLine>
+              <Line>61</Line>
+              <StartLine>60</StartLine>
               <StartCol>0</StartCol>
-              <EndLine>54</EndLine>
+              <EndLine>61</EndLine>
               <EndCol>0</EndCol>
               <Comment>目前物件 CourseSystem.CourseManagementFormPresentationModel，使用物件的方法或屬性次數：0次，Envy到對象物件 CourseSystem.CourseInfoDto，使用物件方法或屬性次數：6次，使用到的方法或屬性為以下：CourseSystem.CourseInfoDto.RequiredType 以及 CourseSystem.CourseInfoDto.RequiredType 以及 CourseSystem.CourseInfoDto.Hour 以及 CourseSystem.CourseInfoDto.Hour 以及 CourseSystem.CourseInfoDto.GetDepartmentName() 以及 CourseSystem.CourseInfoDto.GetDepartmentName()</Comment>
               <Auto>false</Auto>
@@ -351,7 +351,7 @@
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>2652</ProductionLoc>
+          <ProductionLoc>2774</ProductionLoc>
           <TestLoc>0</TestLoc>
         </CodeReview>
       </Data>

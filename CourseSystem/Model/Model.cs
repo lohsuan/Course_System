@@ -5,18 +5,38 @@ namespace CourseSystem
 {
     public class Model
     {
-        private string[] _coursePathes = { CourseConstant.COMPUTER_SCIENCE_JUNIOR_CLASS_URL, CourseConstant.ELECTRIC_ENGINEERING_JUNIOR_CLASS_URL };
+        public event OnCourseDataCreateEventHandler _courseDataCreateEvent;
+        public delegate void OnCourseDataCreateEventHandler();
+        public event OnCourseDataUpdateEventHandler _courseDataUpdateEvent;
+        public delegate void OnCourseDataUpdateEventHandler();
+
+        private const string COMPUTER_SCIENCE_JUNIOR = "資工三";
+        private const string ELECTRIC_ENGINEERING_JUNIOR = "電子三甲";
+        private string[] _departmentPathes = { CourseConstant.COMPUTER_SCIENCE_JUNIOR_CLASS_URL, CourseConstant.ELECTRIC_ENGINEERING_JUNIOR_CLASS_URL };
+        string[] _departmentNames = { COMPUTER_SCIENCE_JUNIOR, ELECTRIC_ENGINEERING_JUNIOR };
         List<Department> _departments = new List<Department>(); // read only, storing each department's course
         Curriculum _curriculum = new Curriculum(); // storing selected course
         List<CourseInfoDto> _courses = new List<CourseInfoDto>(); // storing all departments' courses
+
+        // on course created
+        internal void NotifyCourseCreated()
+        {
+            _courseDataCreateEvent();
+        }
+
+        // on course update
+        internal void NotifyCourseUpdated()
+        {
+            _courseDataUpdateEvent();
+        }
 
         // initial parsed course information
         public void CrawlCourseInfoFromWeb()
         {
             Course course = new Course();
-            for (int i = 0; i < _coursePathes.Length; i++)
+            for (int i = 0; i < _departmentPathes.Length; i++)
             {
-                List<CourseInfoDto> courseInfoDtos = course.CourseInfoCrawler(_coursePathes[i]);
+                List<CourseInfoDto> courseInfoDtos = course.CourseInfoCrawler(_departmentPathes[i]);
                 _departments.Add(new Department(course.GetDepartmentName(), courseInfoDtos));
                 _courses.AddRange(courseInfoDtos);
             }
@@ -83,5 +103,12 @@ namespace CourseSystem
             return _courses;
         }
 
+        // AddCourse
+        internal void AddCourse(CourseInfoDto editedCourse)
+        {
+            CourseInfoDto newCourse = new CourseInfoDto(editedCourse);
+            _courses.Add(newCourse);
+            _departments[Array.IndexOf(_departmentNames, newCourse.GetDepartmentName())].AddCourse(newCourse);
+        }
     }
 }

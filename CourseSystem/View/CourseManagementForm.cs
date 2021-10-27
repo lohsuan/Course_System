@@ -13,12 +13,13 @@ namespace CourseSystem
         private readonly string _courseTimes = "1234N56789ABCD";
         private const int WEEK_OF_DAY = 7;
         private const char SPACE_KEY = ' ';
-        
+        private Model _model;
         private CourseManagementFormPresentationModel _viewModel;
 
         public CourseManagementForm(Model model)
         {
             _viewModel = new CourseManagementFormPresentationModel(model);
+            _model = model;
             InitializeComponent();
             SetUpCourseListBox();
             SetUpDataGridView();
@@ -31,6 +32,8 @@ namespace CourseSystem
         // SetUpEvent
         private void SetUpEvent()
         {
+            _model._courseDataCreateEvent += HandleCourseDataCreateEvent;
+            _model._courseDataUpdateEvent += HandleCourseDataUpdateEvent;
             _stageTextBox.KeyPress += CheckNumberInput;
             _creditTextBox.KeyPress += CheckNumberInput;
             _nameTextBox.TextChanged += EditedTextBox;
@@ -40,15 +43,38 @@ namespace CourseSystem
             _teacherAssistantTextBox.TextChanged += EditedTextBox;
             _languageTextBox.TextChanged += EditedTextBox;
             _syllabusTextBox.TextChanged += EditedTextBox;
-            //_courseStatusComboBox.SelectedIndexChanged += ChangedComboBoxSelectedIndex;
+            _courseStatusComboBox.SelectedIndexChanged += ChangedComboBoxSelectedIndex;
             _requireTypeComboBox.SelectedIndexChanged += ChangedComboBoxSelectedIndex;
             _classComboBox.SelectedIndexChanged += ChangedComboBoxSelectedIndex;
+        }
+
+        // HandleCourseDataUpdateEvent when update course
+        private void HandleCourseDataUpdateEvent()
+        {
+            SetUpCourseListBox();
+        }
+
+        // HandleCourseDataCreateEvent when add course
+        private void HandleCourseDataCreateEvent()
+        {
+            ClearGroupBox();
+            SetUpCourseListBox();
+            SetGroupBoxEnabledMode(false);
+            _addCourseButton.Enabled = true;
+        }
+
+        // ClearGroupBox
+        private void ClearGroupBox()
+        {
+            ClearGroupBoxText();
+            ClearClassTimeDataGridView();
+            ClearGroupBoxSelectItem();
         }
 
         // set group box enabled mode
         private void SetGroupBoxEnabledMode(bool flag)
         {
-            //_courseStatusComboBox.Enabled = flag;
+            _courseStatusComboBox.Enabled = flag;
             _numberTextBox.Enabled = flag;
             _nameTextBox.Enabled = flag;
             _stageTextBox.Enabled = flag;
@@ -88,6 +114,7 @@ namespace CourseSystem
         // add all courses to CourseListBox
         private void SetUpCourseListBox()
         {
+            _courseListBox.Items.Clear();
             foreach (string courseName in _viewModel.GetAllCourseName())
             {
                 _courseListBox.Items.Add(courseName);
@@ -187,11 +214,13 @@ namespace CourseSystem
         // on _addCourseButton_Click
         private void ClickAddCourseButton(object sender, EventArgs e)
         {
+            _viewModel.AddCourseMode();
             SetGroupBoxEnabledMode(true);
             SetAddCourseInitialGroupBoxMode();
             _editCourseGroupBox.Text = ADD_COURSE;
             _saveButton.Text = ADD;
             _saveButton.Enabled = false;
+            _addCourseButton.Enabled = false;
         }
 
         // add course initial mode in groupbox
@@ -218,8 +247,17 @@ namespace CourseSystem
             _syllabusTextBox.Text = "";
         }
 
+        // clear group box textbox text
+        private void ClearGroupBoxSelectItem()
+        {
+            _courseStatusComboBox.SelectedItem = null;
+            _requireTypeComboBox.SelectedItem = null;
+            _hourComboBox.SelectedItem = null;
+            _classComboBox.SelectedItem = null;
+        }
+
         // on _saveButton_Click
-        private void _saveButton_Click(object sender, EventArgs e)
+        private void ClickSaveButton(object sender, EventArgs e)
         {
             _viewModel.UpdateOrAddCourse();
             _saveButton.Enabled = false;

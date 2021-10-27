@@ -13,13 +13,21 @@ namespace CourseSystem
         public CourseSelectingForm(Model model)
         {
             _model = model;
-            this._viewModel = new CourseSelectingFormPresentationModel(model);
+            _viewModel = new CourseSelectingFormPresentationModel(model);
             InitializeComponent();
             // handle unupdate checkbox problem when user click the same checkbox to fast
-            this._firstTabDataGridView.CellContentDoubleClick += ClickDataGridViewCellContent;
+            _firstTabDataGridView.CellContentDoubleClick += ClickDataGridViewCellContent;
+            _model._courseDataCreateEvent += HandleCourseDataCreateAndUpdateEvent;
+            _model._courseDataUpdateEvent += HandleCourseDataCreateAndUpdateEvent;
             _dataGridViews.Add(_firstTabDataGridView);
             _dataGridViews.Add(_secondTabDataGridView);
             SetUpDataGridView();
+            ReloadNotSelectedCourse();
+        }
+
+        // HandleCourseDataCreateAndUpdateEvent
+        private void HandleCourseDataCreateAndUpdateEvent()
+        {
             ReloadNotSelectedCourse();
         }
 

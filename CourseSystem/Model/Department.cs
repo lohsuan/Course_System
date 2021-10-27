@@ -28,5 +28,11 @@ namespace CourseSystem
         {
             return _departmentName;
         }
+
+        // AddCourse
+        internal void AddCourse(CourseInfoDto newCourse)
+        {
+            _courseInfoDtos.Add(newCourse);
+        }
     }
 }
