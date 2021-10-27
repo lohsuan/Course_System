@@ -256,6 +256,7 @@ namespace CourseSystem
         {
             _mode = Mode.Add;
             _editedCourse = new CourseInfoDto();
+            _currentCourse = new CourseInfoDto();
         }
     }
 }
