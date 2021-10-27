@@ -47,6 +47,7 @@ namespace CourseSystem
 
         public CourseInfoDto(CourseInfoDto other)
         {
+
             this.Number = other.Number;
             this.Name = other.Name;
             this.Stage = other.Stage;
@@ -98,6 +99,35 @@ namespace CourseSystem
         internal void SetDepartmentName(string departmentName)
         {
             _departmentName = departmentName;
+        }
+
+        // update course
+        internal void UpdateCourse(CourseInfoDto other)
+        {
+            this.Number = other.Number;
+            this.Name = other.Name;
+            this.Stage = other.Stage;
+            this.Credit = other.Credit;
+            this.Hour = other.Hour;
+            this.RequiredType = other.RequiredType;
+            this.Teacher = other.Teacher;
+            this.ClassTimeSunday = other.ClassTimeSunday;
+            this.ClassTimeMonday = other.ClassTimeMonday;
+            this.ClassTimeTuesday = other.ClassTimeTuesday;
+            this.ClassTimeWednesday = other.ClassTimeWednesday;
+            this.ClassTimeThursday = other.ClassTimeThursday;
+            this.ClassTimeFriday = other.ClassTimeFriday;
+            this.ClassTimeSaturday = other.ClassTimeSaturday;
+            this.Classroom = other.Classroom;
+            this.NumberOfStudent = other.NumberOfStudent;
+            this.NumberOfDropStudent = other.NumberOfDropStudent;
+            this.TeacherAssistant = other.TeacherAssistant;
+            this.Language = other.Language;
+            this.Syllabus = other.Syllabus;
+            this.Note = other.Note;
+            this.Audit = other.Audit;
+            this.Experiment = other.Experiment;
+            this._departmentName = other._departmentName;
         }
 
         public string Id
@@ -219,6 +249,5 @@ namespace CourseSystem
         {
             get; set;
         }
-
     }
 }

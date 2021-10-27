@@ -100,12 +100,13 @@ namespace CourseSystem
             // 
             // _saveButton
             // 
-            this._saveButton.Location = new System.Drawing.Point(1027, 580);
+            this._saveButton.Location = new System.Drawing.Point(1020, 580);
             this._saveButton.Name = "_saveButton";
             this._saveButton.Size = new System.Drawing.Size(153, 53);
             this._saveButton.TabIndex = 3;
             this._saveButton.Text = "儲存";
             this._saveButton.UseVisualStyleBackColor = true;
+            this._saveButton.Click += new System.EventHandler(this._saveButton_Click);
             // 
             // _addCourseButton
             // 
@@ -115,6 +116,7 @@ namespace CourseSystem
             this._addCourseButton.TabIndex = 2;
             this._addCourseButton.Text = "新增課程";
             this._addCourseButton.UseVisualStyleBackColor = true;
+            this._addCourseButton.Click += new System.EventHandler(this.ClickAddCourseButton);
             // 
             // _editCourseGroupBox
             // 
@@ -185,15 +187,15 @@ namespace CourseSystem
             // 
             // _languageTextBox
             // 
-            this._languageTextBox.Location = new System.Drawing.Point(555, 118);
+            this._languageTextBox.Location = new System.Drawing.Point(546, 118);
             this._languageTextBox.Name = "_languageTextBox";
-            this._languageTextBox.Size = new System.Drawing.Size(341, 25);
+            this._languageTextBox.Size = new System.Drawing.Size(350, 25);
             this._languageTextBox.TabIndex = 19;
             // 
             // _language
             // 
             this._language.AutoSize = true;
-            this._language.Location = new System.Drawing.Point(481, 124);
+            this._language.Location = new System.Drawing.Point(473, 124);
             this._language.Name = "_language";
             this._language.Size = new System.Drawing.Size(67, 15);
             this._language.TabIndex = 18;
@@ -218,7 +220,7 @@ namespace CourseSystem
             // _requireType
             // 
             this._requireType.AutoSize = true;
-            this._requireType.Location = new System.Drawing.Point(753, 75);
+            this._requireType.Location = new System.Drawing.Point(777, 30);
             this._requireType.Name = "_requireType";
             this._requireType.Size = new System.Drawing.Size(39, 15);
             this._requireType.TabIndex = 15;
@@ -226,15 +228,15 @@ namespace CourseSystem
             // 
             // _teacherTextBox
             // 
-            this._teacherTextBox.Location = new System.Drawing.Point(554, 71);
+            this._teacherTextBox.Location = new System.Drawing.Point(546, 71);
             this._teacherTextBox.Name = "_teacherTextBox";
-            this._teacherTextBox.Size = new System.Drawing.Size(165, 25);
+            this._teacherTextBox.Size = new System.Drawing.Size(350, 25);
             this._teacherTextBox.TabIndex = 14;
             // 
             // _teacher
             // 
             this._teacher.AutoSize = true;
-            this._teacher.Location = new System.Drawing.Point(494, 77);
+            this._teacher.Location = new System.Drawing.Point(486, 77);
             this._teacher.Name = "_teacher";
             this._teacher.Size = new System.Drawing.Size(54, 15);
             this._teacher.TabIndex = 13;
@@ -274,15 +276,15 @@ namespace CourseSystem
             // 
             // _nameTextBox
             // 
-            this._nameTextBox.Location = new System.Drawing.Point(554, 25);
+            this._nameTextBox.Location = new System.Drawing.Point(546, 25);
             this._nameTextBox.Name = "_nameTextBox";
-            this._nameTextBox.Size = new System.Drawing.Size(165, 25);
+            this._nameTextBox.Size = new System.Drawing.Size(220, 25);
             this._nameTextBox.TabIndex = 8;
             // 
             // _name
             // 
             this._name.AutoSize = true;
-            this._name.Location = new System.Drawing.Point(464, 32);
+            this._name.Location = new System.Drawing.Point(456, 32);
             this._name.Name = "_name";
             this._name.Size = new System.Drawing.Size(84, 15);
             this._name.TabIndex = 7;
@@ -343,9 +345,9 @@ namespace CourseSystem
             "●",
             "▲",
             "★"});
-            this._requireTypeComboBox.Location = new System.Drawing.Point(798, 71);
+            this._requireTypeComboBox.Location = new System.Drawing.Point(823, 26);
             this._requireTypeComboBox.Name = "_requireTypeComboBox";
-            this._requireTypeComboBox.Size = new System.Drawing.Size(98, 23);
+            this._requireTypeComboBox.Size = new System.Drawing.Size(73, 23);
             this._requireTypeComboBox.TabIndex = 2;
             // 
             // _courseStatusComboBox
@@ -373,13 +375,14 @@ namespace CourseSystem
             this._thursday,
             this._friday,
             this._saturday});
-            this._classTimeDataGridView.Location = new System.Drawing.Point(16, 251);
+            this._classTimeDataGridView.Location = new System.Drawing.Point(25, 251);
             this._classTimeDataGridView.Name = "_classTimeDataGridView";
             this._classTimeDataGridView.RowHeadersVisible = false;
             this._classTimeDataGridView.RowHeadersWidth = 51;
             this._classTimeDataGridView.RowTemplate.Height = 27;
-            this._classTimeDataGridView.Size = new System.Drawing.Size(880, 300);
+            this._classTimeDataGridView.Size = new System.Drawing.Size(869, 300);
             this._classTimeDataGridView.TabIndex = 0;
+            this._classTimeDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CheckClassTimeDataGridView);
             // 
             // _hourOfClass
             // 

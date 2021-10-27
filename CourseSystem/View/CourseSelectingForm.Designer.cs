@@ -52,14 +52,14 @@ namespace CourseSystem
             this._firstTabDataGridView.RowHeadersVisible = false;
             this._firstTabDataGridView.RowHeadersWidth = 51;
             this._firstTabDataGridView.RowTemplate.Height = 27;
-            this._firstTabDataGridView.Size = new System.Drawing.Size(1465, 489);
+            this._firstTabDataGridView.Size = new System.Drawing.Size(1408, 489);
             this._firstTabDataGridView.TabIndex = 6;
             this._firstTabDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickDataGridViewCellContent);
             // 
             // _submitConfirmButton
             // 
             this._submitConfirmButton.AutoSize = true;
-            this._submitConfirmButton.Location = new System.Drawing.Point(1005, 537);
+            this._submitConfirmButton.Location = new System.Drawing.Point(958, 537);
             this._submitConfirmButton.Name = "_submitConfirmButton";
             this._submitConfirmButton.Size = new System.Drawing.Size(218, 70);
             this._submitConfirmButton.TabIndex = 3;
@@ -70,7 +70,7 @@ namespace CourseSystem
             // _viewOutcomeButton
             // 
             this._viewOutcomeButton.AutoSize = true;
-            this._viewOutcomeButton.Location = new System.Drawing.Point(1240, 536);
+            this._viewOutcomeButton.Location = new System.Drawing.Point(1193, 536);
             this._viewOutcomeButton.Name = "_viewOutcomeButton";
             this._viewOutcomeButton.Size = new System.Drawing.Size(211, 71);
             this._viewOutcomeButton.TabIndex = 4;
@@ -85,7 +85,7 @@ namespace CourseSystem
             this._courseTabControl.Location = new System.Drawing.Point(0, 6);
             this._courseTabControl.Name = "_courseTabControl";
             this._courseTabControl.SelectedIndex = 0;
-            this._courseTabControl.Size = new System.Drawing.Size(1479, 524);
+            this._courseTabControl.Size = new System.Drawing.Size(1414, 524);
             this._courseTabControl.TabIndex = 5;
             this._courseTabControl.SelectedIndexChanged += new System.EventHandler(this.ChangeTabIndex);
             // 
@@ -96,7 +96,7 @@ namespace CourseSystem
             this._tabPage1.Location = new System.Drawing.Point(4, 25);
             this._tabPage1.Name = "_tabPage1";
             this._tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this._tabPage1.Size = new System.Drawing.Size(1471, 495);
+            this._tabPage1.Size = new System.Drawing.Size(1406, 495);
             this._tabPage1.TabIndex = 0;
             this._tabPage1.Text = "tabPage1";
             this._tabPage1.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@ namespace CourseSystem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1486, 617);
+            this.ClientSize = new System.Drawing.Size(1421, 617);
             this.Controls.Add(this._courseTabControl);
             this.Controls.Add(this._viewOutcomeButton);
             this.Controls.Add(this._submitConfirmButton);

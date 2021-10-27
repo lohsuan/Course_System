@@ -6,11 +6,14 @@ namespace CourseSystem
 {
     public partial class CourseManagementForm : Form
     {
-        private const string EDIT_COURSE = "編輯課程";
         private const string SAVE = "儲存";
-        private const int TOTAL_CLASS_TIME = 9;
+        private const string EDIT_COURSE = "編輯課程";
+        private const string ADD = "新增";
+        private const string ADD_COURSE = "新增課程";
+        private readonly string _courseTimes = "1234N56789ABCD";
         private const int WEEK_OF_DAY = 7;
         private const char SPACE_KEY = ' ';
+        
         private CourseManagementFormPresentationModel _viewModel;
 
         public CourseManagementForm(Model model)
@@ -21,6 +24,8 @@ namespace CourseSystem
             SetUpDataGridView();
             SetGroupBoxEnabledMode(false);
             SetUpEvent();
+            //_addCourseButton.DataBindings("Enabled", _viewModel, "IsButtonEnabled");
+            //_addCourseButton.DataBindings(nameof(_addCourseButton.Enabled), _viewModel, nameof(_viewModel.IsButtonEnabled));
         }
 
         // SetUpEvent
@@ -28,7 +33,6 @@ namespace CourseSystem
         {
             _stageTextBox.KeyPress += CheckNumberInput;
             _creditTextBox.KeyPress += CheckNumberInput;
-
             _nameTextBox.TextChanged += EditedTextBox;
             _stageTextBox.TextChanged += EditedTextBox;
             _creditTextBox.TextChanged += EditedTextBox;
@@ -36,7 +40,6 @@ namespace CourseSystem
             _teacherAssistantTextBox.TextChanged += EditedTextBox;
             _languageTextBox.TextChanged += EditedTextBox;
             _syllabusTextBox.TextChanged += EditedTextBox;
-
             //_courseStatusComboBox.SelectedIndexChanged += ChangedComboBoxSelectedIndex;
             _requireTypeComboBox.SelectedIndexChanged += ChangedComboBoxSelectedIndex;
             _classComboBox.SelectedIndexChanged += ChangedComboBoxSelectedIndex;
@@ -63,12 +66,12 @@ namespace CourseSystem
         // set class time initial row status
         private void SetUpDataGridView()
         {
-            for (int classTime = 1; classTime <= TOTAL_CLASS_TIME; classTime++)
+            for (int classTime = 0; classTime < _courseTimes.Length; classTime++)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 row.Cells.Add(new DataGridViewTextBoxCell
                 {
-                    Value = classTime,
+                    Value = _courseTimes[classTime],
                 });
                 for (int day = 0; day < WEEK_OF_DAY; day++)
                 {
@@ -121,18 +124,32 @@ namespace CourseSystem
             UpdateClassTime();
         }
 
-        // update classtime datagrid view
+        // update classtime data grid view
         private void UpdateClassTime()
         {
-            for (int i = 0; i < TOTAL_CLASS_TIME; i++)
-            {
-                for (int j = 1; j <= WEEK_OF_DAY; j++)
-                    _classTimeDataGridView.Rows[i].Cells[j].Value = false;
-            }
+            ClearClassTimeDataGridView();
             foreach (string classTime in _viewModel.GetClassTime())
             {
                 string[] columnRowData = classTime.Split(SPACE_KEY);
-                _classTimeDataGridView.Rows[Int16.Parse(columnRowData[1]) - 1].Cells[Int16.Parse(columnRowData[0]) + 1].Value = true;
+                _classTimeDataGridView.Rows[_courseTimes.IndexOf(columnRowData[1])].Cells[Int16.Parse(columnRowData[0]) + 1].Value = true;
+            }
+        }
+
+        // on _classTimeDataGridView_CellContentClick (checkbox checked)
+        private void CheckClassTimeDataGridView(object sender, DataGridViewCellEventArgs e)
+        {
+            _viewModel.SetCourseEditClassTime(e.ColumnIndex, e.RowIndex);
+
+            _saveButton.Enabled = _viewModel.IsClassTimeChangedAndMeetRequirement();
+        }
+
+        // clean up data grid view
+        private void ClearClassTimeDataGridView()
+        {
+            for (int i = 0; i < _courseTimes.Length; i++)
+            {
+                for (int j = 1; j <= WEEK_OF_DAY; j++)
+                    _classTimeDataGridView.Rows[i].Cells[j].Value = false;
             }
         }
 
@@ -164,9 +181,48 @@ namespace CourseSystem
             _viewModel.SetCourseEditHour(_hourComboBox.SelectedItem);
             _viewModel.SetCourseEditClass(_classComboBox.SelectedItem);
 
-            _saveButton.Enabled = _viewModel.IsItemChangedAndHourCorrect();
+            _saveButton.Enabled = _viewModel.IsSelectedItemChangedAndHourCorrect();
         }
 
+        // on _addCourseButton_Click
+        private void ClickAddCourseButton(object sender, EventArgs e)
+        {
+            SetGroupBoxEnabledMode(true);
+            SetAddCourseInitialGroupBoxMode();
+            _editCourseGroupBox.Text = ADD_COURSE;
+            _saveButton.Text = ADD;
+            _saveButton.Enabled = false;
+        }
 
+        // add course initial mode in groupbox
+        private void SetAddCourseInitialGroupBoxMode()
+        {
+            _courseStatusComboBox.SelectedIndex = 0;
+            _requireTypeComboBox.SelectedIndex = 0;
+            _hourComboBox.SelectedIndex = 0;
+            _classComboBox.SelectedIndex = 0;
+            ClearGroupBoxText();
+            ClearClassTimeDataGridView();
+        }
+
+        // clear group box textbox text
+        private void ClearGroupBoxText()
+        {
+            _numberTextBox.Text = "";
+            _nameTextBox.Text = "";
+            _stageTextBox.Text = "";
+            _creditTextBox.Text = "";
+            _teacherTextBox.Text = "";
+            _teacherAssistantTextBox.Text = "";
+            _languageTextBox.Text = "";
+            _syllabusTextBox.Text = "";
+        }
+
+        // on _saveButton_Click
+        private void _saveButton_Click(object sender, EventArgs e)
+        {
+            _viewModel.UpdateOrAddCourse();
+            _saveButton.Enabled = false;
+        }
     }
 }

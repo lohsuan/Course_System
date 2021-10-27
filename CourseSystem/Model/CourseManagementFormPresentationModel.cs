@@ -8,9 +8,10 @@ namespace CourseSystem
     class CourseManagementFormPresentationModel
     {
         private const char SPACE_KEY = ' ';
+        private const char DOT = '.';
         private Model _model;
-        private CourseInfoDto _currentCourse;
-        private CourseInfoDto _editedCourse;
+        private CourseInfoDto _currentCourse = new CourseInfoDto();
+        private CourseInfoDto _editedCourse = new CourseInfoDto();
 
         public CourseManagementFormPresentationModel(Model model)
         {
@@ -36,21 +37,30 @@ namespace CourseSystem
         // check is number or not
         internal bool IsNumberInput(char keyChar)
         {
-            return Char.IsDigit(keyChar) || Char.IsControl(keyChar) || (keyChar == '.');
+            return Char.IsDigit(keyChar) || Char.IsControl(keyChar) || (keyChar == DOT);
         }
 
-        // Save button is Enable when info is edited
+        // Save button is Enable when textbox text is edited and meet not empty requirement
         internal bool IsTextChangedAndMeetRequirement()
         {
-            return (_currentCourse.Number != _editedCourse.Number) || (_currentCourse.Name != _editedCourse.Name) || (_currentCourse.Stage != _editedCourse.Stage) || (_currentCourse.Credit != _editedCourse.Credit) || (_currentCourse.Teacher != _editedCourse.Teacher) || (_currentCourse.TeacherAssistant != _editedCourse.TeacherAssistant) || (_currentCourse.Language != _editedCourse.Language) || (_currentCourse.Syllabus != _editedCourse.Syllabus) && (_editedCourse.Number != "") && (_editedCourse.Name != "") && (_editedCourse.Stage != "") && (_editedCourse.Credit != "") && (_editedCourse.Teacher != "");
+            if ((_editedCourse.Number == "") || (_editedCourse.Name == "") || (_editedCourse.Stage == "") || (_editedCourse.Credit == "") || (_editedCourse.Teacher == ""))
+                return false;
+            return (_currentCourse.Number != _editedCourse.Number) || (_currentCourse.Name != _editedCourse.Name) || (_currentCourse.Stage != _editedCourse.Stage) || (_currentCourse.Credit != _editedCourse.Credit) || (_currentCourse.Teacher != _editedCourse.Teacher) || (_currentCourse.TeacherAssistant != _editedCourse.TeacherAssistant) || (_currentCourse.Language != _editedCourse.Language) || (_currentCourse.Syllabus != _editedCourse.Syllabus);
         }
 
-        internal bool IsItemChangedAndHourCorrect()
+        // Save button is Enable when select item chenged
+        internal bool IsSelectedItemChangedAndHourCorrect()
         {
-            return (_currentCourse.RequiredType != _editedCourse.RequiredType) || (_currentCourse.Hour!= _editedCourse.Hour) || (_currentCourse.GetDepartmentName() != _editedCourse.GetDepartmentName());
+            return (_currentCourse.RequiredType != _editedCourse.RequiredType) || (_currentCourse.Hour != _editedCourse.Hour) || (_currentCourse.GetDepartmentName() != _editedCourse.GetDepartmentName());
         }
 
-        /// /////////////////////////////////////////////////////////////////////////////////////////////
+        // Save button is Enable when classTime checked change and total checked classtimes aree qual to hours
+        internal bool IsClassTimeChangedAndMeetRequirement()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// Get model data /////////////////////////////////////////////////////////////////////////////////////////////
 
         // GetNumber
         internal string GetNumber()
@@ -142,65 +152,87 @@ namespace CourseSystem
             return courseInfoDto.GetClassTime();
         }
 
-        /// ////////////////////////////////////////////////////////////////////
+        /// Set _editedCourse data ////////////////////////////////////////////////////////////////////
 
+        // SetCourseEditNumber
         internal void SetCourseEditNumber(string number)
         {
             _editedCourse.Number = number;
         }
 
+        // SetCourseEditName
         internal void SetCourseEditName(string name)
         {
             _editedCourse.Name = name;
         }
 
+        // SetCourseEditStage
         internal void SetCourseEditStage(string stage)
         {
             _editedCourse.Stage = stage;
         }
 
+        // SetCourseEditCredit
         internal void SetCourseEditCredit(string credit)
         {
             _editedCourse.Credit = credit;
         }
 
+        // SetCourseEditTeacher
         internal void SetCourseEditTeacher(string teacher)
         {
             _editedCourse.Teacher = teacher;
         }
 
+        // SetCourseEditRequireType
         internal void SetCourseEditRequireType(object selectedItem)
         {
             if (selectedItem != null)
                 _editedCourse.RequiredType = selectedItem.ToString();
         }
 
+        // SetCourseEditTeacherAssistant
         internal void SetCourseEditTeacherAssistant(string teacherAssistant)
         {
             _editedCourse.TeacherAssistant = teacherAssistant;
         }
 
+        // SetCourseEditLanguage
         internal void SetCourseEditLanguage(string language)
         {
             _editedCourse.Language = language;
         }
 
+        // SetCourseEditSyllabus
         internal void SetCourseEditSyllabus(string syllabus)
         {
             _editedCourse.Syllabus = syllabus;
         }
 
+        // SetCourseEditHour
         internal void SetCourseEditHour(object selectedItem)
         {
             if (selectedItem != null)
                 _editedCourse.Hour = selectedItem.ToString();
         }
 
+        // SetCourseEditClass
         internal void SetCourseEditClass(object selectedItem)
         {
             if (selectedItem != null)
                 _editedCourse.SetDepartmentName(selectedItem.ToString());
         }
 
+        // SetCourseEditClassTime
+        internal void SetCourseEditClassTime(int columnIndex, int rowIndex)
+        {
+            //_editedCourse.ClassTimeMonday
+        }
+
+        // save course
+        internal void UpdateOrAddCourse()
+        {
+            _currentCourse.UpdateCourse(_editedCourse);
+        }
     }
 }
