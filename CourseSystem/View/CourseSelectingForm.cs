@@ -110,15 +110,16 @@ namespace CourseSystem
         {
             this._viewOutcomeButton.Enabled = false;
             CourseSelectionResultForm courseSelectionResultForm = new CourseSelectionResultForm(_model);
-            courseSelectionResultForm.ShowDialog();
-            if (courseSelectionResultForm.DialogResult == DialogResult.Cancel)
-            {
-                HandleCourseSelectionResultFormClose();
-            }
+            courseSelectionResultForm.Show();
+            //if (courseSelectionResultForm.DialogResult == DialogResult.Cancel)
+            //{
+            //    HandleCourseSelectionResultFormClose();
+            //}
+            courseSelectionResultForm.FormClosed += this.HandleCourseSelectionResultFormClose;
         }
 
         // on CourseSelectionResultForm closed
-        private void HandleCourseSelectionResultFormClose()
+        private void HandleCourseSelectionResultFormClose(object sender, System.EventArgs e)
         {
             this._viewOutcomeButton.Enabled = true;
             ReloadNotSelectedCourse();

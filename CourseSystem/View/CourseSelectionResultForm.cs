@@ -12,8 +12,22 @@ namespace CourseSystem
         {
             _model = model;
             this._viewModel = new CourseSelectionResultFormPresentationModel(model);
+            _model._courseDataUpdateEvent += HandleCourseDataUpdateEvent;
             InitializeComponent();
+            PrepareCurriculum();
+            PrepareDeleteButtonColumn();
+            _courseSelectionResultDataGridView.Columns[1].Visible = false;
+        }
 
+        // on CourseManagementSystem form closed
+        private void HandleCourseDataUpdateEvent()
+        {
+            PrepareCurriculum();
+        }
+
+        private void PrepareCurriculum()
+        {
+            _courseSelectionResultDataGridView.Rows.Clear();
             List<CourseInfoDto> courseInfoDtos = _viewModel.GetCurriculum();
             foreach (var course in courseInfoDtos)
             {
@@ -24,8 +38,6 @@ namespace CourseSystem
             course.Note, course.Syllabus, course.Audit, course.Experiment };
                 _courseSelectionResultDataGridView.Rows.Add(courseRow);
             }
-            PrepareDeleteButtonColumn();
-            _courseSelectionResultDataGridView.Columns[1].Visible = false;
         }
 
         // prepare delete button cloumn
