@@ -15,9 +15,10 @@ namespace CourseSystem
             _model._courseDataUpdateEvent += HandleCourseDataUpdateEvent;
             _model._courseSelectEvent += HandleCourseDataUpdateEvent;
             InitializeComponent();
-            PrepareCurriculum();
             PrepareDeleteButtonColumn();
+            PrepareCurriculum();
             _courseSelectionResultDataGridView.Columns[1].Visible = false;
+
         }
 
         // on CourseManagementSystem form closed
@@ -26,13 +27,14 @@ namespace CourseSystem
             PrepareCurriculum();
         }
 
+        // PrepareCurriculum
         private void PrepareCurriculum()
         {
             _courseSelectionResultDataGridView.Rows.Clear();
             List<CourseInfoDto> courseInfoDtos = _viewModel.GetCurriculum();
             foreach (var course in courseInfoDtos)
             {
-                string[] courseRow = { course.Id, course.Number, course.Name, course.Stage, course.Credit, course.Hour,
+                string[] courseRow = { "", course.Id, course.Number, course.Name, course.Stage, course.Credit, course.Hour,
             course.RequiredType, course.Teacher, course.ClassTimeSunday, course.ClassTimeMonday, course.ClassTimeTuesday,
             course.ClassTimeWednesday, course.ClassTimeThursday, course.ClassTimeFriday, course.ClassTimeSaturday, course.Classroom,
             course.NumberOfStudent, course.NumberOfDropStudent, course.TeacherAssistant, course.Language,

@@ -20,6 +20,7 @@ namespace CourseSystem
             _model._courseDataCreateEvent += HandleCourseChangeEvent;
             _model._courseDataUpdateEvent += HandleCourseChangeEvent;
             _model._courseCancelSelectEvent += HandleCourseChangeEvent;
+            _model._courseSelectEvent += HandleCourseChangeEvent;
             _dataGridViews.Add(_firstTabDataGridView);
             _dataGridViews.Add(_secondTabDataGridView);
             SetUpDataGridView();
@@ -85,7 +86,7 @@ namespace CourseSystem
             {
                 _submitConfirmButton.Enabled = false;
                 SelectCheckedCourse();
-                ReloadNotSelectedCourse();
+                //ReloadNotSelectedCourse();
             }
             MessageBox.Show(message);
         }

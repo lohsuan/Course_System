@@ -175,7 +175,7 @@ namespace CourseSystem
         public void SelectCheckedCourse()
         {
             _model.SelectCheckedCourseToCurriculum(_checkedCourses);
-            //_model.NotifyCourseSelect();
+            _model.NotifyCourseSelect();
         }
 
         // get selected row index
