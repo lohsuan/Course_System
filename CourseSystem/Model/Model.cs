@@ -9,6 +9,10 @@ namespace CourseSystem
         public delegate void OnCourseDataCreateEventHandler();
         public event OnCourseDataUpdateEventHandler _courseDataUpdateEvent;
         public delegate void OnCourseDataUpdateEventHandler();
+        public event OnCourseSelectEventHandler _courseSelectEvent;
+        public delegate void OnCourseSelectEventHandler();
+        public event OnCourseCancelSelectEventHandler _courseCancelSelectEvent;
+        public delegate void OnCourseCancelSelectEventHandler();
 
         private const string COMPUTER_SCIENCE_JUNIOR = "資工三";
         private const string ELECTRIC_ENGINEERING_JUNIOR = "電子三甲";
@@ -28,6 +32,18 @@ namespace CourseSystem
         internal void NotifyCourseUpdated()
         {
             _courseDataUpdateEvent();
+        }
+
+        // on course Select
+        internal void NotifyCourseSelect()
+        {
+            _courseSelectEvent();
+        }
+
+        // on course Cancel Select
+        internal void NotifyCourseCancelSelect()
+        {
+            _courseCancelSelectEvent();
         }
 
         // initial parsed course information
@@ -89,6 +105,7 @@ namespace CourseSystem
         internal void CancelSelectCourseFromCurriculum(string id)
         {
             _curriculum.RemoveCourse(id);
+
         }
 
         // get curriculum(selected course)

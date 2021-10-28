@@ -13,6 +13,7 @@ namespace CourseSystem
             _model = model;
             this._viewModel = new CourseSelectionResultFormPresentationModel(model);
             _model._courseDataUpdateEvent += HandleCourseDataUpdateEvent;
+            _model._courseSelectEvent += HandleCourseDataUpdateEvent;
             InitializeComponent();
             PrepareCurriculum();
             PrepareDeleteButtonColumn();

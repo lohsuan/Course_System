@@ -17,16 +17,17 @@ namespace CourseSystem
             InitializeComponent();
             // handle unupdate checkbox problem when user click the same checkbox to fast
             _firstTabDataGridView.CellContentDoubleClick += ClickDataGridViewCellContent;
-            _model._courseDataCreateEvent += HandleCourseDataCreateAndUpdateEvent;
-            _model._courseDataUpdateEvent += HandleCourseDataCreateAndUpdateEvent;
+            _model._courseDataCreateEvent += HandleCourseChangeEvent;
+            _model._courseDataUpdateEvent += HandleCourseChangeEvent;
+            _model._courseCancelSelectEvent += HandleCourseChangeEvent;
             _dataGridViews.Add(_firstTabDataGridView);
             _dataGridViews.Add(_secondTabDataGridView);
             SetUpDataGridView();
             ReloadNotSelectedCourse();
         }
 
-        // HandleCourseDataCreateAndUpdateEvent
-        private void HandleCourseDataCreateAndUpdateEvent()
+        // HandleCourseChangeEvent Create, Update, Cancel Select Event
+        private void HandleCourseChangeEvent()
         {
             ReloadNotSelectedCourse();
         }
@@ -111,10 +112,6 @@ namespace CourseSystem
             this._viewOutcomeButton.Enabled = false;
             CourseSelectionResultForm courseSelectionResultForm = new CourseSelectionResultForm(_model);
             courseSelectionResultForm.Show();
-            //if (courseSelectionResultForm.DialogResult == DialogResult.Cancel)
-            //{
-            //    HandleCourseSelectionResultFormClose();
-            //}
             courseSelectionResultForm.FormClosed += this.HandleCourseSelectionResultFormClose;
         }
 
@@ -122,7 +119,6 @@ namespace CourseSystem
         private void HandleCourseSelectionResultFormClose(object sender, System.EventArgs e)
         {
             this._viewOutcomeButton.Enabled = true;
-            ReloadNotSelectedCourse();
         }
 
         // add checkbox column

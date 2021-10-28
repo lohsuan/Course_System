@@ -26,6 +26,7 @@ namespace CourseSystem
         internal void CancelSelectCourse(string id)
         {
             _model.CancelSelectCourseFromCurriculum(id);
+            _model.NotifyCourseCancelSelect();
         }
     }
 }
