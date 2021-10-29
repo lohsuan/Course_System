@@ -25,25 +25,29 @@ namespace CourseSystem
         // on course created
         internal void NotifyCourseCreated()
         {
-            _courseDataCreateEvent();
+            if (_courseDataCreateEvent != null)
+                _courseDataCreateEvent();
         }
 
         // on course update
         internal void NotifyCourseUpdated()
         {
-            _courseDataUpdateEvent();
+            if (_courseDataUpdateEvent != null)
+                _courseDataUpdateEvent();
         }
 
         // on course Select
         internal void NotifyCourseSelect()
         {
-            _courseSelectEvent();
+            if (_courseSelectEvent != null)
+                _courseSelectEvent();
         }
 
         // on course Cancel Select
         internal void NotifyCourseCancelSelect()
         {
-            _courseCancelSelectEvent();
+            if (_courseCancelSelectEvent != null)
+                _courseCancelSelectEvent();
         }
 
         // initial parsed course information

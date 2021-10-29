@@ -17,6 +17,7 @@ namespace CourseSystem
         private CourseInfoDto _currentCourse = new CourseInfoDto();
         private CourseInfoDto _editedCourse = new CourseInfoDto();
         private Mode _mode = Mode.Edit;
+        private int _checkedCourseAmount = 0;
 
         public CourseManagementFormPresentationModel(Model model)
         {
@@ -46,25 +47,22 @@ namespace CourseSystem
             return Char.IsDigit(keyChar) || Char.IsControl(keyChar) || (keyChar == DOT);
         }
 
-        // Save button is Enable when textbox text is edited and meet not empty requirement
-        internal bool IsTextChangedAndMeetRequirement()
+        // Is Save/Add Course Button Enable
+        internal bool IsSaveButtonEnable(int hour)
         {
-            if ((_editedCourse.Number == "") || (_editedCourse.Name == "") || (_editedCourse.Stage == "") || (_editedCourse.Credit == "") || (_editedCourse.Teacher == ""))
-                return false;
-            return (_currentCourse.Number != _editedCourse.Number) || (_currentCourse.Name != _editedCourse.Name) || (_currentCourse.Stage != _editedCourse.Stage) || (_currentCourse.Credit != _editedCourse.Credit) || (_currentCourse.Teacher != _editedCourse.Teacher) || (_currentCourse.TeacherAssistant != _editedCourse.TeacherAssistant) || (_currentCourse.Language != _editedCourse.Language) || (_currentCourse.Syllabus != _editedCourse.Syllabus);
+            return IsCourseInfoMeetNotNullRequire() && IsCheckedClassTimeEqualToHour(hour);
         }
 
-        // Save button is Enable when select item chenged
-        internal bool IsSelectedItemChangedAndHourCorrect()
+        // IsTextBoxMeetNotNullRequirement
+        internal bool IsCourseInfoMeetNotNullRequire()
         {
-            return (_currentCourse.RequiredType != _editedCourse.RequiredType) || (_currentCourse.Hour != _editedCourse.Hour) || (_currentCourse.GetDepartmentName() != _editedCourse.GetDepartmentName());
+            return _editedCourse.IsCourseInfoMeetNotNullRequire();
         }
 
-        // Save button is Enable when classTime checked change and total checked classtimes aree qual to hours
-        internal bool IsClassTimeChangedAndMeetRequirement()
+        // Save button is Enable when total checked classtimes aree qual to hours (classTime checked change)
+        internal bool IsCheckedClassTimeEqualToHour(int hour)
         {
-            return true;
-            //throw new NotImplementedException();
+            return _checkedCourseAmount == hour;
         }
 
         /// Get model data /////////////////////////////////////////////////////////////////////////////////////////////
@@ -138,6 +136,7 @@ namespace CourseSystem
         // get class time
         internal List<string> GetClassTime()
         {
+            _checkedCourseAmount = 0;
             List<string> classTimes = GetClassTime(_currentCourse);
             List<string> result = new List<string>();
             for (int i = 0; i < classTimes.Count; i++)
@@ -147,6 +146,7 @@ namespace CourseSystem
                     foreach (string time in classTimes[i].Split(SPACE_KEY))
                     {
                         result.Add(i.ToString() + SPACE_KEY + time);
+                        _checkedCourseAmount++;
                     }
                 }
             }
@@ -161,12 +161,19 @@ namespace CourseSystem
 
         /// Set _editedCourse data ////////////////////////////////////////////////////////////////////
 
+        // UpdateCheckedCourseAmount
+        internal void UpdateCheckedCourse(bool editedFormattedValue)
+        {
+            if (editedFormattedValue)
+                _checkedCourseAmount++;
+            else
+                _checkedCourseAmount--;
+        }
 
         // SetCourseEditClassTime
-        internal void SetCourseEditClassTime(string weekDay, string numberOfTime)
+        internal void SetCourseEditClassTime(string[] classTime)
         {
-
-            //_editedCourse.ClassTimeMonday
+            _editedCourse.SetCourseEditClassTime(classTime);
         }
 
         // SetCourseEditNumber
@@ -257,6 +264,7 @@ namespace CourseSystem
         internal void AddCourseMode()
         {
             _mode = Mode.Add;
+            _checkedCourseAmount = 0;
             _editedCourse = new CourseInfoDto();
             _currentCourse = new CourseInfoDto();
         }

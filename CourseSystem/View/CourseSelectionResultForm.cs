@@ -34,12 +34,9 @@ namespace CourseSystem
             List<CourseInfoDto> courseInfoDtos = _viewModel.GetCurriculum();
             foreach (var course in courseInfoDtos)
             {
-                string[] courseRow = { "", course.Id, course.Number, course.Name, course.Stage, course.Credit, course.Hour,
-                            course.RequiredType, course.Teacher, course.ClassTimeSunday, course.ClassTimeMonday, course.ClassTimeTuesday,
-                            course.ClassTimeWednesday, course.ClassTimeThursday, course.ClassTimeFriday, course.ClassTimeSaturday, course.Classroom,
-                            course.NumberOfStudent, course.NumberOfDropStudent, course.TeacherAssistant, course.Language,
-                            course.Note, course.Syllabus, course.Audit, course.Experiment };
-                _courseSelectionResultDataGridView.Rows.Add(courseRow);
+                List<string> courseRow = course.GetCourseInfoDtoData();
+                courseRow.Insert(0, "");
+                _courseSelectionResultDataGridView.Rows.Add(courseRow.ToArray());
             }
         }
 

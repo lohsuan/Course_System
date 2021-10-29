@@ -6,6 +6,13 @@ namespace CourseSystem
 {
     public class CourseInfoDto
     {
+        private const int SUNDAY_INDEX = 0;
+        private const int MONDAY_INDEX = 1;
+        private const int TUESDAY_INDEX = 2;
+        private const int WEDNESDAY_INDEX = 3;
+        private const int THURSDAY_INDEX = 4;
+        private const int FRIDAY_INDEX = 5;
+        private const int SATURDAY_INDEX = 6;
         private string _departmentName;
 
         public CourseInfoDto(string number, string name, string stage, string credit, string hour, 
@@ -59,6 +66,21 @@ namespace CourseSystem
             SetCourseAdditionInfo(other);
         }
 
+        // IsCourseInfoMeetNotNullRequire
+        internal bool IsCourseInfoMeetNotNullRequire()
+        {
+            return (this.Number != "") && (this.Name != "") && (this.Stage != "") && (this.Credit != "") && (this.Teacher != "");
+        }
+
+        // GetCourseInfoDtoData
+        internal List<string> GetCourseInfoDtoData()
+        {
+            return new List<string> 
+            { 
+                this.Id, this.Number, this.Name, this.Stage, this.Credit, this.Hour, this.RequiredType, this.Teacher, this.ClassTimeSunday, this.ClassTimeMonday, this.ClassTimeTuesday, this.ClassTimeWednesday, this.ClassTimeThursday, this.ClassTimeFriday, this.ClassTimeSaturday, this.Classroom, this.NumberOfStudent, this.NumberOfDropStudent, this.TeacherAssistant, this.Language, this.Note, this.Syllabus, this.Audit, this.Experiment 
+            };
+        }
+
         // SetCourseBaseInfo
         private void SetCourseBaseInfo(CourseInfoDto other)
         {
@@ -91,6 +113,18 @@ namespace CourseSystem
             this.Audit = other.Audit;
             this.Experiment = other.Experiment;
             this._departmentName = other._departmentName;
+        }
+
+        // SetCourseEditClassTime
+        internal void SetCourseEditClassTime(string[] classTime)
+        {
+            this.ClassTimeSunday = classTime[SUNDAY_INDEX];
+            this.ClassTimeMonday = classTime[MONDAY_INDEX];
+            this.ClassTimeTuesday = classTime[TUESDAY_INDEX];
+            this.ClassTimeWednesday = classTime[WEDNESDAY_INDEX];
+            this.ClassTimeThursday = classTime[THURSDAY_INDEX];
+            this.ClassTimeFriday = classTime[FRIDAY_INDEX];
+            this.ClassTimeSaturday = classTime[SATURDAY_INDEX];
         }
 
         // override of Equal in CourseInfoDto

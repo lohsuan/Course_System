@@ -162,14 +162,6 @@ namespace CourseSystem
             }
         }
 
-        // on _classTimeDataGridView_CellContentClick (checkbox checked)
-        private void CheckClassTimeDataGridView(object sender, DataGridViewCellEventArgs e)
-        {
-            _viewModel.SetCourseEditClassTime((e.ColumnIndex - 1).ToString(), _courseTimes[e.RowIndex].ToString());
-
-            _saveButton.Enabled = _viewModel.IsClassTimeChangedAndMeetRequirement();
-        }
-
         // clean up data grid view
         private void ClearClassTimeDataGridView()
         {
@@ -198,7 +190,7 @@ namespace CourseSystem
             _viewModel.SetCourseEditLanguage(_languageTextBox.Text);
             _viewModel.SetCourseEditSyllabus(_syllabusTextBox.Text);
 
-            _saveButton.Enabled = _viewModel.IsTextChangedAndMeetRequirement();
+            _saveButton.Enabled = IsSaveButtonEnable();
         }
 
         // on _hourComboBox_SelectedIndexChanged
@@ -208,7 +200,24 @@ namespace CourseSystem
             _viewModel.SetCourseEditHour(_hourComboBox.SelectedItem);
             _viewModel.SetCourseEditClass(_classComboBox.SelectedItem);
 
-            _saveButton.Enabled = _viewModel.IsSelectedItemChangedAndHourCorrect();
+            _saveButton.Enabled = IsSaveButtonEnable();
+        }
+
+        // on _classTimeDataGridView_CellContentClick (checkbox checked)
+        private void CheckClassTimeDataGridView(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex > 0)
+                _viewModel.UpdateCheckedCourse((bool)_classTimeDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue);
+
+            _saveButton.Enabled = IsSaveButtonEnable();
+        }
+
+        // IsSaveButtonEnable
+        private bool IsSaveButtonEnable()
+        {
+            if (_hourComboBox.SelectedItem == null)
+                return false;
+            return _viewModel.IsSaveButtonEnable(Int32.Parse(_hourComboBox.SelectedItem.ToString()));
         }
 
         // on _addCourseButton_Click
@@ -259,6 +268,18 @@ namespace CourseSystem
         // on _saveButton_Click
         private void ClickSaveButton(object sender, EventArgs e)
         {
+            string[] classTime = { "", "", "", "", "", "", "" };
+            for (int i = 0; i < _courseTimes.Length; i++)
+            {
+                for (int j = 1; j <= WEEK_OF_DAY; j++)
+                {
+                    if ((bool)_classTimeDataGridView.Rows[i].Cells[j].Value)
+                        classTime[j - 1] = classTime[j - 1] + _courseTimes[i].ToString() + SPACE_KEY;
+                }
+            }
+            for (int i = 0; i < classTime.Length; i++)
+                classTime[i] = classTime[i].Trim();
+            _viewModel.SetCourseEditClassTime(classTime);
             _viewModel.UpdateOrAddCourse();
             _saveButton.Enabled = false;
         }
