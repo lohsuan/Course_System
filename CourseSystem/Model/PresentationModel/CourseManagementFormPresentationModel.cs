@@ -4,7 +4,6 @@ using System.ComponentModel;
 
 namespace CourseSystem
 {
-
     class CourseManagementFormPresentationModel
     {
         enum Mode
@@ -64,7 +63,8 @@ namespace CourseSystem
         // Save button is Enable when classTime checked change and total checked classtimes aree qual to hours
         internal bool IsClassTimeChangedAndMeetRequirement()
         {
-            throw new NotImplementedException();
+            return true;
+            //throw new NotImplementedException();
         }
 
         /// Get model data /////////////////////////////////////////////////////////////////////////////////////////////
@@ -161,6 +161,14 @@ namespace CourseSystem
 
         /// Set _editedCourse data ////////////////////////////////////////////////////////////////////
 
+
+        // SetCourseEditClassTime
+        internal void SetCourseEditClassTime(string weekDay, string numberOfTime)
+        {
+
+            //_editedCourse.ClassTimeMonday
+        }
+
         // SetCourseEditNumber
         internal void SetCourseEditNumber(string number)
         {
@@ -228,12 +236,6 @@ namespace CourseSystem
         {
             if (selectedItem != null)
                 _editedCourse.SetDepartmentName(selectedItem.ToString());
-        }
-
-        // SetCourseEditClassTime
-        internal void SetCourseEditClassTime(int columnIndex, int rowIndex)
-        {
-            //_editedCourse.ClassTimeMonday
         }
 
         // save course

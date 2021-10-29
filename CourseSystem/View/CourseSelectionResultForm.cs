@@ -35,10 +35,10 @@ namespace CourseSystem
             foreach (var course in courseInfoDtos)
             {
                 string[] courseRow = { "", course.Id, course.Number, course.Name, course.Stage, course.Credit, course.Hour,
-            course.RequiredType, course.Teacher, course.ClassTimeSunday, course.ClassTimeMonday, course.ClassTimeTuesday,
-            course.ClassTimeWednesday, course.ClassTimeThursday, course.ClassTimeFriday, course.ClassTimeSaturday, course.Classroom,
-            course.NumberOfStudent, course.NumberOfDropStudent, course.TeacherAssistant, course.Language,
-            course.Note, course.Syllabus, course.Audit, course.Experiment };
+                            course.RequiredType, course.Teacher, course.ClassTimeSunday, course.ClassTimeMonday, course.ClassTimeTuesday,
+                            course.ClassTimeWednesday, course.ClassTimeThursday, course.ClassTimeFriday, course.ClassTimeSaturday, course.Classroom,
+                            course.NumberOfStudent, course.NumberOfDropStudent, course.TeacherAssistant, course.Language,
+                            course.Note, course.Syllabus, course.Audit, course.Experiment };
                 _courseSelectionResultDataGridView.Rows.Add(courseRow);
             }
         }

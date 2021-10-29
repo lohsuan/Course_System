@@ -165,7 +165,7 @@ namespace CourseSystem
         // on _classTimeDataGridView_CellContentClick (checkbox checked)
         private void CheckClassTimeDataGridView(object sender, DataGridViewCellEventArgs e)
         {
-            _viewModel.SetCourseEditClassTime(e.ColumnIndex, e.RowIndex);
+            _viewModel.SetCourseEditClassTime((e.ColumnIndex - 1).ToString(), _courseTimes[e.RowIndex].ToString());
 
             _saveButton.Enabled = _viewModel.IsClassTimeChangedAndMeetRequirement();
         }
