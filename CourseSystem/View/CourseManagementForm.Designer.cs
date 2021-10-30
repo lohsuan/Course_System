@@ -175,6 +175,7 @@ namespace CourseSystem
             this._syllabusTextBox.Name = "_syllabusTextBox";
             this._syllabusTextBox.Size = new System.Drawing.Size(795, 25);
             this._syllabusTextBox.TabIndex = 21;
+            this._syllabusTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             // 
             // _syllabus
             // 
@@ -191,6 +192,7 @@ namespace CourseSystem
             this._languageTextBox.Name = "_languageTextBox";
             this._languageTextBox.Size = new System.Drawing.Size(350, 25);
             this._languageTextBox.TabIndex = 19;
+            this._languageTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             // 
             // _language
             // 
@@ -207,6 +209,7 @@ namespace CourseSystem
             this._teacherAssistantTextBox.Name = "_teacherAssistantTextBox";
             this._teacherAssistantTextBox.Size = new System.Drawing.Size(337, 25);
             this._teacherAssistantTextBox.TabIndex = 17;
+            this._teacherAssistantTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             // 
             // _teacherAssistant
             // 
@@ -232,6 +235,7 @@ namespace CourseSystem
             this._teacherTextBox.Name = "_teacherTextBox";
             this._teacherTextBox.Size = new System.Drawing.Size(350, 25);
             this._teacherTextBox.TabIndex = 14;
+            this._teacherTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             // 
             // _teacher
             // 
@@ -248,6 +252,8 @@ namespace CourseSystem
             this._creditTextBox.Name = "_creditTextBox";
             this._creditTextBox.Size = new System.Drawing.Size(118, 25);
             this._creditTextBox.TabIndex = 12;
+            this._creditTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
+            this._creditTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckNumberInput);
             // 
             // _credit
             // 
@@ -264,6 +270,8 @@ namespace CourseSystem
             this._stageTextBox.Name = "_stageTextBox";
             this._stageTextBox.Size = new System.Drawing.Size(118, 25);
             this._stageTextBox.TabIndex = 10;
+            this._stageTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
+            this._stageTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckNumberInput);
             // 
             // _stage
             // 
@@ -280,6 +288,7 @@ namespace CourseSystem
             this._nameTextBox.Name = "_nameTextBox";
             this._nameTextBox.Size = new System.Drawing.Size(220, 25);
             this._nameTextBox.TabIndex = 8;
+            this._nameTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             // 
             // _name
             // 
@@ -319,6 +328,7 @@ namespace CourseSystem
             this._classComboBox.Name = "_classComboBox";
             this._classComboBox.Size = new System.Drawing.Size(121, 23);
             this._classComboBox.TabIndex = 4;
+            this._classComboBox.SelectedIndexChanged += new System.EventHandler(this.ChangedComboBoxSelectedIndex);
             // 
             // _hourComboBox
             // 
@@ -349,6 +359,7 @@ namespace CourseSystem
             this._requireTypeComboBox.Name = "_requireTypeComboBox";
             this._requireTypeComboBox.Size = new System.Drawing.Size(73, 23);
             this._requireTypeComboBox.TabIndex = 2;
+            this._requireTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.ChangedComboBoxSelectedIndex);
             // 
             // _courseStatusComboBox
             // 
@@ -361,6 +372,7 @@ namespace CourseSystem
             this._courseStatusComboBox.Name = "_courseStatusComboBox";
             this._courseStatusComboBox.Size = new System.Drawing.Size(121, 23);
             this._courseStatusComboBox.TabIndex = 1;
+            this._courseStatusComboBox.SelectedIndexChanged += new System.EventHandler(this.ChangedComboBoxSelectedIndex);
             // 
             // _classTimeDataGridView
             // 

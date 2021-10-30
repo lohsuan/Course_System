@@ -34,18 +34,6 @@ namespace CourseSystem
         {
             _model._courseDataCreateEvent += HandleCourseDataCreateEvent;
             _model._courseDataUpdateEvent += HandleCourseDataUpdateEvent;
-            _stageTextBox.KeyPress += CheckNumberInput;
-            _creditTextBox.KeyPress += CheckNumberInput;
-            _nameTextBox.TextChanged += EditedTextBox;
-            _stageTextBox.TextChanged += EditedTextBox;
-            _creditTextBox.TextChanged += EditedTextBox;
-            _teacherTextBox.TextChanged += EditedTextBox;
-            _teacherAssistantTextBox.TextChanged += EditedTextBox;
-            _languageTextBox.TextChanged += EditedTextBox;
-            _syllabusTextBox.TextChanged += EditedTextBox;
-            _courseStatusComboBox.SelectedIndexChanged += ChangedComboBoxSelectedIndex;
-            _requireTypeComboBox.SelectedIndexChanged += ChangedComboBoxSelectedIndex;
-            _classComboBox.SelectedIndexChanged += ChangedComboBoxSelectedIndex;
         }
 
         // HandleCourseDataUpdateEvent when update course
