@@ -22,6 +22,18 @@ namespace CourseSystem
         Curriculum _curriculum = new Curriculum(); // storing selected course
         List<CourseInfoDto> _courses = new List<CourseInfoDto>(); // storing all departments' courses
 
+        // initial parsed course information
+        public Model()
+        {
+            Course course = new Course();
+            for (int i = 0; i < _departmentPathes.Length; i++)
+            {
+                List<CourseInfoDto> courseInfoDtos = course.CourseInfoCrawler(_departmentPathes[i]);
+                _departments.Add(new Department(course.GetDepartmentName(), courseInfoDtos));
+                _courses.AddRange(courseInfoDtos);
+            }
+        }
+
         // on course created
         internal void NotifyCourseCreated()
         {
@@ -50,18 +62,6 @@ namespace CourseSystem
                 _courseCancelSelectEvent();
         }
 
-        // initial parsed course information
-        public void CrawlCourseInfoFromWeb()
-        {
-            Course course = new Course();
-            for (int i = 0; i < _departmentPathes.Length; i++)
-            {
-                List<CourseInfoDto> courseInfoDtos = course.CourseInfoCrawler(_departmentPathes[i]);
-                _departments.Add(new Department(course.GetDepartmentName(), courseInfoDtos));
-                _courses.AddRange(courseInfoDtos);
-            }
-        }
-
         // get parsed course information
         public List<CourseInfoDto> GetCourseInfo(int classIndex)
         {
@@ -69,19 +69,19 @@ namespace CourseSystem
         }
 
         // GetCourseByIndex
-        internal CourseInfoDto GetCourseByIndex(int selectedIndex)
+        public CourseInfoDto GetCourseByIndex(int selectedIndex)
         {
             return _courses[selectedIndex];
         }
 
         // get department by index
-        internal List<CourseInfoDto> GetDepartment(int tabIndex)
+        public List<CourseInfoDto> GetDepartmentCourse(int tabIndex)
         {
             return _departments[tabIndex].GetCourseInfoDtos();
         }
 
         // get departments
-        internal List<Department> GetDepartments()
+        public List<Department> GetDepartments()
         {
             return _departments;
         }
@@ -100,32 +100,31 @@ namespace CourseSystem
         }
 
         // add checked course to curriculum
-        internal void SelectCheckedCourseToCurriculum(List<CourseInfoDto> checkedCourses)
+        public void SelectCheckedCourseToCurriculum(List<CourseInfoDto> checkedCourses)
         {
             _curriculum.AddCourse(checkedCourses);
         }
 
         // unselect course from curriculum
-        internal void CancelSelectCourseFromCurriculum(string id)
+        public void CancelSelectCourseFromCurriculum(string id)
         {
             _curriculum.RemoveCourse(id);
-
         }
 
         // get curriculum(selected course)
-        internal List<CourseInfoDto> GetCurriculum()
+        public List<CourseInfoDto> GetCurriculum()
         {
             return _curriculum.GetCurriculum();
         }
 
         // get all course
-        internal List<CourseInfoDto> GetAllCourses()
+        public List<CourseInfoDto> GetAllCourses()
         {
             return _courses;
         }
 
         // AddCourse
-        internal void AddCourse(CourseInfoDto editedCourse)
+        public void AddCourse(CourseInfoDto editedCourse)
         {
             CourseInfoDto newCourse = new CourseInfoDto(editedCourse);
             _courses.Add(newCourse);

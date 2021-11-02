@@ -10,7 +10,6 @@ namespace CourseSystem
         {
             _model = new Model();
             InitializeComponent();
-            _model.CrawlCourseInfoFromWeb();
         }
 
         // on _courseSelectingSystemButton click

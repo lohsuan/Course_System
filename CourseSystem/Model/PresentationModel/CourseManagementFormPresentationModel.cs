@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace CourseSystem
 {
-    class CourseManagementFormPresentationModel
+    public class CourseManagementFormPresentationModel
     {
         enum Mode
         {
@@ -25,7 +25,7 @@ namespace CourseSystem
         }
 
         // get all course name
-        internal List<string> GetAllCourseName()
+        public List<string> GetAllCourseName()
         {
             List<string> courseNames = new List<string>();
             foreach (CourseInfoDto course in _model.GetAllCourses())
@@ -34,7 +34,7 @@ namespace CourseSystem
         }
 
         // GetSelectedCourseInfo to groupbox
-        internal void UpdateSelectedCourse(int selectedIndex)
+        public void UpdateSelectedCourse(int selectedIndex)
         {
             _mode = Mode.Edit;
             _currentCourse = _model.GetCourseByIndex(selectedIndex);
@@ -42,25 +42,25 @@ namespace CourseSystem
         }
 
         // check is number or not
-        internal bool IsNumberInput(char keyChar)
+        public bool IsNumberInput(char keyChar)
         {
             return Char.IsDigit(keyChar) || Char.IsControl(keyChar) || (keyChar == DOT);
         }
 
         // Is Save/Add Course Button Enable
-        internal bool IsSaveButtonEnable(int hour)
+        public bool IsSaveButtonEnable(int hour)
         {
             return IsCourseInfoMeetNotNullRequire() && IsCheckedClassTimeEqualToHour(hour);
         }
 
         // IsTextBoxMeetNotNullRequirement
-        internal bool IsCourseInfoMeetNotNullRequire()
+        public bool IsCourseInfoMeetNotNullRequire()
         {
             return _editedCourse.IsCourseInfoMeetNotNullRequire();
         }
 
         // Save button is Enable when total checked classtimes aree qual to hours (classTime checked change)
-        internal bool IsCheckedClassTimeEqualToHour(int hour)
+        public bool IsCheckedClassTimeEqualToHour(int hour)
         {
             return _checkedCourseAmount == hour;
         }
@@ -68,73 +68,73 @@ namespace CourseSystem
         /// Get model data /////////////////////////////////////////////////////////////////////////////////////////////
 
         // GetNumber
-        internal string GetNumber()
+        public string GetNumber()
         {
             return _currentCourse.Number;
         }
 
         // GetName
-        internal string GetName()
+        public string GetName()
         {
             return _currentCourse.Name;
         }
 
         //GetStage
-        internal string GetStage()
+        public string GetStage()
         {
             return _currentCourse.Stage;
         }
 
         // GetCredit
-        internal string GetCredit()
+        public string GetCredit()
         {
             return _currentCourse.Credit;
         }
 
         // GetTeacher
-        internal string GetTeacher()
+        public string GetTeacher()
         {
             return _currentCourse.Teacher;
         }
 
         // GetRequireType
-        internal object GetRequireType()
+        public object GetRequireType()
         {
             return _currentCourse.RequiredType;
         }
 
         // GetTeacherAssistant
-        internal string GetTeacherAssistant()
+        public string GetTeacherAssistant()
         {
             return _currentCourse.TeacherAssistant;
         }
 
         // GetLanguage
-        internal string GetLanguage()
+        public string GetLanguage()
         {
             return _currentCourse.Language;
         }
 
         // GetSyllabus
-        internal string GetSyllabus()
+        public string GetSyllabus()
         {
             return _currentCourse.Syllabus;
         }
 
         // GetHour
-        internal object GetHour()
+        public object GetHour()
         {
             return _currentCourse.Hour;
         }
 
         // GetClass
-        internal object GetClass()
+        public object GetClass()
         {
             return _currentCourse.GetDepartmentName();
         }
 
         // get class time
-        internal List<string> GetClassTime()
+        public List<string> GetClassTime()
         {
             _checkedCourseAmount = 0;
             List<string> classTimes = GetClassTime(_currentCourse);
@@ -162,7 +162,7 @@ namespace CourseSystem
         /// Set _editedCourse data ////////////////////////////////////////////////////////////////////
 
         // UpdateCheckedCourseAmount
-        internal void UpdateCheckedCourse(bool editedFormattedValue)
+        public void UpdateCheckedCourse(bool editedFormattedValue)
         {
             if (editedFormattedValue)
                 _checkedCourseAmount++;
@@ -171,82 +171,82 @@ namespace CourseSystem
         }
 
         // SetCourseEditClassTime
-        internal void SetCourseEditClassTime(string[] classTime)
+        public void SetCourseEditClassTime(string[] classTime)
         {
             _editedCourse.SetCourseEditClassTime(classTime);
         }
 
         // SetCourseEditNumber
-        internal void SetCourseEditNumber(string number)
+        public void SetCourseEditNumber(string number)
         {
             _editedCourse.Number = number;
         }
 
         // SetCourseEditName
-        internal void SetCourseEditName(string name)
+        public void SetCourseEditName(string name)
         {
             _editedCourse.Name = name;
         }
 
         // SetCourseEditStage
-        internal void SetCourseEditStage(string stage)
+        public void SetCourseEditStage(string stage)
         {
             _editedCourse.Stage = stage;
         }
 
         // SetCourseEditCredit
-        internal void SetCourseEditCredit(string credit)
+        public void SetCourseEditCredit(string credit)
         {
             _editedCourse.Credit = credit;
         }
 
         // SetCourseEditTeacher
-        internal void SetCourseEditTeacher(string teacher)
+        public void SetCourseEditTeacher(string teacher)
         {
             _editedCourse.Teacher = teacher;
         }
 
         // SetCourseEditRequireType
-        internal void SetCourseEditRequireType(object selectedItem)
+        public void SetCourseEditRequireType(object selectedItem)
         {
             if (selectedItem != null)
                 _editedCourse.RequiredType = selectedItem.ToString();
         }
 
         // SetCourseEditTeacherAssistant
-        internal void SetCourseEditTeacherAssistant(string teacherAssistant)
+        public void SetCourseEditTeacherAssistant(string teacherAssistant)
         {
             _editedCourse.TeacherAssistant = teacherAssistant;
         }
 
         // SetCourseEditLanguage
-        internal void SetCourseEditLanguage(string language)
+        public void SetCourseEditLanguage(string language)
         {
             _editedCourse.Language = language;
         }
 
         // SetCourseEditSyllabus
-        internal void SetCourseEditSyllabus(string syllabus)
+        public void SetCourseEditSyllabus(string syllabus)
         {
             _editedCourse.Syllabus = syllabus;
         }
 
         // SetCourseEditHour
-        internal void SetCourseEditHour(object selectedItem)
+        public void SetCourseEditHour(object selectedItem)
         {
             if (selectedItem != null)
                 _editedCourse.Hour = selectedItem.ToString();
         }
 
         // SetCourseEditClass
-        internal void SetCourseEditClass(object selectedItem)
+        public void SetCourseEditClass(object selectedItem)
         {
             if (selectedItem != null)
                 _editedCourse.SetDepartmentName(selectedItem.ToString());
         }
 
         // save course
-        internal void UpdateOrAddCourse()
+        public void UpdateOrAddCourse()
         {
             if (_mode.Equals(Mode.Edit))
             {
@@ -261,7 +261,7 @@ namespace CourseSystem
         }
 
         // add course mode
-        internal void AddCourseMode()
+        public void AddCourseMode()
         {
             _mode = Mode.Add;
             _checkedCourseAmount = 0;
