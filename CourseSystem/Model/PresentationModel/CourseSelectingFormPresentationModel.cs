@@ -179,7 +179,7 @@ namespace CourseSystem
         }
 
         // get selected row index
-        internal List<List<CourseInfoDto>> GetNotSelectedCourse()
+        public List<List<CourseInfoDto>> GetNotSelectedCourse()
         {
             _checkedCourses.Clear();
             _notCheckedCourses.Clear();

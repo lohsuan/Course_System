@@ -22,6 +22,17 @@
     </timestamps>
     <violations />
   </sourcecode>
+  <sourcecode name="StartUpFormPresentationModel.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2021/10/01 21:20:53.539</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2021/10/17 20:33:52.662</sourceFile>
+      <parser>2021/10/01 21:20:53.539</parser>
+      <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations />
+  </sourcecode>
   <project key="-394291688">
     <configuration>DEBUG;TRACE</configuration>
   </project>
@@ -73,7 +84,7 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/27 17:02:21.847</sourceFile>
+      <sourceFile>2021/11/02 22:44:36.472</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -95,7 +106,7 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/29 21:03:46.889</sourceFile>
+      <sourceFile>2021/11/02 23:20:29.882</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -106,7 +117,7 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/29 23:41:08.047</sourceFile>
+      <sourceFile>2021/11/03 23:33:48.429</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -117,7 +128,7 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/28 21:12:19.534</sourceFile>
+      <sourceFile>2021/11/04 00:25:56.172</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -129,17 +140,6 @@
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
       <sourceFile>2021/10/28 20:40:31.720</sourceFile>
-      <parser>2021/10/01 21:20:53.539</parser>
-      <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
-      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
-    </timestamps>
-    <violations />
-  </sourcecode>
-  <sourcecode name="StartUpFormPresentationModel.cs" parser="StyleCop.CSharp.CsParser">
-    <timestamps>
-      <styleCop>2021/10/01 21:20:53.539</styleCop>
-      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/17 20:33:52.662</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -249,7 +249,7 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/10/25 13:25:06.082</sourceFile>
+      <sourceFile>2021/11/02 21:52:16.741</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>

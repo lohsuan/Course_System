@@ -241,11 +241,6 @@
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
-                <RelativePath>Model\PresentationModel\StartUpFormPresentationModel.cs</RelativePath>
-                <ProjectName>CourseSystem</ProjectName>
-                <AnalysisFileType>Model</AnalysisFileType>
-              </AnalysisFile>
-              <AnalysisFile>
                 <RelativePath>Program.cs</RelativePath>
                 <ProjectName>CourseSystem</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
@@ -300,10 +295,25 @@
                 <ProjectName>CourseSystem</ProjectName>
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\ModelTests.cs</RelativePath>
+                <ProjectName>CourseSystemTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\PresentationModel\CourseManagementFormPresentationModelTests.cs</RelativePath>
+                <ProjectName>CourseSystemTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
+                <ProjectName>CourseSystemTests</ProjectName>
+                <AnalysisFileType>Model</AnalysisFileType>
+              </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>2873</ProductionLoc>
-          <TestLoc>0</TestLoc>
+          <ProductionLoc>2896</ProductionLoc>
+          <TestLoc>524</TestLoc>
         </CodeReview>
       </Data>
     </div>

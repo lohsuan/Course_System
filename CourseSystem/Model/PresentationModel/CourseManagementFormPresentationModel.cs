@@ -268,7 +268,5 @@ namespace CourseSystem
             _editedCourse = new CourseInfoDto();
             _currentCourse = new CourseInfoDto();
         }
-
-
     }
 }
