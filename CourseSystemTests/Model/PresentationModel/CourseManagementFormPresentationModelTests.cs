@@ -12,13 +12,15 @@ namespace CourseSystem.Tests
     public class CourseManagementFormPresentationModelTests
     {
         CourseManagementFormPresentationModel _viewmodel;
-        
+        PrivateObject _viewmodelPrivate;
+
         //init
         [TestInitialize]
         public void Initialize()
         {
             Model model = new Model();
             _viewmodel = new CourseManagementFormPresentationModel(model);
+            _viewmodelPrivate = new PrivateObject(_viewmodel);
         }
 
         // CourseManagementFormPresentationModelTest
@@ -216,98 +218,161 @@ namespace CourseSystem.Tests
         [TestMethod()]
         public void SetCourseEditClassTimeTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            string[] classTime = { "", "3 4", "1", "", "", "", "" };
+            _viewmodel.SetCourseEditClassTime(classTime);
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("1 3", _viewmodel.GetClassTime()[0]);
+            Assert.AreEqual("1 4", _viewmodel.GetClassTime()[1]);
+            Assert.AreEqual("2 1", _viewmodel.GetClassTime()[2]);
         }
 
         // SetCourseEditNumberTest
         [TestMethod()]
         public void SetCourseEditNumberTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditNumber("123456");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("123456", _viewmodel.GetNumber());
         }
 
         // SetCourseEditNameTest
         [TestMethod()]
         public void SetCourseEditNameTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditName("程式設計");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("程式設計", _viewmodel.GetName());
         }
 
         // SetCourseEditStageTest
         [TestMethod()]
         public void SetCourseEditStageTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditStage("2");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("2", _viewmodel.GetStage());
         }
 
         // SetCourseEditCreditTest
         [TestMethod()]
         public void SetCourseEditCreditTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditCredit("2.0");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("2.0", _viewmodel.GetCredit());
         }
 
         // SetCourseEditTeacherTest
         [TestMethod()]
         public void SetCourseEditTeacherTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditTeacher("老師");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("老師", _viewmodel.GetTeacher());
         }
 
         // SetCourseEditRequireTypeTest
         [TestMethod()]
         public void SetCourseEditRequireTypeTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditRequireType("★");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("★", _viewmodel.GetRequireType());
         }
 
         // SetCourseEditTeacherAssistantTest
         [TestMethod()]
         public void SetCourseEditTeacherAssistantTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditTeacherAssistant("assistant");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("assistant", _viewmodel.GetTeacherAssistant());
         }
 
         // SetCourseEditLanguageTest
         [TestMethod()]
         public void SetCourseEditLanguageTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditLanguage("英語");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("英語", _viewmodel.GetLanguage());
         }
 
         // SetCourseEditSyllabusTest
         [TestMethod()]
         public void SetCourseEditSyllabusTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditSyllabus("123");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("123", _viewmodel.GetSyllabus());
         }
 
         // SetCourseEditHourTest
         [TestMethod()]
         public void SetCourseEditHourTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditHour("1");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("1", _viewmodel.GetHour());
         }
 
         // SetCourseEditClassTest
         [TestMethod()]
         public void SetCourseEditClassTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditClass("電子三甲");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("電子三甲", _viewmodel.GetClass());
         }
 
         // UpdateOrAddCourseTest
         [TestMethod()]
         public void UpdateOrAddCourseTest()
         {
-            Assert.Fail();
+            _viewmodel.UpdateSelectedCourse(4);
+            _viewmodel.SetCourseEditClass("電子三甲");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("電子三甲", _viewmodel.GetClass());
+
+            _viewmodel.AddCourseMode();
+            _viewmodel.SetCourseEditNumber("123456");
+            _viewmodel.SetCourseEditName("程式設計");
+            _viewmodel.SetCourseEditStage("2");
+            _viewmodel.SetCourseEditTeacher("老師");
+            _viewmodel.SetCourseEditRequireType("★");
+            _viewmodel.SetCourseEditClass("電子三甲");
+            _viewmodel.UpdateOrAddCourse();
+            Assert.AreEqual("程式設計", _viewmodel.GetAllCourseName()[_viewmodel.GetAllCourseName().Count - 1]);
         }
 
         // AddCourseModeTest
         [TestMethod()]
         public void AddCourseModeTest()
         {
-            Assert.Fail();
+            _viewmodel.AddCourseMode();
+            Assert.AreEqual(null, _viewmodel.GetNumber());
+            Assert.AreEqual(null, _viewmodel.GetName());
+            Assert.AreEqual(null, _viewmodel.GetStage());
+            Assert.AreEqual(null, _viewmodel.GetCredit());
+            Assert.AreEqual(null, _viewmodel.GetTeacher());
+            Assert.AreEqual(null, _viewmodel.GetRequireType());
+            Assert.AreEqual(null, _viewmodel.GetTeacherAssistant());
+            Assert.AreEqual(null, _viewmodel.GetLanguage());
+            Assert.AreEqual(null, _viewmodel.GetSyllabus());
+            Assert.AreEqual(null, _viewmodel.GetHour());
+            Assert.AreEqual(null, _viewmodel.GetClass());
         }
     }
 }

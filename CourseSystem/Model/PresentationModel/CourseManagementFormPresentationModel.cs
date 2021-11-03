@@ -231,7 +231,7 @@ namespace CourseSystem
             _editedCourse.Syllabus = syllabus;
         }
 
-        // SetCourseEditHour
+        // SetCourseEditHourg
         public void SetCourseEditHour(object selectedItem)
         {
             if (selectedItem != null)
@@ -268,5 +268,7 @@ namespace CourseSystem
             _editedCourse = new CourseInfoDto();
             _currentCourse = new CourseInfoDto();
         }
+
+
     }
 }
