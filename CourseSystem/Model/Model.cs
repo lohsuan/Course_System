@@ -35,28 +35,28 @@ namespace CourseSystem
         }
 
         // on course created
-        internal void NotifyCourseCreated()
+        public void NotifyCourseCreated()
         {
             if (_courseDataCreateEvent != null)
                 _courseDataCreateEvent();
         }
 
         // on course update
-        internal void NotifyCourseUpdated()
+        public void NotifyCourseUpdated()
         {
             if (_courseDataUpdateEvent != null)
                 _courseDataUpdateEvent();
         }
 
         // on course Select
-        internal void NotifyCourseSelect()
+        public void NotifyCourseSelect()
         {
             if (_courseSelectEvent != null)
                 _courseSelectEvent();
         }
 
         // on course Cancel Select
-        internal void NotifyCourseCancelSelect()
+        public void NotifyCourseCancelSelect()
         {
             if (_courseCancelSelectEvent != null)
                 _courseCancelSelectEvent();

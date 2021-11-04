@@ -4,19 +4,26 @@ using System.Collections.Generic;
 namespace CourseSystem.Tests
 {
     /// <summary>
-    ///   Number of test method: 12
+    ///   Number of test method: 16
     /// </summary>
 
     [TestClass()]
     public class ModelTests
     {
         Model _model;
+        int _event;
 
-        //init
+        // TestInitialize
         [TestInitialize]
-        public void Initialize()
+        public void TestInitialize()
         {
             _model = new Model();
+        }
+
+        // MockEventHandler
+        private void MockEventHandler()
+        {
+            _event += 1;
         }
 
         // ModelTest
@@ -24,6 +31,58 @@ namespace CourseSystem.Tests
         public void ModelTest()
         {
             Assert.IsNotNull(_model.GetAllCourses());
+        }
+
+        // on course created
+        [TestMethod()]
+        public void NotifyCourseCreatedTest()
+        {
+            _event = 0;
+            _model._courseDataCreateEvent += MockEventHandler;
+         
+            _model.NotifyCourseCreated();
+            Assert.AreEqual(1, _event);
+            _model.NotifyCourseCreated();
+            Assert.AreEqual(2, _event);
+        }
+
+        // on course update
+        [TestMethod()]
+        public void NotifyCourseUpdatedTest()
+        {
+            _event = 0;
+            _model._courseDataUpdateEvent += MockEventHandler;
+
+            _model.NotifyCourseUpdated();
+            Assert.AreEqual(1, _event);
+            _model.NotifyCourseUpdated();
+            Assert.AreEqual(2, _event);
+        }
+
+        // on course Select
+        [TestMethod()]
+        public void NotifyCourseSelectTest()
+        {
+            _event = 0;
+            _model._courseSelectEvent += MockEventHandler;
+
+            _model.NotifyCourseSelect();
+            Assert.AreEqual(1, _event);
+            _model.NotifyCourseSelect();
+            Assert.AreEqual(2, _event);
+        }
+
+        // on course Cancel Select
+        [TestMethod()]
+        public void NotifyCourseCancelSelectTest()
+        {
+            _event = 0;
+            _model._courseCancelSelectEvent += MockEventHandler;
+
+            _model.NotifyCourseCancelSelect();
+            Assert.AreEqual(1, _event);
+            _model.NotifyCourseCancelSelect();
+            Assert.AreEqual(2, _event);
         }
 
         // GetCourseInfoTest
