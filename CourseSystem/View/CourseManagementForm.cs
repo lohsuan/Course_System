@@ -34,6 +34,7 @@ namespace CourseSystem
         {
             _model._courseDataCreateEvent += HandleCourseDataCreateEvent;
             _model._courseDataUpdateEvent += HandleCourseDataUpdateEvent;
+            _model._courseImportEvent += HandleCourseDataUpdateEvent;
         }
 
         // HandleCourseDataUpdateEvent when update course
@@ -270,6 +271,12 @@ namespace CourseSystem
             _viewModel.SetCourseEditClassTime(classTime);
             _viewModel.UpdateOrAddCourse();
             _saveButton.Enabled = false;
+        }
+
+        // _importClassButton_Click
+        private void ImportClass(object sender, EventArgs e)
+        {
+            _viewModel.ImportClass();
         }
     }
 }

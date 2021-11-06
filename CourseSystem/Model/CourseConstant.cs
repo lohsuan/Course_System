@@ -1,10 +1,18 @@
 ﻿
 namespace CourseSystem
 {
-    class CourseConstant
+    public class CourseConstant
     {
         public const string COMPUTER_SCIENCE_JUNIOR_CLASS_URL = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2433";
         public const string ELECTRIC_ENGINEERING_JUNIOR_CLASS_URL = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2423";
+        public const string COMPUTER_SCIENCE_JUNIOR = "資工三";
+        public const string ELECTRIC_ENGINEERING_JUNIOR = "電子三甲";
+
+        public const string COMPUTER_SCIENCE_FRESHMAN_CLASS_URL = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2676";
+        public const string COMPUTER_SCIENCE_SOPHOMORE_CLASS_URL = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2550";
+        public const string COMPUTER_SCIENCE_SENIOR_CLASS_URL = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2314";
+        public const string COMPUTER_SCIENCE__GRADUATE_SCHOOL_URL = "https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2701";
+
         public const string CLASS_INFORMATION_XPATH = "//body/table";
         public const int NUMBER = 0;
         public const int NAME = 1;

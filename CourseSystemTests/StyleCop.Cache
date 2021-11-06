@@ -7,7 +7,7 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/11/02 23:54:07.438</sourceFile>
+      <sourceFile>2021/11/04 21:20:41.970</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
@@ -18,7 +18,18 @@
     <timestamps>
       <styleCop>2021/10/01 21:20:53.539</styleCop>
       <settingsFile>0001/01/01 00:00:00.000</settingsFile>
-      <sourceFile>2021/11/03 12:52:44.203</sourceFile>
+      <sourceFile>2021/11/05 21:44:50.919</sourceFile>
+      <parser>2021/10/01 21:20:53.539</parser>
+      <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
+      <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>
+    </timestamps>
+    <violations />
+  </sourcecode>
+  <sourcecode name="CourseSelectingFormPresentationModelTests.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2021/10/01 21:20:53.539</styleCop>
+      <settingsFile>0001/01/01 00:00:00.000</settingsFile>
+      <sourceFile>2021/11/05 22:02:22.846</sourceFile>
       <parser>2021/10/01 21:20:53.539</parser>
       <KellyPalRules.KellyPalAnalyzer>2021/10/01 21:20:53.539</KellyPalRules.KellyPalAnalyzer>
       <KellyPalRules.KellyPalAnalyzer.FilesHashCode>0</KellyPalRules.KellyPalAnalyzer.FilesHashCode>

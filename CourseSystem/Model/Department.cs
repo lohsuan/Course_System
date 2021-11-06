@@ -17,6 +17,11 @@ namespace CourseSystem
             _courseInfoDtos = courseInfoDtos;
         }
 
+        public Department(string departmentName)
+        {
+            _departmentName = departmentName;
+        }
+
         // get class' course
         public List<CourseInfoDto> GetCourseInfoDtos()
         {

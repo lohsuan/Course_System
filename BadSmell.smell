@@ -306,14 +306,19 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Model\PresentationModel\CourseSelectingFormPresentationModelTests.cs</RelativePath>
+                <ProjectName>CourseSystemTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
                 <ProjectName>CourseSystemTests</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>2896</ProductionLoc>
-          <TestLoc>524</TestLoc>
+          <ProductionLoc>3053</ProductionLoc>
+          <TestLoc>683</TestLoc>
         </CodeReview>
       </Data>
     </div>

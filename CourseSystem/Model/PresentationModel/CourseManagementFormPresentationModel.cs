@@ -267,5 +267,12 @@ namespace CourseSystem
             _editedCourse = new CourseInfoDto();
             _currentCourse = new CourseInfoDto();
         }
+
+        // import class
+        internal void ImportClass()
+        {
+            _model.ImportClass();
+            _model.NotifyCourseImport();
+        }
     }
 }

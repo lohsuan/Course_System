@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace CourseSystem
 {
@@ -13,11 +14,15 @@ namespace CourseSystem
         public delegate void OnCourseSelectEventHandler();
         public event OnCourseCancelSelectEventHandler _courseCancelSelectEvent;
         public delegate void OnCourseCancelSelectEventHandler();
+        public event OnCourseImportEventHandler _courseImportEvent;
+        public delegate void OnCourseImportEventHandler();
 
-        private const string COMPUTER_SCIENCE_JUNIOR = "資工三";
-        private const string ELECTRIC_ENGINEERING_JUNIOR = "電子三甲";
-        private string[] _departmentPathes = { CourseConstant.COMPUTER_SCIENCE_JUNIOR_CLASS_URL, CourseConstant.ELECTRIC_ENGINEERING_JUNIOR_CLASS_URL };
-        string[] _departmentNames = { COMPUTER_SCIENCE_JUNIOR, ELECTRIC_ENGINEERING_JUNIOR };
+        private const int SLEEP_TIME = 550;
+        private List<string> _departmentPathes = new List<string>();
+        private List<string> _departmentNames = new List<string>();
+
+        private string[] _computerScienceCoursePathes = { CourseConstant.COMPUTER_SCIENCE_FRESHMAN_CLASS_URL, CourseConstant.COMPUTER_SCIENCE_SOPHOMORE_CLASS_URL, CourseConstant.COMPUTER_SCIENCE_JUNIOR_CLASS_URL, CourseConstant.COMPUTER_SCIENCE_SENIOR_CLASS_URL, CourseConstant.COMPUTER_SCIENCE__GRADUATE_SCHOOL_URL };
+
         List<Department> _departments = new List<Department>(); // read only, storing each department's course
         Curriculum _curriculum = new Curriculum(); // storing selected course
         List<CourseInfoDto> _courses = new List<CourseInfoDto>(); // storing all departments' courses
@@ -25,8 +30,16 @@ namespace CourseSystem
         // initial parsed course information
         public Model()
         {
+            _departmentPathes = new List<string>()
+            {
+                CourseConstant.COMPUTER_SCIENCE_JUNIOR_CLASS_URL, CourseConstant.ELECTRIC_ENGINEERING_JUNIOR_CLASS_URL
+            };
+            _departmentNames = new List<string> 
+            {
+                CourseConstant.COMPUTER_SCIENCE_JUNIOR, CourseConstant.ELECTRIC_ENGINEERING_JUNIOR 
+            };
             Course course = new Course();
-            for (int i = 0; i < _departmentPathes.Length; i++)
+            for (int i = 0; i < _departmentPathes.Count; i++)
             {
                 List<CourseInfoDto> courseInfoDtos = course.CourseInfoCrawler(_departmentPathes[i]);
                 _departments.Add(new Department(course.GetDepartmentName(), courseInfoDtos));
@@ -60,6 +73,13 @@ namespace CourseSystem
         {
             if (_courseCancelSelectEvent != null)
                 _courseCancelSelectEvent();
+        }
+
+        // on course Imort
+        public void NotifyCourseImport()
+        {
+            if (_courseImportEvent != null)
+                _courseImportEvent();
         }
 
         // get parsed course information
@@ -128,7 +148,48 @@ namespace CourseSystem
         {
             CourseInfoDto newCourse = new CourseInfoDto(editedCourse);
             _courses.Add(newCourse);
-            _departments[Array.IndexOf(_departmentNames, newCourse.GetDepartmentName())].AddCourse(newCourse);
+            //_departments[Array.IndexOf(_departmentNames, newCourse.GetDepartmentName())].AddCourse(newCourse);
+            _departments[_departmentNames.FindIndex(x => x == newCourse.GetDepartmentName())].AddCourse(newCourse);
+        }
+
+        // ImportClass
+        public void ImportClass()
+        {
+            Course course = new Course();
+            for (int i = 0; i < _computerScienceCoursePathes.Length; i++)
+            {
+                if (_departmentPathes.Find(x => x.Equals(_computerScienceCoursePathes[i])) != null)
+                    continue;
+                List<CourseInfoDto> courseInfoDtos = course.CourseInfoCrawler(_computerScienceCoursePathes[i]);
+                _departments.Add(new Department(course.GetDepartmentName()));
+                AddNotDuplicateNumberCourse(courseInfoDtos);
+                Thread.Sleep(SLEEP_TIME);
+            }
+        }
+
+        // AddNotDuplicateNumberCourse
+        private void AddNotDuplicateNumberCourse(List<CourseInfoDto> courseInfoDtos)
+        {
+            foreach (CourseInfoDto courseInfoDto in courseInfoDtos)
+            {
+                if (GetNumber(courseInfoDto) == "" || _courses.FindAll(x => x.Number.Equals(GetNumber(courseInfoDto))).Count == 0)
+                {
+                    _courses.Add(courseInfoDto);
+                    _departments[_departments.Count - 1].AddCourse(courseInfoDto);
+                }
+            }
+        }
+
+        // GetNumber
+        private string GetNumber(CourseInfoDto courseInfoDto)
+        {
+            return courseInfoDto.Number;
+        }
+
+        // get department amount
+        public int GetDepartmentAmount()
+        {
+            return _departments.Count;
         }
     }
 }

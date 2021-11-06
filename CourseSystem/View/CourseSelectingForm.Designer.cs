@@ -92,11 +92,10 @@ namespace CourseSystem
             // _tabPage1
             // 
             this._tabPage1.Controls.Add(this._firstTabDataGridView);
-            this._tabPage1.Controls.Add(this._secondTabDataGridView);
             this._tabPage1.Location = new System.Drawing.Point(4, 25);
             this._tabPage1.Name = "_tabPage1";
             this._tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this._tabPage1.Size = new System.Drawing.Size(1406, 495);
+            this._tabPage1.Size = new System.Drawing.Size(1450, 495);
             this._tabPage1.TabIndex = 0;
             this._tabPage1.Text = "tabPage1";
             this._tabPage1.UseVisualStyleBackColor = true;
@@ -106,7 +105,7 @@ namespace CourseSystem
             this._secondTabDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this._secondTabDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this._secondTabDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._secondTabDataGridView.Location = new System.Drawing.Point(6, 0);
+            this._secondTabDataGridView.Location = new System.Drawing.Point(0, 0);
             this._secondTabDataGridView.Name = "_secondTabDataGridView";
             this._secondTabDataGridView.RowHeadersVisible = false;
             this._secondTabDataGridView.RowHeadersWidth = 51;
@@ -116,10 +115,11 @@ namespace CourseSystem
             // 
             // _tabPage2
             // 
+            this._tabPage2.Controls.Add(this._secondTabDataGridView);
             this._tabPage2.Location = new System.Drawing.Point(4, 25);
             this._tabPage2.Name = "_tabPage2";
             this._tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this._tabPage2.Size = new System.Drawing.Size(1471, 495);
+            this._tabPage2.Size = new System.Drawing.Size(1450, 495);
             this._tabPage2.TabIndex = 1;
             this._tabPage2.Text = "tabPage2";
             this._tabPage2.UseVisualStyleBackColor = true;

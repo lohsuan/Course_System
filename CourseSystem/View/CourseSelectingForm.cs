@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CourseSystem
@@ -10,21 +12,36 @@ namespace CourseSystem
         private Model _model;
         private int _currentTabIndex;
         private List<DataGridView> _dataGridViews = new List<DataGridView>();
+        private List<TabPage> _tabPages = new List<TabPage>();
+        
         public CourseSelectingForm(Model model)
         {
             _model = model;
             _viewModel = new CourseSelectingFormPresentationModel(model);
             InitializeComponent();
-            // handle unupdate checkbox problem when user click the same checkbox to fast
+            PrepareEvent();
+            _dataGridViews.Add(_firstTabDataGridView);
+            _dataGridViews.Add(_secondTabDataGridView);
+            _tabPages.Add(_tabPage1);
+            _tabPages.Add(_tabPage2);
+            if (_tabPages.Count < _viewModel.GetDepartmentAmount())
+            {
+                for (int i = _tabPages.Count; i < _viewModel.GetDepartmentAmount(); i++)
+                    AddNewDataGridViewAndTab();
+            }
+            SetUpDataGridView();
+            ReloadNotSelectedCourse();
+        }
+
+        // PrepareEvent
+        private void PrepareEvent()
+        {
             _firstTabDataGridView.CellContentDoubleClick += ClickDataGridViewCellContent;
             _model._courseDataCreateEvent += HandleCourseChangeEvent;
             _model._courseDataUpdateEvent += HandleCourseChangeEvent;
             _model._courseCancelSelectEvent += HandleCourseChangeEvent;
             _model._courseSelectEvent += HandleCourseChangeEvent;
-            _dataGridViews.Add(_firstTabDataGridView);
-            _dataGridViews.Add(_secondTabDataGridView);
-            SetUpDataGridView();
-            ReloadNotSelectedCourse();
+            _model._courseImportEvent += HandleCourseImportEvent;
         }
 
         // HandleCourseChangeEvent Create, Update, Cancel Select Event
@@ -33,12 +50,65 @@ namespace CourseSystem
             ReloadNotSelectedCourse();
         }
 
+        // HandleCourseImportEvent
+        private void HandleCourseImportEvent()
+        {
+            for (int i = _tabPages.Count; i < _viewModel.GetDepartmentAmount(); i++)
+            {
+                AddNewDataGridViewAndTab();
+            }
+            ReloadNotSelectedCourse();
+        }
+
+        // AddNewDatagridViewAndTab when course import
+        private void AddNewDataGridViewAndTab()
+        {
+            DataGridView dataGridView = new DataGridView();
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.RowHeadersVisible = false;
+            dataGridView.Size = _firstTabDataGridView.Size;
+            _dataGridViews.Add(dataGridView);
+            dataGridView.CellContentClick += ClickDataGridViewCellContent;
+            dataGridView.CellContentDoubleClick += ClickDataGridViewCellContent;
+            AddCheckBoxColumn(dataGridView);
+
+            TabPage tabPage = new TabPage();
+            tabPage.Size = new System.Drawing.Size(1471, 495);
+            _courseTabControl.Controls.Add(tabPage);
+            tabPage.Controls.Add(dataGridView);
+            _tabPages.Add(tabPage);
+        }
+
+        // PrepareDataGridViewHeader
+        private void PrepareDataGridViewHeader(DataGridView dataGridView)
+        {
+            Dictionary<string, string> dataGridViewHeader = _viewModel.GetCourseHeader();
+            foreach (KeyValuePair<string, string> entry in dataGridViewHeader)
+            {
+                dataGridView.Columns[entry.Key].HeaderText = entry.Value;
+            }
+            dataGridView.Columns[1].Visible = false;
+        }
+
+        // uncheck all course and check box
+        private void ReloadNotSelectedCourse()
+        {
+            List<List<CourseInfoDto>> notSelectedCourses = _viewModel.GetNotSelectedCourse();
+            for (int i = 0; i < _dataGridViews.Count; i++)
+            {
+                _dataGridViews[i].DataSource = notSelectedCourses[i];
+                _tabPages[i].Text = _viewModel.GetDepartmentName(i);
+            }
+        }
+
         // prepare the initial course view
         private void SetUpDataGridView()
         {
             _submitConfirmButton.Enabled = false;
-            this._secondTabDataGridView.CellContentClick += ClickDataGridViewCellContent;
-            this._secondTabDataGridView.CellContentDoubleClick += ClickDataGridViewCellContent;
+            _secondTabDataGridView.CellContentClick += ClickDataGridViewCellContent;
+            _secondTabDataGridView.CellContentDoubleClick += ClickDataGridViewCellContent;
             AddCheckBoxColumn(_firstTabDataGridView);
             AddCheckBoxColumn(_secondTabDataGridView);
             _firstTabDataGridView.DataSource = _viewModel.GetCourseInfo(0);
@@ -51,16 +121,6 @@ namespace CourseSystem
             }
             _firstTabDataGridView.Columns[1].Visible = false;
             _secondTabDataGridView.Columns[1].Visible = false;
-            SetUpTab();
-        }
-
-        // set tab control and tab text
-        private void SetUpTab()
-        {
-            _tabPage1.Controls.Add(_firstTabDataGridView);
-            _tabPage2.Controls.Add(_secondTabDataGridView);
-            _tabPage1.Text = _viewModel.GetDepartmentName(0);
-            _tabPage2.Text = _viewModel.GetDepartmentName(1);
         }
 
         // when checkbox of dataGridView is clicked
@@ -86,7 +146,6 @@ namespace CourseSystem
             {
                 _submitConfirmButton.Enabled = false;
                 SelectCheckedCourse();
-                //ReloadNotSelectedCourse();
             }
             MessageBox.Show(message);
         }
@@ -97,20 +156,10 @@ namespace CourseSystem
             _viewModel.SelectCheckedCourse();
         }
 
-        // uncheck all course and check box
-        private void ReloadNotSelectedCourse()
-        {
-            List<List<CourseInfoDto>> notSelectedCourses = _viewModel.GetNotSelectedCourse();
-            for (int i = 0; i < _dataGridViews.Count; i++)
-            {
-                _dataGridViews[i].DataSource = notSelectedCourses[i];
-            }
-        }
-
         // on _viewOutcomeButton click
         private void OpenCourseSelectionResultForm(object sender, System.EventArgs e)
         {
-            this._viewOutcomeButton.Enabled = false;
+            _viewOutcomeButton.Enabled = false;
             CourseSelectionResultForm courseSelectionResultForm = new CourseSelectionResultForm(_model);
             courseSelectionResultForm.Show();
             courseSelectionResultForm.FormClosed += this.HandleCourseSelectionResultFormClose;
@@ -119,7 +168,7 @@ namespace CourseSystem
         // on CourseSelectionResultForm closed
         private void HandleCourseSelectionResultFormClose(object sender, System.EventArgs e)
         {
-            this._viewOutcomeButton.Enabled = true;
+            _viewOutcomeButton.Enabled = true;
         }
 
         // add checkbox column
@@ -134,6 +183,7 @@ namespace CourseSystem
         private void ChangeTabIndex(object sender, System.EventArgs e)
         {
             _currentTabIndex = _courseTabControl.SelectedIndex;
+            PrepareDataGridViewHeader(_dataGridViews[_courseTabControl.SelectedIndex]);
         }
     }
 }

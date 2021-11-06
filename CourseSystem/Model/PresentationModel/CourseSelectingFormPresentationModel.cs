@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CourseSystem
 {
@@ -60,6 +61,12 @@ namespace CourseSystem
                 _notCheckedCourses.Remove(course);
                 _checkedCourses.Add(course);
             }
+        }
+
+        // get department amount
+        public int GetDepartmentAmount()
+        {
+            return _model.GetDepartmentAmount();
         }
 
         // check any course is checked

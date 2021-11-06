@@ -68,6 +68,7 @@ namespace CourseSystem
             this._saturday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._courseListBox = new System.Windows.Forms.ListBox();
             this._classManageTabPage = new System.Windows.Forms.TabPage();
+            this._importClassButton = new System.Windows.Forms.Button();
             this._tabControl.SuspendLayout();
             this._courseManageTabPage.SuspendLayout();
             this._editCourseGroupBox.SuspendLayout();
@@ -86,6 +87,7 @@ namespace CourseSystem
             // 
             // _courseManageTabPage
             // 
+            this._courseManageTabPage.Controls.Add(this._importClassButton);
             this._courseManageTabPage.Controls.Add(this._saveButton);
             this._courseManageTabPage.Controls.Add(this._addCourseButton);
             this._courseManageTabPage.Controls.Add(this._editCourseGroupBox);
@@ -112,7 +114,7 @@ namespace CourseSystem
             // 
             this._addCourseButton.Location = new System.Drawing.Point(14, 580);
             this._addCourseButton.Name = "_addCourseButton";
-            this._addCourseButton.Size = new System.Drawing.Size(260, 53);
+            this._addCourseButton.Size = new System.Drawing.Size(123, 53);
             this._addCourseButton.TabIndex = 2;
             this._addCourseButton.Text = "新增課程";
             this._addCourseButton.UseVisualStyleBackColor = true;
@@ -466,6 +468,16 @@ namespace CourseSystem
             this._classManageTabPage.Text = "班級管理";
             this._classManageTabPage.UseVisualStyleBackColor = true;
             // 
+            // _importClassButton
+            // 
+            this._importClassButton.Location = new System.Drawing.Point(143, 580);
+            this._importClassButton.Name = "_importClassButton";
+            this._importClassButton.Size = new System.Drawing.Size(129, 52);
+            this._importClassButton.TabIndex = 4;
+            this._importClassButton.Text = "匯入資工系全部課程";
+            this._importClassButton.UseVisualStyleBackColor = true;
+            this._importClassButton.Click += new System.EventHandler(this.ImportClass);
+            // 
             // CourseManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -525,5 +537,6 @@ namespace CourseSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn _thursday;
         private System.Windows.Forms.DataGridViewTextBoxColumn _friday;
         private System.Windows.Forms.DataGridViewTextBoxColumn _saturday;
+        private System.Windows.Forms.Button _importClassButton;
     }
 }
