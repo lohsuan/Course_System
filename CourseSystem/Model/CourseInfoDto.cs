@@ -14,6 +14,7 @@ namespace CourseSystem
         private const int FRIDAY_INDEX = 5;
         private const int SATURDAY_INDEX = 6;
         private string _departmentName;
+        private int _courseStatus;
 
         public CourseInfoDto(string number, string name, string stage, string credit, string hour, 
             string requiredType, string teacher, string classTimeSunday, string classTimeMonday, string classTimeTuesday,
@@ -46,6 +47,7 @@ namespace CourseSystem
             this.Audit = audit;
             this.Experiment = experiment;
             this._departmentName = departmentName;
+            this._courseStatus = 0;
         }
 
         public CourseInfoDto() 
@@ -84,6 +86,7 @@ namespace CourseSystem
         // SetCourseBaseInfo
         private void SetCourseBaseInfo(CourseInfoDto other)
         {
+            _courseStatus = other.GetCourseStatus();
             this.Number = other.Number;
             this.Name = other.Name;
             this.Stage = other.Stage;
@@ -140,6 +143,18 @@ namespace CourseSystem
             { 
                 ClassTimeSunday, ClassTimeMonday , ClassTimeTuesday, ClassTimeWednesday, ClassTimeThursday, ClassTimeFriday, ClassTimeSaturday
             };
+        }
+
+        // SetCourseStatus
+        public void SetCourseStatus(int i)
+        {
+            _courseStatus = i;
+        }
+
+        // GetCourseStatus
+        public int GetCourseStatus()
+        {
+            return _courseStatus;
         }
 
         // get departmentname

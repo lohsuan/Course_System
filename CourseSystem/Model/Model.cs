@@ -17,7 +17,6 @@ namespace CourseSystem
         public event OnCourseImportEventHandler _courseImportEvent;
         public delegate void OnCourseImportEventHandler();
 
-        private const int SLEEP_TIME = 550;
         private List<string> _departmentPathes = new List<string>();
         private List<string> _departmentNames = new List<string>();
 
@@ -94,6 +93,12 @@ namespace CourseSystem
             return _courses[selectedIndex];
         }
 
+        // GetAllDepartmentName
+        internal string[] GetAllDepartmentName()
+        {
+            return _departmentNames.ToArray();
+        }
+
         // get department by index
         public List<CourseInfoDto> GetDepartmentCourse(int tabIndex)
         {
@@ -148,23 +153,20 @@ namespace CourseSystem
         {
             CourseInfoDto newCourse = new CourseInfoDto(editedCourse);
             _courses.Add(newCourse);
-            //_departments[Array.IndexOf(_departmentNames, newCourse.GetDepartmentName())].AddCourse(newCourse);
             _departments[_departmentNames.FindIndex(x => x == newCourse.GetDepartmentName())].AddCourse(newCourse);
         }
 
         // ImportClass
-        public void ImportClass()
+        public void ImportClass(string coursePath)
         {
             Course course = new Course();
-            for (int i = 0; i < _computerScienceCoursePathes.Length; i++)
-            {
-                if (_departmentPathes.Find(x => x.Equals(_computerScienceCoursePathes[i])) != null)
-                    continue;
-                List<CourseInfoDto> courseInfoDtos = course.CourseInfoCrawler(_computerScienceCoursePathes[i]);
-                _departments.Add(new Department(course.GetDepartmentName()));
-                AddNotDuplicateNumberCourse(courseInfoDtos);
-                Thread.Sleep(SLEEP_TIME);
-            }
+            if (_departmentPathes.Find(x => x.Equals(coursePath)) != null)
+                return;
+            List<CourseInfoDto> courseInfoDtos = course.CourseInfoCrawler(coursePath);
+            _departments.Add(new Department(course.GetDepartmentName()));
+            _departmentNames.Add(course.GetDepartmentName());
+            _departmentPathes.Add(coursePath);
+            AddNotDuplicateNumberCourse(courseInfoDtos);
         }
 
         // AddNotDuplicateNumberCourse

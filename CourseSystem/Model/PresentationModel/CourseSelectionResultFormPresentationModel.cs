@@ -10,20 +10,14 @@ namespace CourseSystem
             _model = model;
         }
 
-        // get course header text of school timetable
-        public Dictionary<string, string> GetCourseHeader()
-        {
-            return _model.GetCourseHeader();
-        }
-
         // get selected course
-        internal List<CourseInfoDto> GetCurriculum()
+        public List<CourseInfoDto> GetOpeningCourseCurriculum()
         {
-            return _model.GetCurriculum();
+            return _model.GetCurriculum().FindAll(x => x.GetCourseStatus() == 0);
         }
 
         // unselect course
-        internal void CancelSelectCourse(string id)
+        public void CancelSelectCourse(string id)
         {
             _model.CancelSelectCourseFromCurriculum(id);
             _model.NotifyCourseCancelSelect();

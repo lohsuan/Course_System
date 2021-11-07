@@ -31,7 +31,7 @@ namespace CourseSystem
         private void PrepareCurriculum()
         {
             _courseSelectionResultDataGridView.Rows.Clear();
-            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCurriculum();
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetOpeningCourseCurriculum();
             foreach (var course in courseInfoDtos)
             {
                 List<string> courseRow = course.GetCourseInfoDtoData();

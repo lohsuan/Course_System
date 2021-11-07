@@ -25,8 +25,6 @@ namespace CourseSystem
             SetUpDataGridView();
             SetGroupBoxEnabledMode(false);
             SetUpEvent();
-            //_addCourseButton.DataBindings("Enabled", _viewModel, "IsButtonEnabled");
-            //_addCourseButton.DataBindings(nameof(_addCourseButton.Enabled), _viewModel, nameof(_viewModel.IsButtonEnabled));
         }
 
         // SetUpEvent
@@ -103,6 +101,8 @@ namespace CourseSystem
         // add all courses to CourseListBox
         private void SetUpCourseListBox()
         {
+            _classComboBox.Items.Clear();
+            _classComboBox.Items.AddRange(_viewModel.GetAllClassName());
             _courseListBox.Items.Clear();
             foreach (string courseName in _viewModel.GetAllCourseName())
             {
@@ -137,6 +137,7 @@ namespace CourseSystem
             _syllabusTextBox.Text = _viewModel.GetSyllabus();
             _hourComboBox.SelectedItem = _viewModel.GetHour();
             _classComboBox.SelectedItem = _viewModel.GetClass();
+            _courseStatusComboBox.SelectedIndex = _viewModel.GetCourseStatus();
             UpdateClassTime();
         }
 
@@ -182,9 +183,10 @@ namespace CourseSystem
             _saveButton.Enabled = IsSaveButtonEnable();
         }
 
-        // on _hourComboBox_SelectedIndexChanged
+        // on ComboBox SelectedIndexChanged
         private void ChangedComboBoxSelectedIndex(object sender, EventArgs e)
         {
+            _viewModel.SetCourseEditCourseStatus(_courseStatusComboBox.SelectedIndex);
             _viewModel.SetCourseEditRequireType(_requireTypeComboBox.SelectedItem);
             _viewModel.SetCourseEditHour(_hourComboBox.SelectedItem);
             _viewModel.SetCourseEditClass(_classComboBox.SelectedItem);
@@ -273,10 +275,14 @@ namespace CourseSystem
             _saveButton.Enabled = false;
         }
 
-        // _importClassButton_Click
-        private void ImportClass(object sender, EventArgs e)
+        // on _importClassButton_Click
+        private void OpenImportCourseProgressForm(object sender, EventArgs e)
         {
-            _viewModel.ImportClass();
+            _importClassButton.Enabled = false;
+            ImportCourseProgressForm importCourseProgressForm = new ImportCourseProgressForm(_model);
+            importCourseProgressForm.ShowDialog();
+            if (importCourseProgressForm.DialogResult == DialogResult.Cancel)
+                _importClassButton.Enabled = true;
         }
     }
 }

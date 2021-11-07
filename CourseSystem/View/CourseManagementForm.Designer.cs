@@ -323,9 +323,6 @@ namespace CourseSystem
             // 
             this._classComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._classComboBox.FormattingEnabled = true;
-            this._classComboBox.Items.AddRange(new object[] {
-            "資工三",
-            "電子三甲"});
             this._classComboBox.Location = new System.Drawing.Point(325, 208);
             this._classComboBox.Name = "_classComboBox";
             this._classComboBox.Size = new System.Drawing.Size(121, 23);
@@ -476,7 +473,7 @@ namespace CourseSystem
             this._importClassButton.TabIndex = 4;
             this._importClassButton.Text = "匯入資工系全部課程";
             this._importClassButton.UseVisualStyleBackColor = true;
-            this._importClassButton.Click += new System.EventHandler(this.ImportClass);
+            this._importClassButton.Click += new System.EventHandler(this.OpenImportCourseProgressForm);
             // 
             // CourseManagementForm
             // 

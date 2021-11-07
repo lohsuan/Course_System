@@ -207,7 +207,7 @@ namespace CourseSystem
             List<CourseInfoDto> classNotSelectedCourse = new List<CourseInfoDto>();
             foreach (CourseInfoDto courseInfoDto in classCourses)
             {
-                if (!curriculum.Contains(courseInfoDto))
+                if (!curriculum.Contains(courseInfoDto) && courseInfoDto.GetCourseStatus() == 0)
                 {
                     classNotSelectedCourse.Add(courseInfoDto);
                     _notCheckedCourses.Add(courseInfoDto);

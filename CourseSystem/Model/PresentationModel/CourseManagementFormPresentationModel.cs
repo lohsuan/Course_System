@@ -64,7 +64,11 @@ namespace CourseSystem
             return _checkedCourseAmount == hour;
         }
 
-        /// Get model data /////////////////////////////////////////////////////////////////////////////////////////////
+        // GetCourseStatus
+        public int GetCourseStatus()
+        {
+            return _currentCourse.GetCourseStatus();
+        }
 
         // GetNumber
         public string GetNumber()
@@ -132,6 +136,12 @@ namespace CourseSystem
             return _currentCourse.GetDepartmentName();
         }
 
+        // GetClass
+        public string[] GetAllClassName()
+        {
+            return _model.GetAllDepartmentName();
+        }
+
         // get class time
         public List<string> GetClassTime()
         {
@@ -158,8 +168,6 @@ namespace CourseSystem
             return courseInfoDto.GetClassTime();
         }
 
-        /// Set _editedCourse data ////////////////////////////////////////////////////////////////////
-
         // UpdateCheckedCourseAmount
         public void UpdateCheckedCourse(bool editedFormattedValue)
         {
@@ -173,6 +181,13 @@ namespace CourseSystem
         public void SetCourseEditClassTime(string[] classTime)
         {
             _editedCourse.SetCourseEditClassTime(classTime);
+        }
+
+
+        // SetCourseEditCourseStatus
+        public void SetCourseEditCourseStatus(int selectedIndex)
+        {
+            _editedCourse.SetCourseStatus(selectedIndex);
         }
 
         // SetCourseEditNumber
@@ -266,13 +281,6 @@ namespace CourseSystem
             _checkedCourseAmount = 0;
             _editedCourse = new CourseInfoDto();
             _currentCourse = new CourseInfoDto();
-        }
-
-        // import class
-        internal void ImportClass()
-        {
-            _model.ImportClass();
-            _model.NotifyCourseImport();
         }
     }
 }
