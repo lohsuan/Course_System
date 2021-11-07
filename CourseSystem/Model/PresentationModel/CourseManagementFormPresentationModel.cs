@@ -263,11 +263,8 @@ namespace CourseSystem
         {
             if (_mode.Equals(Mode.Edit))
             {
-                var i1 = _editedCourse.GetDepartmentName();
-                var i2 = _currentCourse.GetDepartmentName();
-
-                if (_editedCourse.GetDepartmentName() != _currentCourse.GetDepartmentName())
-                    _model.ChangeCourseClass(_currentCourse, _currentCourse.GetDepartmentName(), _editedCourse.GetDepartmentName());
+                if (GetDepartmentName(_currentCourse) != GetDepartmentName(_editedCourse))
+                    _model.ChangeCourseClass(_currentCourse, GetDepartmentName(_currentCourse), GetDepartmentName(_editedCourse));
                 
                 _currentCourse.UpdateCourse(_editedCourse);
                 _model.NotifyCourseUpdated();
@@ -277,6 +274,12 @@ namespace CourseSystem
                 _model.AddCourse(_editedCourse);
                 _model.NotifyCourseCreated();
             }
+        }
+
+        // GetDepartmentName
+        public string GetDepartmentName(CourseInfoDto courseInfoDto)
+        {
+            return courseInfoDto.GetDepartmentName();
         }
 
         // add course mode
