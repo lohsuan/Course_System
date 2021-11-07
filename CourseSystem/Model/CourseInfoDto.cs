@@ -146,9 +146,9 @@ namespace CourseSystem
         }
 
         // SetCourseStatus
-        public void SetCourseStatus(int i)
+        public void SetCourseStatus(int courseStatus)
         {
-            _courseStatus = i;
+            _courseStatus = courseStatus;
         }
 
         // GetCourseStatus

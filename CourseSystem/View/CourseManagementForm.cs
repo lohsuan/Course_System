@@ -21,6 +21,7 @@ namespace CourseSystem
             _viewModel = new CourseManagementFormPresentationModel(model);
             _model = model;
             InitializeComponent();
+            _classComboBox.Items.AddRange(_viewModel.GetAllClassName());
             SetUpCourseListBox();
             SetUpDataGridView();
             SetGroupBoxEnabledMode(false);
@@ -32,12 +33,20 @@ namespace CourseSystem
         {
             _model._courseDataCreateEvent += HandleCourseDataCreateEvent;
             _model._courseDataUpdateEvent += HandleCourseDataUpdateEvent;
-            _model._courseImportEvent += HandleCourseDataUpdateEvent;
+            _model._courseImportEvent += HandleCourseImportEvent;
         }
 
         // HandleCourseDataUpdateEvent when update course
         private void HandleCourseDataUpdateEvent()
         {
+            SetUpCourseListBox();
+        }
+
+        // HandleCourseDataUpdateEvent when update course
+        private void HandleCourseImportEvent()
+        {
+            _classComboBox.Items.Clear();
+            _classComboBox.Items.AddRange(_viewModel.GetAllClassName());
             SetUpCourseListBox();
         }
 
@@ -101,8 +110,6 @@ namespace CourseSystem
         // add all courses to CourseListBox
         private void SetUpCourseListBox()
         {
-            _classComboBox.Items.Clear();
-            _classComboBox.Items.AddRange(_viewModel.GetAllClassName());
             _courseListBox.Items.Clear();
             foreach (string courseName in _viewModel.GetAllCourseName())
             {

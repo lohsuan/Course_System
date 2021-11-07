@@ -39,5 +39,11 @@ namespace CourseSystem
         {
             _courseInfoDtos.Add(newCourse);
         }
+
+        // RemoveCourse
+        public void RemoveCourse(CourseInfoDto courseInfoDto)
+        {
+            _courseInfoDtos.Remove(courseInfoDto);
+        }
     }
 }

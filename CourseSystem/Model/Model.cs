@@ -148,6 +148,16 @@ namespace CourseSystem
             return _courses;
         }
 
+        // ChangeCourseClass 
+        internal void ChangeCourseClass(CourseInfoDto courseInfoDto, string oldDepartment, string newDepartment)
+        {
+            int oldDepartmentIndex = _departmentNames.FindIndex(x => x == oldDepartment);
+            int newDepartmentIndex = _departmentNames.FindIndex(x => x == newDepartment);
+
+            _departments[oldDepartmentIndex].RemoveCourse(courseInfoDto);
+            _departments[newDepartmentIndex].AddCourse(courseInfoDto);
+        }
+
         // AddCourse
         public void AddCourse(CourseInfoDto editedCourse)
         {
@@ -193,5 +203,6 @@ namespace CourseSystem
         {
             return _departments.Count;
         }
+
     }
 }
