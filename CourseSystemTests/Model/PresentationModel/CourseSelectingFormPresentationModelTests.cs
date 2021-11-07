@@ -2,9 +2,6 @@
 using CourseSystem;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CourseSystem.Tests
 {
@@ -12,7 +9,7 @@ namespace CourseSystem.Tests
     public class CourseSelectingFormPresentationModelTests
     {
         CourseSelectingFormPresentationModel _viewModel;
-        PrivateObject _viewmodelPrivate;
+        PrivateObject _viewModelPrivate;
 
         // TestInitialize
         [TestInitialize]
@@ -20,7 +17,7 @@ namespace CourseSystem.Tests
         {
             Model model = new Model();
             _viewModel = new CourseSelectingFormPresentationModel(model);
-            _viewmodelPrivate = new PrivateObject(_viewModel);
+            _viewModelPrivate = new PrivateObject(_viewModel);
         }
 
         // CourseSelectingFormPresentationModelTest

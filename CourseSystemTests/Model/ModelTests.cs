@@ -12,12 +12,14 @@ namespace CourseSystem.Tests
     {
         Model _model;
         int _event;
+        PrivateObject _modelPrivate;
 
         // TestInitialize
         [TestInitialize]
         public void TestInitialize()
         {
             _model = new Model();
+            _modelPrivate = new PrivateObject(_model);
         }
 
         // MockEventHandler
@@ -85,6 +87,19 @@ namespace CourseSystem.Tests
             Assert.AreEqual(2, _event);
         }
 
+        // on course Cancel Select
+        [TestMethod()]
+        public void NotifyCourseImportTest()
+        {
+            _event = 0;
+            _model._courseImportEvent += MockEventHandler;
+
+            _model.NotifyCourseImport();
+            Assert.AreEqual(1, _event);
+            _model.NotifyCourseImport();
+            Assert.AreEqual(2, _event);
+        }
+
         // GetCourseInfoTest
         [TestMethod()]
         public void GetCourseInfoTest()
@@ -117,6 +132,14 @@ namespace CourseSystem.Tests
             Assert.AreEqual("", course.ClassTimeFriday);
             Assert.AreEqual("", course.ClassTimeSaturday);
             Assert.AreEqual("六教327(e)", course.Classroom);
+        }
+
+        // GetAllDepartmentName
+        [TestMethod()]
+        public void GetAllDepartmentNameTest()
+        {
+            Assert.AreEqual("資工三", _model.GetAllDepartmentName()[0]);
+            Assert.AreEqual("電子三甲", _model.GetAllDepartmentName()[1]);
         }
 
         // GetDepartmentTest
@@ -193,6 +216,16 @@ namespace CourseSystem.Tests
             Assert.AreEqual("資料庫系統", _model.GetAllCourses()[4].Name);
         }
 
+        // ChangeCourseClassTest
+        [TestMethod()]
+        public void ChangeCourseClassTest()
+        {
+            CourseInfoDto courseInfoDto = _model.GetCourseByIndex(1);
+            _model.ChangeCourseClass(courseInfoDto, "資工三", "電子三甲");
+            Assert.AreEqual(0, _model.GetDepartments()[0].GetCourseInfoDtos().FindAll(x => x == courseInfoDto).Count);
+            Assert.AreEqual(1, _model.GetDepartments()[1].GetCourseInfoDtos().FindAll(x => x == courseInfoDto).Count);
+        }
+
         // AddCourseTest
         [TestMethod()]
         public void AddCourseTest()
@@ -201,5 +234,51 @@ namespace CourseSystem.Tests
             _model.AddCourse(newCourse);
             Assert.AreEqual(newCourse.Number, _model.GetAllCourses()[_model.GetAllCourses().Count - 1].Number);
         }
+
+        // AddCourseTest
+        [TestMethod()]
+        public void ImportClassTest()
+        {
+            _model.ImportClass("https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2433");
+            Assert.AreEqual(2, _model.GetDepartmentAmount());
+
+            _model.ImportClass("https://aps.ntut.edu.tw/course/tw/Subj.jsp?format=-4&year=110&sem=1&code=2676");
+            Assert.AreEqual(3, _model.GetDepartmentAmount());
+        }
+
+
+        // AddNotDuplicateNumberCourseTest
+        [TestMethod()]
+        public void AddNotDuplicateNumberCourseTest()
+        {
+            List<CourseInfoDto> courseInfoDtos = new List<CourseInfoDto>();
+            List<CourseInfoDto> allCourses = _model.GetAllCourses();
+            courseInfoDtos.Add(allCourses[1]);
+            _modelPrivate.Invoke("AddNotDuplicateNumberCourse", new object[] { courseInfoDtos });
+            Assert.AreEqual(37, _model.GetAllCourses().Count);
+
+            CourseInfoDto courseInfoDto = new CourseInfoDto();
+            courseInfoDto.Number = "";
+            courseInfoDtos.Add(courseInfoDto);
+            _modelPrivate.Invoke("AddNotDuplicateNumberCourse", new object[] { courseInfoDtos });
+            Assert.AreEqual(38, _model.GetAllCourses().Count);
+        }
+
+        // GetNumberTest
+        [TestMethod()]
+        public void GetNumberTest()
+        {
+            CourseInfoDto courseInfoDto = new CourseInfoDto();
+            courseInfoDto.Number = "1234";
+            Assert.AreEqual("1234", _modelPrivate.Invoke("GetNumber", new object[] { courseInfoDto }));
+        }
+
+        // GetDepartmentAmountTest
+        [TestMethod()]
+        public void GetDepartmentAmountTest()
+        {
+            Assert.AreEqual(2, _model.GetDepartmentAmount());
+        }
+
     }
 }

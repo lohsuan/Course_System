@@ -20,8 +20,6 @@ namespace CourseSystem
         private List<string> _departmentPathes = new List<string>();
         private List<string> _departmentNames = new List<string>();
 
-        private string[] _computerScienceCoursePathes = { CourseConstant.COMPUTER_SCIENCE_FRESHMAN_CLASS_URL, CourseConstant.COMPUTER_SCIENCE_SOPHOMORE_CLASS_URL, CourseConstant.COMPUTER_SCIENCE_JUNIOR_CLASS_URL, CourseConstant.COMPUTER_SCIENCE_SENIOR_CLASS_URL, CourseConstant.COMPUTER_SCIENCE__GRADUATE_SCHOOL_URL };
-
         List<Department> _departments = new List<Department>(); // read only, storing each department's course
         Curriculum _curriculum = new Curriculum(); // storing selected course
         List<CourseInfoDto> _courses = new List<CourseInfoDto>(); // storing all departments' courses
@@ -94,7 +92,7 @@ namespace CourseSystem
         }
 
         // GetAllDepartmentName
-        internal string[] GetAllDepartmentName()
+        public string[] GetAllDepartmentName()
         {
             return _departmentNames.ToArray();
         }
@@ -149,7 +147,7 @@ namespace CourseSystem
         }
 
         // ChangeCourseClass 
-        internal void ChangeCourseClass(CourseInfoDto courseInfoDto, string oldDepartment, string newDepartment)
+        public void ChangeCourseClass(CourseInfoDto courseInfoDto, string oldDepartment, string newDepartment)
         {
             int oldDepartmentIndex = _departmentNames.FindIndex(x => x == oldDepartment);
             int newDepartmentIndex = _departmentNames.FindIndex(x => x == newDepartment);
@@ -203,6 +201,5 @@ namespace CourseSystem
         {
             return _departments.Count;
         }
-
     }
 }

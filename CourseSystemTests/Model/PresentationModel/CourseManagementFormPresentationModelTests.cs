@@ -1,13 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CourseSystem;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CourseSystem.Tests
 {
+    /// <summary>
+    /// Total Test amount: 38
+    /// </summary>
     [TestClass()]
     public class CourseManagementFormPresentationModelTests
     {
@@ -100,6 +97,14 @@ namespace CourseSystem.Tests
 
         // GetNumberTest
         [TestMethod()]
+        public void GetCourseStatusTest()
+        {
+            _viewModel.UpdateSelectedCourse(4);
+            Assert.AreEqual(0, _viewModel.GetCourseStatus());
+        }
+
+        // GetNumberTest
+        [TestMethod()]
         public void GetNumberTest()
         {
             _viewModel.UpdateSelectedCourse(4);
@@ -188,6 +193,14 @@ namespace CourseSystem.Tests
 
         // GetClassTimeTest
         [TestMethod()]
+        public void GetAllClassNameTest()
+        {
+            Assert.AreEqual("資工三", _viewModel.GetAllClassName()[0]);
+            Assert.AreEqual("電子三甲", _viewModel.GetAllClassName()[1]);
+        }
+
+        // GetClassTimeTest
+        [TestMethod()]
         public void GetClassTimeTest()
         {
             _viewModel.UpdateSelectedCourse(4);
@@ -223,6 +236,16 @@ namespace CourseSystem.Tests
             Assert.AreEqual("1 3", _viewModel.GetClassTime()[0]);
             Assert.AreEqual("1 4", _viewModel.GetClassTime()[1]);
             Assert.AreEqual("2 1", _viewModel.GetClassTime()[2]);
+        }
+
+        // SetCourseEditNumberTest
+        [TestMethod()]
+        public void SetCourseEditCourseStatusTest()
+        {
+            _viewModel.UpdateSelectedCourse(4);
+            _viewModel.SetCourseEditCourseStatus(1);
+            _viewModel.UpdateOrAddCourse();
+            Assert.AreEqual(1, _viewModel.GetCourseStatus());
         }
 
         // SetCourseEditNumberTest
@@ -353,6 +376,14 @@ namespace CourseSystem.Tests
             _viewModel.SetCourseEditClass("電子三甲");
             _viewModel.UpdateOrAddCourse();
             Assert.AreEqual("程式設計", _viewModel.GetAllCourseName()[_viewModel.GetAllCourseName().Count - 1]);
+        }
+
+        // SetCourseEditClassTest
+        [TestMethod()]
+        public void GetDepartmentNameTest()
+        {
+            CourseInfoDto courseInfoDto = new CourseInfoDto();
+            Assert.AreEqual(null, _viewModel.GetDepartmentName(courseInfoDto));
         }
 
         // AddCourseModeTest

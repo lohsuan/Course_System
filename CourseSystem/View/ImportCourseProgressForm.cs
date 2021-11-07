@@ -12,7 +12,7 @@ namespace CourseSystem
         private const string PERCENT = "%";
         Model _model;
         ImportCourseProgressFormPresentationModel _viewModel;
-        private string[] _computerScienceCoursePathes = { CourseConstant.COMPUTER_SCIENCE_FRESHMAN_CLASS_URL, CourseConstant.COMPUTER_SCIENCE_SOPHOMORE_CLASS_URL, CourseConstant.COMPUTER_SCIENCE_JUNIOR_CLASS_URL, CourseConstant.COMPUTER_SCIENCE_SENIOR_CLASS_URL, CourseConstant.COMPUTER_SCIENCE__GRADUATE_SCHOOL_URL };
+
 
         public ImportCourseProgressForm(Model model)
         {
@@ -24,26 +24,23 @@ namespace CourseSystem
         // on ImportCourseProgressForm_Shown
         private void LoadClasses(object sender, EventArgs e)
         {
-            SetUp();
-            for (int i = 0; i < _computerScienceCoursePathes.Length; i++)
+            string[] computerScienceCoursePathes = _viewModel.GetComputerScienceCoursePathes();
+            _importClassProgressBar.Minimum = 0;
+            _importClassProgressBar.Maximum = computerScienceCoursePathes.Length;
+            _importClassProgressBar.Step = 1;
+            _importClassLabel.Refresh();
+
+            for (int i = 0; i < computerScienceCoursePathes.Length; i++)
             {
-                _viewModel.ImportClass(_computerScienceCoursePathes[i]);
+                _viewModel.ImportClass(computerScienceCoursePathes[i]);
                 _importClassProgressBar.PerformStep();
                 _importClassLabel.Text = IMPORT_CLASS_TEXT + ((double)(i + 1) / _importClassProgressBar.Maximum * ONE_HUNDRED).ToString() + PERCENT;
                 _importClassLabel.Refresh();
                 Thread.Sleep(SLEEP_TIME);
             }
             _model.NotifyCourseImport();
-            this.Close();
+            Close();
         }
 
-        // set up progress bar and refresh label
-        private void SetUp()
-        {
-            _importClassProgressBar.Minimum = 0;
-            _importClassProgressBar.Maximum = _computerScienceCoursePathes.Length;
-            _importClassProgressBar.Step = 1;
-            _importClassLabel.Refresh();
-        }
     }
 }
