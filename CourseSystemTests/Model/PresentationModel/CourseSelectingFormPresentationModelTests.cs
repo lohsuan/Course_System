@@ -5,9 +5,13 @@ using System.Collections.Generic;
 
 namespace CourseSystem.Tests
 {
+    /// <summary>
+    /// Number of test method: 19
+    /// </summary>
     [TestClass()]
     public class CourseSelectingFormPresentationModelTests
     {
+        Model _model;
         CourseSelectingFormPresentationModel _viewModel;
         PrivateObject _viewModelPrivate;
 
@@ -15,8 +19,8 @@ namespace CourseSystem.Tests
         [TestInitialize]
         public void Initialize()
         {
-            Model model = new Model();
-            _viewModel = new CourseSelectingFormPresentationModel(model);
+            _model = new Model();
+            _viewModel = new CourseSelectingFormPresentationModel(_model);
             _viewModelPrivate = new PrivateObject(_viewModel);
         }
 
@@ -58,42 +62,213 @@ namespace CourseSystem.Tests
         [TestMethod()]
         public void UpdateCourseCheckedTest()
         {
-            Assert.Fail();
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            Assert.IsTrue(_viewModel.IsAnyCourseChecked());
+
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            Assert.IsFalse(_viewModel.IsAnyCourseChecked());
+        }
+
+        // UpdateCourseCheckedTest
+        [TestMethod()]
+        public void GetDepartmentAmountTest()
+        {
+            Assert.AreEqual(2, _viewModel.GetDepartmentAmount());
         }
 
         // IsAnyCourseCheckedTest
         [TestMethod()]
         public void IsAnyCourseCheckedTest()
         {
-            Assert.Fail();
+            Assert.IsFalse(_viewModel.IsAnyCourseChecked());
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            Assert.IsTrue(_viewModel.IsAnyCourseChecked());
+            
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            Assert.IsFalse(_viewModel.IsAnyCourseChecked());
         }
 
         // CheckCoursesValidMessageTest
         [TestMethod()]
         public void CheckCoursesValidMessageTest()
         {
-            Assert.Fail();
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+            courseInfoDtos[1].ClassTimeMonday = "1";
+            courseInfoDtos[2].ClassTimeMonday = "1";
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            Assert.AreEqual("加選成功\n", _viewModel.CheckCoursesValidMessage());
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[2].Id);
+            Assert.AreEqual("加選失敗\n\n衝堂 : 「291702-體育」、「291703-博雅選修課程」\n", _viewModel.CheckCoursesValidMessage());
+        }
+
+        // CheckAnyCourseOverlapMessageTest
+        [TestMethod()]
+        public void CheckAnyCourseOverlapMessageTest()
+        {
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+            courseInfoDtos[1].ClassTimeMonday = "1";
+            courseInfoDtos[2].ClassTimeMonday = "1";
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            Assert.AreEqual("", _viewModelPrivate.Invoke("CheckAnyCourseOverlapMessage").ToString());
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[2].Id);
+            Assert.IsFalse("" == _viewModelPrivate.Invoke("CheckAnyCourseOverlapMessage").ToString());
+        }
+
+        // CheckCheckedCourseOverlapMessageTest
+        [TestMethod()]
+        public void CheckCheckedCourseOverlapMessageTest()
+        {
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+            courseInfoDtos[1].ClassTimeMonday = "1";
+            courseInfoDtos[1].ClassTimeFriday = "";
+            courseInfoDtos[2].ClassTimeMonday = "1";
+            Dictionary<string, string> classMap = new Dictionary<string, string>();
+
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            Assert.AreEqual("", _viewModelPrivate.Invoke("CheckCheckedCourseOverlapMessage",
+                new object[] { courseInfoDtos[1], classMap }).ToString());
+           
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[2].Id);
+            Assert.IsFalse("" == _viewModelPrivate.Invoke("CheckCheckedCourseOverlapMessage",
+                new object[] { courseInfoDtos[2], classMap }).ToString());
+        }
+
+
+        // PrepareCourseOverlapMessageTest
+        [TestMethod()]
+        public void PrepareCourseOverlapMessageTest()
+        {
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+            courseInfoDtos[1].ClassTimeMonday = "1";
+            courseInfoDtos[1].ClassTimeFriday = "";
+            courseInfoDtos[2].ClassTimeMonday = "1";
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[2].Id);
+
+            Dictionary<string, string> classMap = new Dictionary<string, string>();
+            classMap.Add("1 1", "291702-體育");
+
+            Assert.AreEqual("「291702-體育」、「291703-博雅選修課程」", 
+                _viewModelPrivate.Invoke("PrepareCourseOverlapMessage", new object[] { courseInfoDtos[2], classMap, "1 1" }).ToString());
+        }
+
+        // CheckAnyCourseHasTheSameNameMessageTest
+        [TestMethod()]
+        public void CheckAnyCourseHasTheSameNameMessageTest()
+        {
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+            courseInfoDtos[1].Name = "123";
+            courseInfoDtos[2].Name = "123";
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            Assert.AreEqual("", _viewModelPrivate.Invoke("CheckAnyCourseHasTheSameNameMessage").ToString());
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[2].Id);
+            Assert.IsFalse("" == _viewModelPrivate.Invoke("CheckAnyCourseHasTheSameNameMessage").ToString());
         }
 
         // IsAddCourseSuccessTest
         [TestMethod()]
         public void IsAddCourseSuccessTest()
         {
-            Assert.Fail();
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+            courseInfoDtos[1].ClassTimeMonday = "1";
+            courseInfoDtos[2].ClassTimeMonday = "1";
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            _viewModel.CheckCoursesValidMessage();
+            Assert.IsTrue(_viewModel.IsAddCourseSuccess());
+
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[2].Id);
+            _viewModel.CheckCoursesValidMessage();
+            Assert.IsFalse(_viewModel.IsAddCourseSuccess());
+        }
+
+        // GetCourseNameTest
+        [TestMethod()]
+        public void GetCourseNameTest()
+        {
+            CourseInfoDto courseInfoDto = new CourseInfoDto();
+            courseInfoDto.Name = "Hiii";
+            Assert.AreEqual("Hiii", _viewModelPrivate.Invoke("GetCourseName", new object[] { courseInfoDto }));
+        }
+
+        // GetCourseNumberTest
+        [TestMethod()]
+        public void GetCourseNumberTest()
+        {
+            CourseInfoDto courseInfoDto = new CourseInfoDto();
+            courseInfoDto.Number = "1234";
+            Assert.AreEqual("1234", _viewModelPrivate.Invoke("GetCourseNumber", new object[] { courseInfoDto }));
+        }
+
+        // GetClassTimeTest
+        [TestMethod()]
+        public void GetClassTimeTest()
+        {
+            CourseInfoDto courseInfoDto = new CourseInfoDto();
+            courseInfoDto.ClassTimeSunday = "1";
+            courseInfoDto.ClassTimeMonday= "2";
+            courseInfoDto.ClassTimeTuesday = "3";
+            courseInfoDto.ClassTimeWednesday = "4";
+            courseInfoDto.ClassTimeThursday = "";
+            courseInfoDto.ClassTimeFriday = "";
+            courseInfoDto.ClassTimeSaturday = "";
+            List<string> result = (List<string>) _viewModelPrivate.Invoke("GetClassTime", new object[] { courseInfoDto });
+            Assert.AreEqual("1", result[0]);
+            Assert.AreEqual("2", result[1]);
+            Assert.AreEqual("3", result[2]);
+            Assert.AreEqual("4", result[3]);
+            Assert.AreEqual("", result[4]);
+            Assert.AreEqual("", result[5]);
+            Assert.AreEqual("", result[6]);
         }
 
         // SelectCheckedCourseTest
         [TestMethod()]
         public void SelectCheckedCourseTest()
         {
-            Assert.Fail();
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[2].Id);
+            _viewModel.SelectCheckedCourse();
+            Assert.AreEqual(0, _viewModel.GetNotSelectedCourse()[0].FindAll(x => x.Id == courseInfoDtos[1].Id).Count);
+            Assert.AreEqual(0, _viewModel.GetNotSelectedCourse()[0].FindAll(x => x.Id == courseInfoDtos[2].Id).Count);
         }
 
         // GetNotSelectedCourseTest
         [TestMethod()]
         public void GetNotSelectedCourseTest()
         {
-            Assert.Fail();
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[2].Id);
+            _viewModel.SelectCheckedCourse();
+
+            Assert.AreEqual(1, _viewModel.GetNotSelectedCourse()[0].FindAll(x => x.Id == courseInfoDtos[0].Id).Count);
+            Assert.AreEqual(0, _viewModel.GetNotSelectedCourse()[0].FindAll(x => x.Id == courseInfoDtos[1].Id).Count);
+            Assert.AreEqual(0, _viewModel.GetNotSelectedCourse()[0].FindAll(x => x.Id == courseInfoDtos[2].Id).Count);
+            Assert.AreEqual(1, _viewModel.GetNotSelectedCourse()[0].FindAll(x => x.Id == courseInfoDtos[3].Id).Count);
+        }
+
+        // GetDepartmentNotSelectedCourseTest
+        [TestMethod()]
+        public void GetDepartmentNotSelectedCourseTest()
+        {
+            List<CourseInfoDto> curriculum = _model.GetCurriculum();
+            List<Department> departments = _model.GetDepartments();
+            List<List<CourseInfoDto>> result = new List<List<CourseInfoDto>>();
+
+            List<CourseInfoDto> courseInfoDtos = _viewModel.GetCourseInfo(0);
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
+            _viewModel.UpdateCourseChecked(0, courseInfoDtos[2].Id);
+            _viewModel.SelectCheckedCourse();
+            _viewModelPrivate.Invoke("GetDepartmentNotSelectedCourse", new object[] { curriculum, result, departments[0] });
+            
+            Assert.AreEqual(1, result[0].FindAll(x => x.Id == courseInfoDtos[0].Id).Count);
+            Assert.AreEqual(0, result[0].FindAll(x => x.Id == courseInfoDtos[1].Id).Count);
+            Assert.AreEqual(0, result[0].FindAll(x => x.Id == courseInfoDtos[2].Id).Count);
         }
     }
 }

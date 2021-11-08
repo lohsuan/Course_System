@@ -161,13 +161,13 @@ namespace CourseSystem
         }
 
         // get course name
-        private static string GetCourseName(CourseInfoDto courseInfoDto)
+        private string GetCourseName(CourseInfoDto courseInfoDto)
         {
             return courseInfoDto.Name;
         }
 
         // get course number
-        private static string GetCourseNumber(CourseInfoDto courseInfoDto)
+        private string GetCourseNumber(CourseInfoDto courseInfoDto)
         {
             return courseInfoDto.Number;
         }
