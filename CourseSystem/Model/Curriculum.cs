@@ -13,13 +13,13 @@ namespace CourseSystem
         }
 
         // add course to curriculum
-        internal void AddCourse(List<CourseInfoDto> checkedCourses)
+        public void AddCourse(List<CourseInfoDto> checkedCourses)
         {
             _selectedCourse.AddRange(checkedCourses);
         }
 
         // delete course from curriculum
-        internal void RemoveCourse(string id)
+        public void RemoveCourse(string id)
         {
             CourseInfoDto course = _selectedCourse.Find(x => x.Id.Equals(id));
             _selectedCourse.Remove(course);

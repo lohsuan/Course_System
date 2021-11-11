@@ -31,7 +31,7 @@ namespace CourseSystem
         }
 
         // AddCourse
-        internal void AddCourse(CourseInfoDto newCourse)
+        public void AddCourse(CourseInfoDto newCourse)
         {
             _courseInfoDtos.Add(newCourse);
         }

@@ -4,7 +4,11 @@ using System.Collections.Generic;
 namespace CourseSystem.Tests
 {
     /// <summary>
-    ///  Number of test method: 16
+    ///  Number of all test method for Course System: 103
+    /// </summary>
+
+    /// <summary>
+    ///  Number of test method in ModelTest: 16
     /// </summary>
 
     [TestClass()]

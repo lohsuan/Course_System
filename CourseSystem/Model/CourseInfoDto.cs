@@ -62,20 +62,20 @@ namespace CourseSystem
         }
 
         // update course
-        internal void UpdateCourse(CourseInfoDto other)
+        public void UpdateCourse(CourseInfoDto other)
         {
             SetCourseBaseInfo(other);
             SetCourseAdditionInfo(other);
         }
 
         // IsCourseInfoMeetNotNullRequire
-        internal bool IsCourseInfoMeetNotNullRequire()
+        public bool IsCourseInfoMeetNotNullRequire()
         {
             return (this.Number != "") && (this.Name != "") && (this.Stage != "") && (this.Credit != "") && (this.Teacher != "");
         }
 
         // GetCourseInfoDtoData
-        internal List<string> GetCourseInfoDtoData()
+        public List<string> GetCourseInfoDtoData()
         {
             return new List<string> 
             { 
@@ -171,7 +171,7 @@ namespace CourseSystem
 
         public string Id
         {
-            get;
+            get; set;
         }
 
         public string Number
