@@ -311,6 +311,21 @@
                 <AnalysisFileType>Designer</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Model\CourseInfoDtoTests.cs</RelativePath>
+                <ProjectName>CourseSystemTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\CurriculumTests.cs</RelativePath>
+                <ProjectName>CourseSystemTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\DepartmentTests.cs</RelativePath>
+                <ProjectName>CourseSystemTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Model\ModelTests.cs</RelativePath>
                 <ProjectName>CourseSystemTests</ProjectName>
                 <AnalysisFileType>Test</AnalysisFileType>
@@ -326,14 +341,24 @@
                 <AnalysisFileType>Test</AnalysisFileType>
               </AnalysisFile>
               <AnalysisFile>
+                <RelativePath>Model\PresentationModel\CourseSelectionResultFormPresentationModelTests.cs</RelativePath>
+                <ProjectName>CourseSystemTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
+                <RelativePath>Model\PresentationModel\ImportCourseProgressFormPresentationModelTests.cs</RelativePath>
+                <ProjectName>CourseSystemTests</ProjectName>
+                <AnalysisFileType>Test</AnalysisFileType>
+              </AnalysisFile>
+              <AnalysisFile>
                 <RelativePath>Properties\AssemblyInfo.cs</RelativePath>
                 <ProjectName>CourseSystemTests</ProjectName>
                 <AnalysisFileType>Model</AnalysisFileType>
               </AnalysisFile>
             </AnalysisFiles>
           </AnalysisFileManager>
-          <ProductionLoc>3250</ProductionLoc>
-          <TestLoc>683</TestLoc>
+          <ProductionLoc>3252</ProductionLoc>
+          <TestLoc>1370</TestLoc>
         </CodeReview>
       </Data>
     </div>

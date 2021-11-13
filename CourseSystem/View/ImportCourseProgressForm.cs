@@ -13,7 +13,6 @@ namespace CourseSystem
         Model _model;
         ImportCourseProgressFormPresentationModel _viewModel;
 
-
         public ImportCourseProgressForm(Model model)
         {
             _model = model;
@@ -24,11 +23,7 @@ namespace CourseSystem
         // on ImportCourseProgressForm_Shown
         private void LoadClasses(object sender, EventArgs e)
         {
-            string[] computerScienceCoursePathes = _viewModel.GetComputerScienceCoursePathes();
-            _importClassProgressBar.Minimum = 0;
-            _importClassProgressBar.Maximum = computerScienceCoursePathes.Length;
-            _importClassProgressBar.Step = 1;
-            _importClassLabel.Refresh();
+            string[] computerScienceCoursePathes = PrepareCoursePathesAndSetUp();
 
             for (int i = 0; i < computerScienceCoursePathes.Length; i++)
             {
@@ -42,5 +37,15 @@ namespace CourseSystem
             Close();
         }
 
+        // PrepareCoursePathesAndSetUp
+        private string[] PrepareCoursePathesAndSetUp()
+        {
+            string[] computerScienceCoursePathes = _viewModel.GetComputerScienceCoursePathes();
+            _importClassProgressBar.Minimum = 0;
+            _importClassProgressBar.Maximum = computerScienceCoursePathes.Length;
+            _importClassProgressBar.Step = 1;
+            _importClassLabel.Refresh();
+            return computerScienceCoursePathes;
+        }
     }
 }
