@@ -22,8 +22,6 @@ C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\bin\Debug\Newtonso
 C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\bin\Debug\Newtonsoft.Json.xml
 C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\bin\Debug\WebDriver.xml
 C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\bin\Debug\WebDriver.Support.xml
-C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\obj\Debug\CourseSystemUITest.csproj.AssemblyReference.cache
 C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\obj\Debug\CourseSystemUITest.csproj.CoreCompileInputs.cache
-C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\obj\Debug\CourseSystemUITest.csproj.CopyComplete
 C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\obj\Debug\CourseSystemUITest.dll
 C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\obj\Debug\CourseSystemUITest.pdb
