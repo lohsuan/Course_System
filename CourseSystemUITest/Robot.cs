@@ -10,7 +10,7 @@ using OpenQA.Selenium;
 using System.Windows.Input;
 using System.Windows.Forms;
 
-namespace CourseSystemTests
+namespace CourseSystemUITest
 {
     public class Robot
     {

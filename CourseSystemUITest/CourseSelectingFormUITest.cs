@@ -1,16 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CourseSystemTests
+namespace CourseSystemUITest
 {
-    //class CourseSelectingFormUITest
-    //{
-    //}
-
     [TestClass()]
     public class CourseSelectingFormUITest
     {
@@ -19,6 +16,20 @@ namespace CourseSystemTests
         private const string CALCULATOR_TITLE = "小算盤";
         private const string EXPECTED_VALUE = "顯示是 444";
         private const string RESULT_CONTROL_NAME = "CalculatorResults";
+
+        //private string targetAppPath;
+        //private const string COURSE_SELECTING_FORM = "CourseSelectingForm";
+
+        //// init
+        //[TestInitialize]
+        //public void Initialize()
+        //{
+        //    var projectName = "CourseSystem";
+        //    string solutionPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\"));
+        //    targetAppPath = Path.Combine(solutionPath, projectName, "bin", "Debug", "CourseSystem.exe");
+        //    _robot = new Robot(targetAppPath, COURSE_SELECTING_FORM);
+        //}
+
 
         /// <summary>
         /// Launches the Calculator
