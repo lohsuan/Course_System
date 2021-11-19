@@ -71,7 +71,8 @@ namespace CourseSystem
         // IsCourseInfoMeetNotNullRequire
         public bool IsCourseInfoMeetNotNullRequire()
         {
-            return (this.Number != "") && (this.Name != "") && (this.Stage != "") && (this.Credit != "") && (this.Teacher != "");
+            return (this.Number != "") && (this.Name != "") && (this.Stage != "") && (this.Credit != "") && (this.Teacher != "") &&
+                (this.Number != null) && (this.Name != null) && (this.Stage != null) && (this.Credit != null) && (this.Teacher != null);
         }
 
         // GetCourseInfoDtoData

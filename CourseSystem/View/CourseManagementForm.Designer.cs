@@ -31,6 +31,7 @@ namespace CourseSystem
         {
             this._tabControl = new System.Windows.Forms.TabControl();
             this._courseManageTabPage = new System.Windows.Forms.TabPage();
+            this._importClassButton = new System.Windows.Forms.Button();
             this._saveButton = new System.Windows.Forms.Button();
             this._addCourseButton = new System.Windows.Forms.Button();
             this._editCourseGroupBox = new System.Windows.Forms.GroupBox();
@@ -68,11 +69,19 @@ namespace CourseSystem
             this._saturday = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._courseListBox = new System.Windows.Forms.ListBox();
             this._classManageTabPage = new System.Windows.Forms.TabPage();
-            this._importClassButton = new System.Windows.Forms.Button();
+            this._addButton = new System.Windows.Forms.Button();
+            this._classGroupBox = new System.Windows.Forms.GroupBox();
+            this._classCourseListBox = new System.Windows.Forms.ListBox();
+            this._classNameTextBox = new System.Windows.Forms.TextBox();
+            this._classNameLabel = new System.Windows.Forms.Label();
+            this._addClassButton = new System.Windows.Forms.Button();
+            this._classListBox = new System.Windows.Forms.ListBox();
             this._tabControl.SuspendLayout();
             this._courseManageTabPage.SuspendLayout();
             this._editCourseGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._classTimeDataGridView)).BeginInit();
+            this._classManageTabPage.SuspendLayout();
+            this._classGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // _tabControl
@@ -99,6 +108,16 @@ namespace CourseSystem
             this._courseManageTabPage.TabIndex = 0;
             this._courseManageTabPage.Text = "課程管理";
             this._courseManageTabPage.UseVisualStyleBackColor = true;
+            // 
+            // _importClassButton
+            // 
+            this._importClassButton.Location = new System.Drawing.Point(143, 580);
+            this._importClassButton.Name = "_importClassButton";
+            this._importClassButton.Size = new System.Drawing.Size(129, 52);
+            this._importClassButton.TabIndex = 4;
+            this._importClassButton.Text = "匯入資工系全部課程";
+            this._importClassButton.UseVisualStyleBackColor = true;
+            this._importClassButton.Click += new System.EventHandler(this.OpenImportCourseProgressForm);
             // 
             // _saveButton
             // 
@@ -457,6 +476,10 @@ namespace CourseSystem
             // 
             // _classManageTabPage
             // 
+            this._classManageTabPage.Controls.Add(this._addButton);
+            this._classManageTabPage.Controls.Add(this._classGroupBox);
+            this._classManageTabPage.Controls.Add(this._addClassButton);
+            this._classManageTabPage.Controls.Add(this._classListBox);
             this._classManageTabPage.Location = new System.Drawing.Point(4, 25);
             this._classManageTabPage.Name = "_classManageTabPage";
             this._classManageTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -465,15 +488,75 @@ namespace CourseSystem
             this._classManageTabPage.Text = "班級管理";
             this._classManageTabPage.UseVisualStyleBackColor = true;
             // 
-            // _importClassButton
+            // _addButton
             // 
-            this._importClassButton.Location = new System.Drawing.Point(143, 580);
-            this._importClassButton.Name = "_importClassButton";
-            this._importClassButton.Size = new System.Drawing.Size(129, 52);
-            this._importClassButton.TabIndex = 4;
-            this._importClassButton.Text = "匯入資工系全部課程";
-            this._importClassButton.UseVisualStyleBackColor = true;
-            this._importClassButton.Click += new System.EventHandler(this.OpenImportCourseProgressForm);
+            this._addButton.Enabled = false;
+            this._addButton.Location = new System.Drawing.Point(1063, 570);
+            this._addButton.Name = "_addButton";
+            this._addButton.Size = new System.Drawing.Size(131, 61);
+            this._addButton.TabIndex = 5;
+            this._addButton.Text = "新增";
+            this._addButton.UseVisualStyleBackColor = true;
+            this._addButton.Click += new System.EventHandler(this.ClickAddButton);
+            // 
+            // _classGroupBox
+            // 
+            this._classGroupBox.Controls.Add(this._classCourseListBox);
+            this._classGroupBox.Controls.Add(this._classNameTextBox);
+            this._classGroupBox.Controls.Add(this._classNameLabel);
+            this._classGroupBox.Location = new System.Drawing.Point(290, 20);
+            this._classGroupBox.Name = "_classGroupBox";
+            this._classGroupBox.Size = new System.Drawing.Size(916, 535);
+            this._classGroupBox.TabIndex = 4;
+            this._classGroupBox.TabStop = false;
+            this._classGroupBox.Text = "班級";
+            // 
+            // _classCourseListBox
+            // 
+            this._classCourseListBox.FormattingEnabled = true;
+            this._classCourseListBox.ItemHeight = 15;
+            this._classCourseListBox.Location = new System.Drawing.Point(23, 168);
+            this._classCourseListBox.Name = "_classCourseListBox";
+            this._classCourseListBox.Size = new System.Drawing.Size(867, 349);
+            this._classCourseListBox.TabIndex = 9;
+            // 
+            // _classNameTextBox
+            // 
+            this._classNameTextBox.Enabled = false;
+            this._classNameTextBox.Location = new System.Drawing.Point(134, 83);
+            this._classNameTextBox.Name = "_classNameTextBox";
+            this._classNameTextBox.Size = new System.Drawing.Size(737, 25);
+            this._classNameTextBox.TabIndex = 8;
+            this._classNameTextBox.TextChanged += new System.EventHandler(this.ChangedClassNameTextBoxText);
+            // 
+            // _classNameLabel
+            // 
+            this._classNameLabel.AutoSize = true;
+            this._classNameLabel.Location = new System.Drawing.Point(30, 87);
+            this._classNameLabel.Name = "_classNameLabel";
+            this._classNameLabel.Size = new System.Drawing.Size(84, 15);
+            this._classNameLabel.TabIndex = 7;
+            this._classNameLabel.Text = "班級名稱(*)";
+            // 
+            // _addClassButton
+            // 
+            this._addClassButton.Location = new System.Drawing.Point(6, 577);
+            this._addClassButton.Name = "_addClassButton";
+            this._addClassButton.Size = new System.Drawing.Size(265, 61);
+            this._addClassButton.TabIndex = 3;
+            this._addClassButton.Text = "新增班級";
+            this._addClassButton.UseVisualStyleBackColor = true;
+            this._addClassButton.Click += new System.EventHandler(this.ClickAddClassButton);
+            // 
+            // _classListBox
+            // 
+            this._classListBox.FormattingEnabled = true;
+            this._classListBox.ItemHeight = 15;
+            this._classListBox.Location = new System.Drawing.Point(6, 6);
+            this._classListBox.Name = "_classListBox";
+            this._classListBox.Size = new System.Drawing.Size(265, 559);
+            this._classListBox.TabIndex = 1;
+            this._classListBox.SelectedIndexChanged += new System.EventHandler(this.ChangedClassListBoxSelectedIndex);
             // 
             // CourseManagementForm
             // 
@@ -489,6 +572,9 @@ namespace CourseSystem
             this._editCourseGroupBox.ResumeLayout(false);
             this._editCourseGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._classTimeDataGridView)).EndInit();
+            this._classManageTabPage.ResumeLayout(false);
+            this._classGroupBox.ResumeLayout(false);
+            this._classGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -535,5 +621,12 @@ namespace CourseSystem
         private System.Windows.Forms.DataGridViewTextBoxColumn _friday;
         private System.Windows.Forms.DataGridViewTextBoxColumn _saturday;
         private System.Windows.Forms.Button _importClassButton;
+        private System.Windows.Forms.GroupBox _classGroupBox;
+        private System.Windows.Forms.TextBox _classNameTextBox;
+        private System.Windows.Forms.Label _classNameLabel;
+        private System.Windows.Forms.Button _addClassButton;
+        private System.Windows.Forms.ListBox _classListBox;
+        private System.Windows.Forms.Button _addButton;
+        private System.Windows.Forms.ListBox _classCourseListBox;
     }
 }

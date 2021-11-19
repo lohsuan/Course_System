@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.0273972602739726" branch-rate="0" lines-covered="8" lines-valid="292" branches-covered="0" branches-valid="24" complexity="58" version="0" timestamp="1637342344">
+<coverage line-rate="0.026845637583892617" branch-rate="0" lines-covered="8" lines-valid="298" branches-covered="0" branches-valid="24" complexity="58" version="0" timestamp="1637354133">
   <sources />
   <packages>
-    <package name="CourseSystemUITest" line-rate="0.0273972602739726" branch-rate="0" complexity="58">
+    <package name="CourseSystemUITest" line-rate="0.026845637583892617" branch-rate="0" complexity="58">
       <classes>
-        <class name="CourseSystemUITest.Robot" filename="C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\Robot.cs" line-rate="0.02127659574468085" branch-rate="0" complexity="1">
+        <class name="CourseSystemUITest.Robot" filename="D:\college\3junior\windows programming\108820001\CourseSystemUITest\Robot.cs" line-rate="0.02127659574468085" branch-rate="0" complexity="1">
           <methods>
             <method name="SetDelayBetweenActions" signature="(System.Int32)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
@@ -203,43 +203,41 @@
                 <line number="193" hits="0" branch="false" />
                 <line number="195" hits="0" branch="false" />
                 <line number="196" hits="0" branch="false" />
-                <line number="197" hits="0" branch="false" />
+                <line number="199" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertOtherFormButtonEnable" signature="(System.String,System.String,System.Boolean)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="200" hits="0" branch="false" />
-                <line number="201" hits="0" branch="false" />
                 <line number="202" hits="0" branch="false" />
                 <line number="203" hits="0" branch="false" />
                 <line number="204" hits="0" branch="false" />
                 <line number="205" hits="0" branch="false" />
                 <line number="206" hits="0" branch="false" />
                 <line number="207" hits="0" branch="false" />
+                <line number="208" hits="0" branch="false" />
+                <line number="209" hits="0" branch="false" />
               </lines>
             </method>
             <method name="ClickDataGridViewCell" signature="(System.String,System.String,System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="216" hits="0" branch="false" />
-                <line number="217" hits="0" branch="false" />
                 <line number="218" hits="0" branch="false" />
                 <line number="219" hits="0" branch="false" />
                 <line number="220" hits="0" branch="false" />
                 <line number="221" hits="0" branch="false" />
                 <line number="222" hits="0" branch="false" />
+                <line number="223" hits="0" branch="false" />
+                <line number="224" hits="0" branch="false" />
               </lines>
             </method>
             <method name="DeleteDataGridViewByIndex" signature="(System.String[])" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="225" hits="0" branch="false" />
-                <line number="226" hits="0" branch="false" />
                 <line number="227" hits="0" branch="false" />
-                <line number="228" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="228" hits="0" branch="false" />
                 <line number="229" hits="0" branch="false" />
-                <line number="230" hits="0" branch="false" />
+                <line number="230" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="231" hits="0" branch="false" />
+                <line number="232" hits="0" branch="false" />
                 <line number="233" hits="0" branch="false" />
-                <line number="234" hits="0" branch="false" />
                 <line number="235" hits="0" branch="false" />
                 <line number="236" hits="0" branch="false" />
                 <line number="237" hits="0" branch="false" />
@@ -252,68 +250,68 @@
                 <line number="244" hits="0" branch="false" />
                 <line number="245" hits="0" branch="false" />
                 <line number="246" hits="0" branch="false" />
+                <line number="247" hits="0" branch="false" />
+                <line number="248" hits="0" branch="false" />
               </lines>
             </method>
             <method name="ClickListViewByValue" signature="(System.String,System.String)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="249" hits="0" branch="false" />
-                <line number="250" hits="0" branch="false" />
+                <line number="251" hits="0" branch="false" />
                 <line number="252" hits="0" branch="false" />
-                <line number="253" hits="0" branch="false" />
                 <line number="254" hits="0" branch="false" />
-                <line number="255" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="255" hits="0" branch="false" />
                 <line number="256" hits="0" branch="false" />
-                <line number="257" hits="0" branch="false" />
+                <line number="257" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="258" hits="0" branch="false" />
+                <line number="259" hits="0" branch="false" />
                 <line number="260" hits="0" branch="false" />
-                <line number="261" hits="0" branch="false" />
                 <line number="262" hits="0" branch="false" />
                 <line number="263" hits="0" branch="false" />
+                <line number="264" hits="0" branch="false" />
+                <line number="265" hits="0" branch="false" />
               </lines>
             </method>
             <method name="ClickListViewToEmpty" signature="(System.String,System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="266" hits="0" branch="false" />
-                <line number="267" hits="0" branch="false" />
                 <line number="268" hits="0" branch="false" />
                 <line number="269" hits="0" branch="false" />
                 <line number="270" hits="0" branch="false" />
                 <line number="271" hits="0" branch="false" />
                 <line number="272" hits="0" branch="false" />
+                <line number="273" hits="0" branch="false" />
+                <line number="274" hits="0" branch="false" />
               </lines>
             </method>
             <method name="SetNumericUpDown" signature="(System.String,System.String)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="275" hits="0" branch="false" />
-                <line number="276" hits="0" branch="false" />
-                <line number="277" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="277" hits="0" branch="false" />
                 <line number="278" hits="0" branch="false" />
-                <line number="279" hits="0" branch="false" />
+                <line number="279" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="280" hits="0" branch="false" />
+                <line number="281" hits="0" branch="false" />
+                <line number="282" hits="0" branch="false" />
               </lines>
             </method>
             <method name="SetComboBox" signature="(System.String,System.String)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="283" hits="0" branch="false" />
-                <line number="284" hits="0" branch="false" />
-                <line number="285" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="285" hits="0" branch="false" />
                 <line number="286" hits="0" branch="false" />
-                <line number="287" hits="0" branch="false" />
+                <line number="287" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="288" hits="0" branch="false" />
+                <line number="289" hits="0" branch="false" />
               </lines>
             </method>
             <method name="SetCheckBox" signature="(System.String,System.Boolean)" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="290" hits="0" branch="false" />
-                <line number="291" hits="0" branch="false" />
-                <line number="292" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="292" hits="0" branch="false" />
                 <line number="293" hits="0" branch="false" />
-                <line number="294" hits="0" branch="false" />
+                <line number="294" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="295" hits="0" branch="false" />
+                <line number="296" hits="0" branch="false" />
               </lines>
             </method>
             <method name="SetDataGridViewCell" signature="(System.String,System.String,System.Int32,System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="304" hits="0" branch="false" />
-                <line number="305" hits="0" branch="false" />
                 <line number="306" hits="0" branch="false" />
                 <line number="307" hits="0" branch="false" />
                 <line number="308" hits="0" branch="false" />
@@ -322,135 +320,137 @@
                 <line number="311" hits="0" branch="false" />
                 <line number="312" hits="0" branch="false" />
                 <line number="313" hits="0" branch="false" />
+                <line number="314" hits="0" branch="false" />
+                <line number="315" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertEdit" signature="(System.String,System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="316" hits="0" branch="false" />
-                <line number="317" hits="0" branch="false" />
                 <line number="318" hits="0" branch="false" />
                 <line number="319" hits="0" branch="false" />
+                <line number="320" hits="0" branch="false" />
+                <line number="321" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertText" signature="(System.String,System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="322" hits="0" branch="false" />
-                <line number="323" hits="0" branch="false" />
                 <line number="324" hits="0" branch="false" />
                 <line number="325" hits="0" branch="false" />
+                <line number="326" hits="0" branch="false" />
+                <line number="327" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertCheckBox" signature="(System.String,System.Boolean)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="328" hits="0" branch="false" />
-                <line number="329" hits="0" branch="false" />
                 <line number="330" hits="0" branch="false" />
                 <line number="331" hits="0" branch="false" />
+                <line number="332" hits="0" branch="false" />
+                <line number="333" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertNumericUpDown" signature="(System.String,System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="333" hits="0" branch="false" />
-                <line number="334" hits="0" branch="false" />
                 <line number="335" hits="0" branch="false" />
                 <line number="336" hits="0" branch="false" />
+                <line number="337" hits="0" branch="false" />
+                <line number="338" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertDateTimePicker" signature="(System.String[])" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="338" hits="0" branch="false" />
-                <line number="339" hits="0" branch="false" />
                 <line number="340" hits="0" branch="false" />
                 <line number="341" hits="0" branch="false" />
                 <line number="342" hits="0" branch="false" />
                 <line number="343" hits="0" branch="false" />
+                <line number="344" hits="0" branch="false" />
+                <line number="345" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertComboBox" signature="(System.String,System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="345" hits="0" branch="false" />
-                <line number="346" hits="0" branch="false" />
                 <line number="347" hits="0" branch="false" />
                 <line number="348" hits="0" branch="false" />
+                <line number="349" hits="0" branch="false" />
+                <line number="350" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertListViewByValue" signature="(System.String,System.String[])" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="351" hits="0" branch="false" />
-                <line number="352" hits="0" branch="false" />
                 <line number="353" hits="0" branch="false" />
                 <line number="354" hits="0" branch="false" />
                 <line number="355" hits="0" branch="false" />
                 <line number="356" hits="0" branch="false" />
-                <line number="357" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="357" hits="0" branch="false" />
                 <line number="358" hits="0" branch="false" />
-                <line number="359" hits="0" branch="false" />
+                <line number="359" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="360" hits="0" branch="false" />
                 <line number="361" hits="0" branch="false" />
+                <line number="362" hits="0" branch="false" />
+                <line number="363" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertDataGridViewByIndex" signature="(System.String,System.String,System.String[])" line-rate="0" branch-rate="0" complexity="NaN">
               <lines>
-                <line number="364" hits="0" branch="false" />
-                <line number="365" hits="0" branch="false" />
                 <line number="366" hits="0" branch="false" />
                 <line number="367" hits="0" branch="false" />
                 <line number="368" hits="0" branch="false" />
                 <line number="369" hits="0" branch="false" />
-                <line number="370" hits="0" branch="true" condition-coverage="0% (0/2)" />
+                <line number="370" hits="0" branch="false" />
                 <line number="371" hits="0" branch="false" />
-                <line number="372" hits="0" branch="false" />
+                <line number="372" hits="0" branch="true" condition-coverage="0% (0/2)" />
                 <line number="373" hits="0" branch="false" />
                 <line number="374" hits="0" branch="false" />
                 <line number="375" hits="0" branch="false" />
+                <line number="376" hits="0" branch="false" />
+                <line number="377" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertDataItemsInDataGridView" signature="(System.String,System.Int32)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="378" hits="0" branch="false" />
-                <line number="379" hits="0" branch="false" />
                 <line number="380" hits="0" branch="false" />
                 <line number="381" hits="0" branch="false" />
+                <line number="382" hits="0" branch="false" />
+                <line number="383" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertButtonEnable" signature="(System.String,System.Boolean)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="384" hits="0" branch="false" />
-                <line number="385" hits="0" branch="false" />
                 <line number="386" hits="0" branch="false" />
                 <line number="387" hits="0" branch="false" />
+                <line number="388" hits="0" branch="false" />
+                <line number="389" hits="0" branch="false" />
               </lines>
             </method>
             <method name="AssertWindow" signature="(System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="390" hits="0" branch="false" />
                 <line number="392" hits="0" branch="false" />
-                <line number="393" hits="0" branch="false" />
                 <line number="394" hits="0" branch="false" />
+                <line number="395" hits="0" branch="false" />
+                <line number="396" hits="0" branch="false" />
               </lines>
             </method>
             <method name="SendKeyEnterToMessageBox" signature="(System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="397" hits="0" branch="false" />
-                <line number="398" hits="0" branch="false" />
                 <line number="399" hits="0" branch="false" />
                 <line number="400" hits="0" branch="false" />
+                <line number="401" hits="0" branch="false" />
+                <line number="402" hits="0" branch="false" />
               </lines>
             </method>
             <method name="ClickRadioButton" signature="(System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="403" hits="0" branch="false" />
-                <line number="404" hits="0" branch="false" />
                 <line number="405" hits="0" branch="false" />
                 <line number="406" hits="0" branch="false" />
+                <line number="407" hits="0" branch="false" />
+                <line number="408" hits="0" branch="false" />
               </lines>
             </method>
             <method name="ClickHyperlink" signature="(System.String)" line-rate="0" branch-rate="1" complexity="NaN">
               <lines>
-                <line number="409" hits="0" branch="false" />
-                <line number="410" hits="0" branch="false" />
                 <line number="411" hits="0" branch="false" />
                 <line number="412" hits="0" branch="false" />
+                <line number="413" hits="0" branch="false" />
+                <line number="414" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
@@ -581,31 +581,29 @@
             <line number="193" hits="0" branch="false" />
             <line number="195" hits="0" branch="false" />
             <line number="196" hits="0" branch="false" />
-            <line number="197" hits="0" branch="false" />
-            <line number="200" hits="0" branch="false" />
-            <line number="201" hits="0" branch="false" />
+            <line number="199" hits="0" branch="false" />
             <line number="202" hits="0" branch="false" />
             <line number="203" hits="0" branch="false" />
             <line number="204" hits="0" branch="false" />
             <line number="205" hits="0" branch="false" />
             <line number="206" hits="0" branch="false" />
             <line number="207" hits="0" branch="false" />
-            <line number="216" hits="0" branch="false" />
-            <line number="217" hits="0" branch="false" />
+            <line number="208" hits="0" branch="false" />
+            <line number="209" hits="0" branch="false" />
             <line number="218" hits="0" branch="false" />
             <line number="219" hits="0" branch="false" />
             <line number="220" hits="0" branch="false" />
             <line number="221" hits="0" branch="false" />
             <line number="222" hits="0" branch="false" />
-            <line number="225" hits="0" branch="false" />
-            <line number="226" hits="0" branch="false" />
+            <line number="223" hits="0" branch="false" />
+            <line number="224" hits="0" branch="false" />
             <line number="227" hits="0" branch="false" />
-            <line number="228" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="228" hits="0" branch="false" />
             <line number="229" hits="0" branch="false" />
-            <line number="230" hits="0" branch="false" />
+            <line number="230" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="231" hits="0" branch="false" />
+            <line number="232" hits="0" branch="false" />
             <line number="233" hits="0" branch="false" />
-            <line number="234" hits="0" branch="false" />
             <line number="235" hits="0" branch="false" />
             <line number="236" hits="0" branch="false" />
             <line number="237" hits="0" branch="false" />
@@ -618,44 +616,44 @@
             <line number="244" hits="0" branch="false" />
             <line number="245" hits="0" branch="false" />
             <line number="246" hits="0" branch="false" />
-            <line number="249" hits="0" branch="false" />
-            <line number="250" hits="0" branch="false" />
+            <line number="247" hits="0" branch="false" />
+            <line number="248" hits="0" branch="false" />
+            <line number="251" hits="0" branch="false" />
             <line number="252" hits="0" branch="false" />
-            <line number="253" hits="0" branch="false" />
             <line number="254" hits="0" branch="false" />
-            <line number="255" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="255" hits="0" branch="false" />
             <line number="256" hits="0" branch="false" />
-            <line number="257" hits="0" branch="false" />
+            <line number="257" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="258" hits="0" branch="false" />
+            <line number="259" hits="0" branch="false" />
             <line number="260" hits="0" branch="false" />
-            <line number="261" hits="0" branch="false" />
             <line number="262" hits="0" branch="false" />
             <line number="263" hits="0" branch="false" />
-            <line number="266" hits="0" branch="false" />
-            <line number="267" hits="0" branch="false" />
+            <line number="264" hits="0" branch="false" />
+            <line number="265" hits="0" branch="false" />
             <line number="268" hits="0" branch="false" />
             <line number="269" hits="0" branch="false" />
             <line number="270" hits="0" branch="false" />
             <line number="271" hits="0" branch="false" />
             <line number="272" hits="0" branch="false" />
-            <line number="275" hits="0" branch="false" />
-            <line number="276" hits="0" branch="false" />
-            <line number="277" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="273" hits="0" branch="false" />
+            <line number="274" hits="0" branch="false" />
+            <line number="277" hits="0" branch="false" />
             <line number="278" hits="0" branch="false" />
-            <line number="279" hits="0" branch="false" />
+            <line number="279" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="280" hits="0" branch="false" />
-            <line number="283" hits="0" branch="false" />
-            <line number="284" hits="0" branch="false" />
-            <line number="285" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="281" hits="0" branch="false" />
+            <line number="282" hits="0" branch="false" />
+            <line number="285" hits="0" branch="false" />
             <line number="286" hits="0" branch="false" />
-            <line number="287" hits="0" branch="false" />
-            <line number="290" hits="0" branch="false" />
-            <line number="291" hits="0" branch="false" />
-            <line number="292" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="287" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="288" hits="0" branch="false" />
+            <line number="289" hits="0" branch="false" />
+            <line number="292" hits="0" branch="false" />
             <line number="293" hits="0" branch="false" />
-            <line number="294" hits="0" branch="false" />
-            <line number="304" hits="0" branch="false" />
-            <line number="305" hits="0" branch="false" />
+            <line number="294" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="295" hits="0" branch="false" />
+            <line number="296" hits="0" branch="false" />
             <line number="306" hits="0" branch="false" />
             <line number="307" hits="0" branch="false" />
             <line number="308" hits="0" branch="false" />
@@ -664,82 +662,84 @@
             <line number="311" hits="0" branch="false" />
             <line number="312" hits="0" branch="false" />
             <line number="313" hits="0" branch="false" />
-            <line number="316" hits="0" branch="false" />
-            <line number="317" hits="0" branch="false" />
+            <line number="314" hits="0" branch="false" />
+            <line number="315" hits="0" branch="false" />
             <line number="318" hits="0" branch="false" />
             <line number="319" hits="0" branch="false" />
-            <line number="322" hits="0" branch="false" />
-            <line number="323" hits="0" branch="false" />
+            <line number="320" hits="0" branch="false" />
+            <line number="321" hits="0" branch="false" />
             <line number="324" hits="0" branch="false" />
             <line number="325" hits="0" branch="false" />
-            <line number="328" hits="0" branch="false" />
-            <line number="329" hits="0" branch="false" />
+            <line number="326" hits="0" branch="false" />
+            <line number="327" hits="0" branch="false" />
             <line number="330" hits="0" branch="false" />
             <line number="331" hits="0" branch="false" />
+            <line number="332" hits="0" branch="false" />
             <line number="333" hits="0" branch="false" />
-            <line number="334" hits="0" branch="false" />
             <line number="335" hits="0" branch="false" />
             <line number="336" hits="0" branch="false" />
+            <line number="337" hits="0" branch="false" />
             <line number="338" hits="0" branch="false" />
-            <line number="339" hits="0" branch="false" />
             <line number="340" hits="0" branch="false" />
             <line number="341" hits="0" branch="false" />
             <line number="342" hits="0" branch="false" />
             <line number="343" hits="0" branch="false" />
+            <line number="344" hits="0" branch="false" />
             <line number="345" hits="0" branch="false" />
-            <line number="346" hits="0" branch="false" />
             <line number="347" hits="0" branch="false" />
             <line number="348" hits="0" branch="false" />
-            <line number="351" hits="0" branch="false" />
-            <line number="352" hits="0" branch="false" />
+            <line number="349" hits="0" branch="false" />
+            <line number="350" hits="0" branch="false" />
             <line number="353" hits="0" branch="false" />
             <line number="354" hits="0" branch="false" />
             <line number="355" hits="0" branch="false" />
             <line number="356" hits="0" branch="false" />
-            <line number="357" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="357" hits="0" branch="false" />
             <line number="358" hits="0" branch="false" />
-            <line number="359" hits="0" branch="false" />
+            <line number="359" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="360" hits="0" branch="false" />
             <line number="361" hits="0" branch="false" />
-            <line number="364" hits="0" branch="false" />
-            <line number="365" hits="0" branch="false" />
+            <line number="362" hits="0" branch="false" />
+            <line number="363" hits="0" branch="false" />
             <line number="366" hits="0" branch="false" />
             <line number="367" hits="0" branch="false" />
             <line number="368" hits="0" branch="false" />
             <line number="369" hits="0" branch="false" />
-            <line number="370" hits="0" branch="true" condition-coverage="0% (0/2)" />
+            <line number="370" hits="0" branch="false" />
             <line number="371" hits="0" branch="false" />
-            <line number="372" hits="0" branch="false" />
+            <line number="372" hits="0" branch="true" condition-coverage="0% (0/2)" />
             <line number="373" hits="0" branch="false" />
             <line number="374" hits="0" branch="false" />
             <line number="375" hits="0" branch="false" />
-            <line number="378" hits="0" branch="false" />
-            <line number="379" hits="0" branch="false" />
+            <line number="376" hits="0" branch="false" />
+            <line number="377" hits="0" branch="false" />
             <line number="380" hits="0" branch="false" />
             <line number="381" hits="0" branch="false" />
-            <line number="384" hits="0" branch="false" />
-            <line number="385" hits="0" branch="false" />
+            <line number="382" hits="0" branch="false" />
+            <line number="383" hits="0" branch="false" />
             <line number="386" hits="0" branch="false" />
             <line number="387" hits="0" branch="false" />
-            <line number="390" hits="0" branch="false" />
+            <line number="388" hits="0" branch="false" />
+            <line number="389" hits="0" branch="false" />
             <line number="392" hits="0" branch="false" />
-            <line number="393" hits="0" branch="false" />
             <line number="394" hits="0" branch="false" />
-            <line number="397" hits="0" branch="false" />
-            <line number="398" hits="0" branch="false" />
+            <line number="395" hits="0" branch="false" />
+            <line number="396" hits="0" branch="false" />
             <line number="399" hits="0" branch="false" />
             <line number="400" hits="0" branch="false" />
-            <line number="403" hits="0" branch="false" />
-            <line number="404" hits="0" branch="false" />
+            <line number="401" hits="0" branch="false" />
+            <line number="402" hits="0" branch="false" />
             <line number="405" hits="0" branch="false" />
             <line number="406" hits="0" branch="false" />
-            <line number="409" hits="0" branch="false" />
-            <line number="410" hits="0" branch="false" />
+            <line number="407" hits="0" branch="false" />
+            <line number="408" hits="0" branch="false" />
             <line number="411" hits="0" branch="false" />
             <line number="412" hits="0" branch="false" />
+            <line number="413" hits="0" branch="false" />
+            <line number="414" hits="0" branch="false" />
           </lines>
         </class>
-        <class name="CourseSystemUITest.UITest" filename="C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\UITest.cs" line-rate="0.2" branch-rate="1" complexity="3">
+        <class name="CourseSystemUITest.UITest" filename="D:\college\3junior\windows programming\108820001\CourseSystemUITest\UITest.cs" line-rate="0.125" branch-rate="1" complexity="3">
           <methods>
             <method name="Initialize" signature="()" line-rate="0.6666666666666666" branch-rate="1" complexity="1">
               <lines>
@@ -748,19 +748,25 @@
                 <line number="20" hits="0" branch="false" />
               </lines>
             </method>
-            <method name="TestAdd" signature="()" line-rate="0" branch-rate="1" complexity="1">
+            <method name="StartUpFormButtonControlTest" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
                 <line number="24" hits="0" branch="false" />
                 <line number="25" hits="0" branch="false" />
                 <line number="26" hits="0" branch="false" />
-                <line number="27" hits="0" branch="false" />
+                <line number="28" hits="0" branch="false" />
+                <line number="29" hits="0" branch="false" />
+                <line number="31" hits="0" branch="false" />
+                <line number="32" hits="0" branch="false" />
+                <line number="34" hits="0" branch="false" />
+                <line number="35" hits="0" branch="false" />
+                <line number="36" hits="0" branch="false" />
               </lines>
             </method>
             <method name="Cleanup" signature="()" line-rate="0" branch-rate="1" complexity="1">
               <lines>
-                <line number="32" hits="0" branch="false" />
-                <line number="33" hits="0" branch="false" />
-                <line number="34" hits="0" branch="false" />
+                <line number="41" hits="0" branch="false" />
+                <line number="42" hits="0" branch="false" />
+                <line number="43" hits="0" branch="false" />
               </lines>
             </method>
           </methods>
@@ -771,10 +777,16 @@
             <line number="24" hits="0" branch="false" />
             <line number="25" hits="0" branch="false" />
             <line number="26" hits="0" branch="false" />
-            <line number="27" hits="0" branch="false" />
+            <line number="28" hits="0" branch="false" />
+            <line number="29" hits="0" branch="false" />
+            <line number="31" hits="0" branch="false" />
             <line number="32" hits="0" branch="false" />
-            <line number="33" hits="0" branch="false" />
             <line number="34" hits="0" branch="false" />
+            <line number="35" hits="0" branch="false" />
+            <line number="36" hits="0" branch="false" />
+            <line number="41" hits="0" branch="false" />
+            <line number="42" hits="0" branch="false" />
+            <line number="43" hits="0" branch="false" />
           </lines>
         </class>
       </classes>

@@ -13,19 +13,24 @@ namespace CourseSystem
         private readonly string _courseTimes = "1234N56789ABCD";
         private const int WEEK_OF_DAY = 7;
         private const char SPACE_KEY = ' ';
+        private const string CLASS = "班級";
+        private const string ADD_CLASS = "新增班級";
         private Model _model;
-        private CourseManagementFormPresentationModel _viewModel;
+        private CourseManagementFormPresentationModel _courseViewModel;
+        private ClassManagementPresentationModel _classViewModel;
 
         public CourseManagementForm(Model model)
         {
-            _viewModel = new CourseManagementFormPresentationModel(model);
+            _courseViewModel = new CourseManagementFormPresentationModel(model);
+            _classViewModel = new ClassManagementPresentationModel(model);
             _model = model;
             InitializeComponent();
-            _classComboBox.Items.AddRange(_viewModel.GetAllClassName());
+            _classComboBox.Items.AddRange(_courseViewModel.GetAllClassName());
             SetUpCourseListBox();
             SetUpDataGridView();
-            SetGroupBoxEnabledMode(false);
+            SetCourseGroupBoxEnabledMode(false);
             SetUpEvent();
+            SetUpClassListBox();
         }
 
         // SetUpEvent
@@ -34,6 +39,7 @@ namespace CourseSystem
             _model._courseDataCreateEvent += HandleCourseDataCreateEvent;
             _model._courseDataUpdateEvent += HandleCourseDataUpdateEvent;
             _model._courseImportEvent += HandleCourseImportEvent;
+            _model._classAddEvent += HandleCourseImportEvent;
         }
 
         // HandleCourseDataUpdateEvent when update course
@@ -46,8 +52,9 @@ namespace CourseSystem
         private void HandleCourseImportEvent()
         {
             _classComboBox.Items.Clear();
-            _classComboBox.Items.AddRange(_viewModel.GetAllClassName());
+            _classComboBox.Items.AddRange(_courseViewModel.GetAllClassName());
             SetUpCourseListBox();
+            SetUpClassListBox();
         }
 
         // HandleCourseDataCreateEvent when add course
@@ -55,7 +62,7 @@ namespace CourseSystem
         {
             ClearGroupBox();
             SetUpCourseListBox();
-            SetGroupBoxEnabledMode(false);
+            SetCourseGroupBoxEnabledMode(false);
             _addCourseButton.Enabled = true;
         }
 
@@ -68,7 +75,7 @@ namespace CourseSystem
         }
 
         // set group box enabled mode
-        private void SetGroupBoxEnabledMode(bool flag)
+        private void SetCourseGroupBoxEnabledMode(bool flag)
         {
             _courseStatusComboBox.Enabled = flag;
             _numberTextBox.Enabled = flag;
@@ -111,40 +118,65 @@ namespace CourseSystem
         private void SetUpCourseListBox()
         {
             _courseListBox.Items.Clear();
-            foreach (string courseName in _viewModel.GetAllCourseName())
+            foreach (string courseName in _courseViewModel.GetAllCourseName())
             {
                 _courseListBox.Items.Add(courseName);
             }
             _saveButton.Enabled = false;
         }
 
+        // add all class to ClassListBox
+        private void SetUpClassListBox()
+        {
+            _classListBox.Items.Clear();
+            foreach (string className in _courseViewModel.GetAllClassName())
+            {
+                _classListBox.Items.Add(className);
+            }
+        }
+
         // on _courseListBox_SelectedIndexChanged set corresponding info to CourseGroupBox 
         private void ChangeCourseListBoxIndex(object sender, EventArgs e)
         {
-            SetGroupBoxEnabledMode(true);
+            SetCourseGroupBoxEnabledMode(true);
             _editCourseGroupBox.Text = EDIT_COURSE;
             _saveButton.Text = SAVE;
             _addCourseButton.Enabled = true;
-            _viewModel.UpdateSelectedCourse(_courseListBox.SelectedIndex);
+            _courseViewModel.UpdateSelectedCourse(_courseListBox.SelectedIndex);
             UpdateCourseGroupBox();
             _saveButton.Enabled = false;
+        }
+
+        // on _classListBox_SelectedIndexChanged set corresponding info to ClassGroupBox 
+        private void ChangedClassListBoxSelectedIndex(object sender, EventArgs e)
+        {
+            _classNameTextBox.Enabled = false;
+            _classGroupBox.Text = CLASS;
+            _addClassButton.Enabled = true;
+            _classNameTextBox.Text = _classListBox.SelectedItem.ToString();
+            _classCourseListBox.Items.Clear();
+            foreach (string courseName in _classViewModel.GetClassCourseNamesByIndex(_classListBox.SelectedIndex))
+            {
+                _classCourseListBox.Items.Add(courseName);
+            }
+            _addButton.Enabled = false;
         }
 
         // SetUpCourseGroupBox
         private void UpdateCourseGroupBox()
         {
-            _numberTextBox.Text = _viewModel.GetNumber();
-            _nameTextBox.Text = _viewModel.GetName();
-            _stageTextBox.Text = _viewModel.GetStage();
-            _creditTextBox.Text = _viewModel.GetCredit();
-            _teacherTextBox.Text = _viewModel.GetTeacher();
-            _requireTypeComboBox.SelectedItem = _viewModel.GetRequireType();
-            _teacherAssistantTextBox.Text = _viewModel.GetTeacherAssistant();
-            _languageTextBox.Text = _viewModel.GetLanguage();
-            _syllabusTextBox.Text = _viewModel.GetSyllabus();
-            _hourComboBox.SelectedItem = _viewModel.GetHour();
-            _classComboBox.SelectedItem = _viewModel.GetClass();
-            _courseStatusComboBox.SelectedIndex = _viewModel.GetCourseStatus();
+            _numberTextBox.Text = _courseViewModel.GetNumber();
+            _nameTextBox.Text = _courseViewModel.GetName();
+            _stageTextBox.Text = _courseViewModel.GetStage();
+            _creditTextBox.Text = _courseViewModel.GetCredit();
+            _teacherTextBox.Text = _courseViewModel.GetTeacher();
+            _requireTypeComboBox.SelectedItem = _courseViewModel.GetRequireType();
+            _teacherAssistantTextBox.Text = _courseViewModel.GetTeacherAssistant();
+            _languageTextBox.Text = _courseViewModel.GetLanguage();
+            _syllabusTextBox.Text = _courseViewModel.GetSyllabus();
+            _hourComboBox.SelectedItem = _courseViewModel.GetHour();
+            _classComboBox.SelectedItem = _courseViewModel.GetClass();
+            _courseStatusComboBox.SelectedIndex = _courseViewModel.GetCourseStatus();
             UpdateClassTime();
         }
 
@@ -152,7 +184,7 @@ namespace CourseSystem
         private void UpdateClassTime()
         {
             ClearClassTimeDataGridView();
-            foreach (string classTime in _viewModel.GetClassTime())
+            foreach (string classTime in _courseViewModel.GetClassTime())
             {
                 string[] columnRowData = classTime.Split(SPACE_KEY);
                 _classTimeDataGridView.Rows[_courseTimes.IndexOf(columnRowData[1])].Cells[Int16.Parse(columnRowData[0]) + 1].Value = true;
@@ -172,20 +204,20 @@ namespace CourseSystem
         // on _numberTextBox_KeyPress
         private void CheckNumberInput(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !_viewModel.IsNumberInput(e.KeyChar);
+            e.Handled = !_courseViewModel.IsNumberInput(e.KeyChar);
         }
 
         // on _numberTextBox_TextChanged
         private void EditedTextBox(object sender, EventArgs e)
         {
-            _viewModel.SetCourseEditNumber(_numberTextBox.Text);
-            _viewModel.SetCourseEditName(_nameTextBox.Text);
-            _viewModel.SetCourseEditStage(_stageTextBox.Text);
-            _viewModel.SetCourseEditCredit(_creditTextBox.Text);
-            _viewModel.SetCourseEditTeacher(_teacherTextBox.Text);
-            _viewModel.SetCourseEditTeacherAssistant(_teacherAssistantTextBox.Text);
-            _viewModel.SetCourseEditLanguage(_languageTextBox.Text);
-            _viewModel.SetCourseEditSyllabus(_syllabusTextBox.Text);
+            _courseViewModel.SetCourseEditNumber(_numberTextBox.Text);
+            _courseViewModel.SetCourseEditName(_nameTextBox.Text);
+            _courseViewModel.SetCourseEditStage(_stageTextBox.Text);
+            _courseViewModel.SetCourseEditCredit(_creditTextBox.Text);
+            _courseViewModel.SetCourseEditTeacher(_teacherTextBox.Text);
+            _courseViewModel.SetCourseEditTeacherAssistant(_teacherAssistantTextBox.Text);
+            _courseViewModel.SetCourseEditLanguage(_languageTextBox.Text);
+            _courseViewModel.SetCourseEditSyllabus(_syllabusTextBox.Text);
 
             _saveButton.Enabled = IsSaveButtonEnable();
         }
@@ -193,10 +225,10 @@ namespace CourseSystem
         // on ComboBox SelectedIndexChanged
         private void ChangedComboBoxSelectedIndex(object sender, EventArgs e)
         {
-            _viewModel.SetCourseEditCourseStatus(_courseStatusComboBox.SelectedIndex);
-            _viewModel.SetCourseEditRequireType(_requireTypeComboBox.SelectedItem);
-            _viewModel.SetCourseEditHour(_hourComboBox.SelectedItem);
-            _viewModel.SetCourseEditClass(_classComboBox.SelectedItem);
+            _courseViewModel.SetCourseEditCourseStatus(_courseStatusComboBox.SelectedIndex);
+            _courseViewModel.SetCourseEditRequireType(_requireTypeComboBox.SelectedItem);
+            _courseViewModel.SetCourseEditHour(_hourComboBox.SelectedItem);
+            _courseViewModel.SetCourseEditClass(_classComboBox.SelectedItem);
 
             _saveButton.Enabled = IsSaveButtonEnable();
         }
@@ -205,7 +237,7 @@ namespace CourseSystem
         private void CheckClassTimeDataGridView(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex > 0)
-                _viewModel.UpdateCheckedCourse((bool)_classTimeDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue);
+                _courseViewModel.UpdateCheckedCourse((bool)_classTimeDataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].EditedFormattedValue);
 
             _saveButton.Enabled = IsSaveButtonEnable();
         }
@@ -215,14 +247,14 @@ namespace CourseSystem
         {
             if (_hourComboBox.SelectedItem == null)
                 return false;
-            return _viewModel.IsSaveButtonEnable(Int32.Parse(_hourComboBox.SelectedItem.ToString()));
+            return _courseViewModel.IsSaveButtonEnable(Int32.Parse(_hourComboBox.SelectedItem.ToString()));
         }
 
         // on _addCourseButton_Click
         private void ClickAddCourseButton(object sender, EventArgs e)
         {
-            _viewModel.AddCourseMode();
-            SetGroupBoxEnabledMode(true);
+            _courseViewModel.AddCourseMode();
+            SetCourseGroupBoxEnabledMode(true);
             SetAddCourseInitialGroupBoxMode();
             _editCourseGroupBox.Text = ADD_COURSE;
             _saveButton.Text = ADD;
@@ -277,8 +309,8 @@ namespace CourseSystem
             }
             for (int i = 0; i < classTime.Length; i++)
                 classTime[i] = classTime[i].Trim();
-            _viewModel.SetCourseEditClassTime(classTime);
-            _viewModel.UpdateOrAddCourse();
+            _courseViewModel.SetCourseEditClassTime(classTime);
+            _courseViewModel.UpdateOrAddCourse();
             _saveButton.Enabled = false;
         }
 
@@ -290,6 +322,32 @@ namespace CourseSystem
             importCourseProgressForm.ShowDialog();
             if (importCourseProgressForm.DialogResult == DialogResult.Cancel)
                 _importClassButton.Enabled = true;
+        }
+
+        // _addClassButton_Click
+        private void ClickAddClassButton(object sender, EventArgs e)
+        {
+            _courseViewModel.AddCourseMode();
+            _classNameTextBox.Enabled = true;
+            _classNameTextBox.Text = "";
+            _classCourseListBox.Items.Clear();
+            _classGroupBox.Text = ADD_CLASS;
+            _addButton.Enabled = false;
+            _addClassButton.Enabled = false;
+        }
+
+        // _classNameTextBox_TextChanged
+        private void ChangedClassNameTextBoxText(object sender, EventArgs e)
+        {
+            _classViewModel.SetNewCourseName(_classNameTextBox.Text);
+
+            _addButton.Enabled = _classViewModel.IsAddButtonEnable();
+        }
+
+        // _addButton_Click
+        private void ClickAddButton(object sender, EventArgs e)
+        {
+            _classViewModel.AddClass();
         }
     }
 }

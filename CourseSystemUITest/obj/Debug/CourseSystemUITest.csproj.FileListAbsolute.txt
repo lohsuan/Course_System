@@ -9,3 +9,9 @@ C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\obj\Debug\CourseSy
 C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\obj\Debug\CourseSystemUITest.csproj.CoreCompileInputs.cache
 C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\obj\Debug\CourseSystemUITest.dll
 C:\Users\njo61u04\Desktop\WP\Course_System\CourseSystemUITest\obj\Debug\CourseSystemUITest.pdb
+D:\college\3junior\windows programming\108820001\CourseSystemUITest\bin\Debug\CourseSystemUITest.dll
+D:\college\3junior\windows programming\108820001\CourseSystemUITest\bin\Debug\CourseSystemUITest.pdb
+D:\college\3junior\windows programming\108820001\CourseSystemUITest\obj\Debug\CourseSystemUITest.csproj.AssemblyReference.cache
+D:\college\3junior\windows programming\108820001\CourseSystemUITest\obj\Debug\CourseSystemUITest.csproj.CoreCompileInputs.cache
+D:\college\3junior\windows programming\108820001\CourseSystemUITest\obj\Debug\CourseSystemUITest.dll
+D:\college\3junior\windows programming\108820001\CourseSystemUITest\obj\Debug\CourseSystemUITest.pdb

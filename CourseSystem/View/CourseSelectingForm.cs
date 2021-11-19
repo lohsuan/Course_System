@@ -42,6 +42,7 @@ namespace CourseSystem
             _model._courseCancelSelectEvent += HandleCourseChangeEvent;
             _model._courseSelectEvent += HandleCourseChangeEvent;
             _model._courseImportEvent += HandleCourseImportEvent;
+            _model._classAddEvent += HandleCourseImportEvent;
         }
 
         // HandleCourseChangeEvent Create, Update, Cancel Select Event

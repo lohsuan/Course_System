@@ -16,6 +16,8 @@ namespace CourseSystem
         public delegate void OnCourseCancelSelectEventHandler();
         public event OnCourseImportEventHandler _courseImportEvent;
         public delegate void OnCourseImportEventHandler();
+        public event OnClassAddEventHandler _classAddEvent;
+        public delegate void OnClassAddEventHandler();
 
         private List<string> _departmentPathes = new List<string>();
         private List<string> _departmentNames = new List<string>();
@@ -77,6 +79,13 @@ namespace CourseSystem
         {
             if (_courseImportEvent != null)
                 _courseImportEvent();
+        }
+
+        // on course Imort
+        public void NotifyClassAdd()
+        {
+            if (_classAddEvent != null)
+                _classAddEvent();
         }
 
         // get parsed course information
@@ -200,6 +209,19 @@ namespace CourseSystem
         public int GetDepartmentAmount()
         {
             return _departments.Count;
+        }
+
+        // GetClassCourseByDepartmentIndex
+        public List<string> GetClassCourseByDepartmentIndex(int selectedIndex)
+        {
+            return _departments[selectedIndex].GetCoursesName();
+        }
+
+        // AddClass
+        public void AddClass(string newCourseName)
+        {
+            _departmentNames.Add(newCourseName);
+            _departments.Add(new Department(newCourseName));
         }
     }
 }

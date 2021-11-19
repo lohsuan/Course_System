@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CourseSystem
 {
@@ -40,6 +41,17 @@ namespace CourseSystem
         public void RemoveCourse(CourseInfoDto courseInfoDto)
         {
             _courseInfoDtos.Remove(courseInfoDto);
+        }
+
+        // GetCoursesName
+        internal List<string> GetCoursesName()
+        {
+            List<string> coursesName = new List<string>();
+            foreach (var course in _courseInfoDtos)
+            {
+                coursesName.Add(course.Name);
+            }
+            return coursesName;
         }
     }
 }

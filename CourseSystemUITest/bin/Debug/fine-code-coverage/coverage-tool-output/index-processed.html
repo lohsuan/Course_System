@@ -680,9 +680,7 @@ a.percentagebar { padding-left: 6px }
 
 					table.overview th, table.overview td { font-size: small; white-space: nowrap; word-break: normal; padding-left:10px;padding-right:10px; }
 
-					coverage-info div.customizebox div:nth-child(2) { opacity:0;font-size:1px;height:1px;padding:0;border:0;margin:0 } */
-
-					coverage-info div.customizebox div:nth-child(2) * { opacity:0;font-size:1px;height:1px;padding:0;border:0;margin:0 } */
+					
 
 					table,tr,th,td { border: 1px solid; font-size: small; }
 
@@ -692,13 +690,43 @@ a.percentagebar { padding-left: 6px }
 
                     body, html { scrollbar-arrow-color:rgba(62,62,66,255);scrollbar-track-color:rgba(62,62,66,255);scrollbar-face-color:rgba(104,104,104,255);scrollbar-shadow-color:rgba(104,104,104,255);scrollbar-highlight-color:rgba(104,104,104,255);scrollbar-3dlight-color:rgba(104,104,104,255);scrollbar-darkshadow-color:rgba(104,104,104,255) }				
 
+					input[type=range]::-ms-thumb {
+
+					  background: rgba(104,104,104,255);
+
+					  border: rgba(104,104,104,255)
+
+					}
+
+					input[type=range]::-ms-track {
+
+						color: transparent;
+
+						border-color: transparent;
+
+						background: transparent;
+
+					}
+
+					
+
+					input[type=range]::-ms-fill-lower {
+
+					  background: rgba(241,241,241,255);  
+
+					}
+
+					input[type=range]::-ms-fill-upper {
+
+					  background: rgba(241,241,241,255); 
+
+					}
+
 				</style>
 
 				
 
 				<style type="text/css" id='fccMediaStyle'>
-
-					table.overview.table-fixed.stripped > thead > tr > th:nth-of-type(4) > a:nth-of-type(2) { display: none; }
 
 					@media screen and (-ms-high-contrast:active){
 
@@ -1058,7 +1086,7 @@ a.percentagebar { padding-left: 6px }
 
 <tbody>
 
-<tr style="display:none"><th>Generated on:</th><td>2021/11/19 - 下午 05:19:05</td></tr>
+<tr style="display:none"><th>Generated on:</th><td>11/19/2021 - 8:35:34 PM</td></tr>
 
 <tr style="display:none"><th>Parser:</th><td>CoberturaParser</td></tr>
 
@@ -1070,13 +1098,13 @@ a.percentagebar { padding-left: 6px }
 
 <tr><th>Covered lines:</th><td>8</td></tr>
 
-<tr><th>Uncovered lines:</th><td>284</td></tr>
+<tr><th>Uncovered lines:</th><td>290</td></tr>
 
-<tr><th>Coverable lines:</th><td>292</td></tr>
+<tr><th>Coverable lines:</th><td>298</td></tr>
 
-<tr><th>Total lines:</th><td>452</td></tr>
+<tr><th>Total lines:</th><td>463</td></tr>
 
-<tr><th>Line coverage:</th><td>2.7% (8 of 292)</td></tr>
+<tr><th>Line coverage:</th><td>2.6% (8 of 298)</td></tr>
 
 <tr><th>Covered branches:</th><td>0</td></tr>
 
@@ -1132,11 +1160,11 @@ a.percentagebar { padding-left: 6px }
 
 <tbody>
 
-<tr><th>CourseSystemUITest</th><th class="right">8</th><th class="right">284</th><th class="right">292</th><th class="right">452</th><th title="LineCoverage: 8/292" class="right">2.7%</th><th><table class="coverage"><tr><td class="green covered3">&nbsp;</td><td class="red covered97">&nbsp;</td></tr></table></th><th class="right">0</th><th class="right">24</th><th class="right" title="0/24">0%</th><th><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></th></tr>
+<tr><th>CourseSystemUITest</th><th class="right">8</th><th class="right">290</th><th class="right">298</th><th class="right">463</th><th title="LineCoverage: 8/298" class="right">2.6%</th><th><table class="coverage"><tr><td class="green covered3">&nbsp;</td><td class="red covered97">&nbsp;</td></tr></table></th><th class="right">0</th><th class="right">24</th><th class="right" title="0/24">0%</th><th><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></th></tr>
 
-<tr><td><a href="CourseSystemUITest_Robot.html">CourseSystemUITest.Robot</a></td><td class="right">6</td><td class="right">276</td><td class="right">282</td><td class="right">415</td><td title="LineCoverage: 6/282" class="right">2.1%</td><td><table class="coverage"><tr><td class="green covered2">&nbsp;</td><td class="red covered98">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">24</td><td class="right" title="0/24">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="CourseSystemUITest_Robot.html">CourseSystemUITest.Robot</a></td><td class="right">6</td><td class="right">276</td><td class="right">282</td><td class="right">417</td><td title="LineCoverage: 6/282" class="right">2.1%</td><td><table class="coverage"><tr><td class="green covered2">&nbsp;</td><td class="red covered98">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">24</td><td class="right" title="0/24">0%</td><td><table class="coverage"><tr><td class="red covered100">&nbsp;</td></tr></table></td></tr>
 
-<tr><td><a href="CourseSystemUITest_UITest.html">CourseSystemUITest.UITest</a></td><td class="right">2</td><td class="right">8</td><td class="right">10</td><td class="right">37</td><td title="LineCoverage: 2/10" class="right">20%</td><td><table class="coverage"><tr><td class="green covered20">&nbsp;</td><td class="red covered80">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="CourseSystemUITest_UITest.html">CourseSystemUITest.UITest</a></td><td class="right">2</td><td class="right">14</td><td class="right">16</td><td class="right">46</td><td title="LineCoverage: 2/16" class="right">12.5%</td><td><table class="coverage"><tr><td class="green covered12">&nbsp;</td><td class="red covered88">&nbsp;</td></tr></table></td><td class="right">0</td><td class="right">0</td><td class="right" title="-"></td><td><table class="coverage"><tr><td class="gray covered100">&nbsp;</td></tr></table></td></tr>
 
 </tbody>
 
@@ -1144,7 +1172,7 @@ a.percentagebar { padding-left: 6px }
 
 </coverage-info>
 
-<div class="footer" style="display:none">Generated by: ReportGenerator 4.7.1.0<br>2021/11/19 - 下午 05:19:05<br><a href="https://github.com/danielpalme/ReportGenerator">GitHub</a> | <a href="http://www.palmmedia.de">www.palmmedia.de</a></div></div></div>
+<div class="footer" style="display:none">Generated by: ReportGenerator 4.7.1.0<br>11/19/2021 - 8:35:34 PM<br><a href="https://github.com/danielpalme/ReportGenerator">GitHub</a> | <a href="http://www.palmmedia.de">www.palmmedia.de</a></div></div></div>
 
 <script type="text/javascript">/* <![CDATA[ */ /* Chartist.js 0.11.0
 
@@ -1600,7 +1628,7 @@ var assemblies = [
 
       {
 
-        "name": "Robot",
+        "name": "CourseSystemUITest.Robot",
 
         "rp": "#CourseSystemUITest!CourseSystemUITest.Robot.html",
 
@@ -1610,7 +1638,7 @@ var assemblies = [
 
         "cal": 282,
 
-        "tl": 415,
+        "tl": 417,
 
         "ct": "LineCoverage",
 
@@ -1630,17 +1658,17 @@ var assemblies = [
 
       {
 
-        "name": "UITest",
+        "name": "CourseSystemUITest.UITest",
 
         "rp": "#CourseSystemUITest!CourseSystemUITest.UITest.html",
 
         "cl": 2,
 
-        "ucl": 8,
+        "ucl": 14,
 
-        "cal": 10,
+        "cal": 16,
 
-        "tl": 37,
+        "tl": 46,
 
         "ct": "LineCoverage",
 
@@ -1762,6 +1790,20 @@ function _slicedToArray(e,t){return _arrayWithHoles(e)||_iterableToArrayLimit(e,
 
 					<script type="text/javascript">
 
+						
+
+						
+
+				var customizeBox = document.getElementsByClassName('customizebox')[0];
+
+				var groupingInput = customizeBox.querySelector('input');
+
+				groupingInput.max = 1;
+
+
+
+						
+
 						function getRuleBySelector(cssRules,selector){
 
 						for(var i=0;i<cssRules.length;i++){
@@ -1800,15 +1842,15 @@ function _slicedToArray(e,t){return _arrayWithHoles(e)||_iterableToArrayLimit(e,
 
 					}
 
-					function themeChanged(colours){
+					function themeChanged(theme){
 
 							var fccMediaStylesheet = getStyleSheetById('fccMediaStyle');	
 
-							var highContrastRule = fccMediaStylesheet.cssRules[1]
+							var highContrastRule = fccMediaStylesheet.cssRules[0]
 
 							var highContrastRules = highContrastRule.cssRules
 
-							getStyleBySelector(highContrastRules,'table.coverage > td.gray').setProperty('background-color',colours.GrayCoverage);
+							getStyleBySelector(highContrastRules,'table.coverage > td.gray').setProperty('background-color',theme.GrayCoverageColour);
 
 
 
@@ -1816,57 +1858,73 @@ function _slicedToArray(e,t){return _arrayWithHoles(e)||_iterableToArrayLimit(e,
 
 					
 
+							var rangeInputFillLower = getStyleBySelector(fccStyleSheet1Rules, 'input[type=range]::-ms-fill-lower');
+
+							rangeInputFillLower.setProperty('background',theme.SliderLeftColour);
+
+							var rangeInputFillUpper = getStyleBySelector(fccStyleSheet1Rules, 'input[type=range]::-ms-fill-upper');
+
+							rangeInputFillUpper.setProperty('background',theme.SliderRightColour);
+
+							var rangeInputThumb = getStyleBySelector(fccStyleSheet1Rules, 'input[type=range]::-ms-thumb');
+
+							rangeInputThumb.setProperty('background',theme.SliderThumbColour);
+
+							rangeInputThumb.setProperty('border',theme.SliderThumbColour);
+
+
+
 							var scrollBarStyle = getStyleBySelector(fccStyleSheet1Rules,'body, html');
 
-							scrollBarStyle.setProperty('scrollbar-arrow-color',colours.ScrollBarArrow);
+							scrollBarStyle.setProperty('scrollbar-arrow-color',theme.ScrollBarArrowColour);
 
-							scrollBarStyle.setProperty('scrollbar-track-color',colours.ScrollBarTrack);
+							scrollBarStyle.setProperty('scrollbar-track-color',theme.ScrollBarTrackColour);
 
-							scrollBarStyle.setProperty('scrollbar-face-color',colours.ScrollBarThumb);
+							scrollBarStyle.setProperty('scrollbar-face-color',theme.ScrollBarThumbColour);
 
-							scrollBarStyle.setProperty('scrollbar-shadow-color',colours.ScrollBarThumb);
+							scrollBarStyle.setProperty('scrollbar-shadow-color',theme.ScrollBarThumbColour);
 
-							scrollBarStyle.setProperty('scrollbar-highlight-color',colours.ScrollBarThumb);
+							scrollBarStyle.setProperty('scrollbar-highlight-color',theme.ScrollBarThumbColour);
 
-							scrollBarStyle.setProperty('scrollbar-3dlight-color',colours.ScrollBarThumb);
+							scrollBarStyle.setProperty('scrollbar-3dlight-color',theme.ScrollBarThumbColour);
 
-							scrollBarStyle.setProperty('scrollbar-darkshadow-color',colours.ScrollBarThumb);
+							scrollBarStyle.setProperty('scrollbar-darkshadow-color',theme.ScrollBarThumbColour);
 
 
 
-							getStyleBySelector(fccStyleSheet1Rules,'*, body').setProperty('color',colours.FontColour);
+							getStyleBySelector(fccStyleSheet1Rules,'*, body').setProperty('color',theme.FontColour);
 
 							var textStyle = getStyleBySelector(fccStyleSheet1Rules,'input[type=text]');
 
-							textStyle.setProperty('color',colours.TextBoxTextColour);			
+							textStyle.setProperty('color',theme.TextBoxTextColour);			
 
-							textStyle.setProperty('background-color',colours.TextBoxColour);								
+							textStyle.setProperty('background-color',theme.TextBoxColour);								
 
-							textStyle.setProperty('border-color',colours.TextBoxBorderColour);
+							textStyle.setProperty('border-color',theme.TextBoxBorderColour);
 
 
 
 							var comboStyle = getStyleBySelector(fccStyleSheet1Rules,'select');
 
-							comboStyle.setProperty('color',colours.ComboBoxText);		
+							comboStyle.setProperty('color',theme.ComboBoxTextColour);		
 
-							comboStyle.setProperty('background-color',colours.ComboBox);	
+							comboStyle.setProperty('background-color',theme.ComboBoxColour);	
 
-							comboStyle.setProperty('border-color',colours.ComboBoxBorder);
+							comboStyle.setProperty('border-color',theme.ComboBoxBorderColour);
 
 
 
 							var fccStyleSheet2Rules = getStyleSheetById('fccStyle2').cssRules;	
 
-							getStyleBySelector(fccStyleSheet2Rules,'#divHeader').setProperty('background-color',colours.DivHeaderBackgroundColour);							
+							getStyleBySelector(fccStyleSheet2Rules,'#divHeader').setProperty('background-color',theme.DivHeaderBackgroundColour);							
 
 							var headerTabsStyle = getStyleBySelector(fccStyleSheet2Rules,'table#headerTabs td');
 
-							headerTabsStyle.setProperty('color',colours.HeaderFontColour);
+							headerTabsStyle.setProperty('color',theme.HeaderFontColour);
 
-							headerTabsStyle.setProperty('border-color',colours.HeaderBorderColour);
+							headerTabsStyle.setProperty('border-color',theme.HeaderBorderColour);
 
-							getStyleBySelector(fccStyleSheet2Rules,'table#headerTabs td.tab').setProperty('background-color',colours.TabBackgroundColour);		
+							getStyleBySelector(fccStyleSheet2Rules,'table#headerTabs td.tab').setProperty('background-color',theme.TabBackgroundColour);		
 
 
 
@@ -1876,17 +1934,17 @@ function _slicedToArray(e,t){return _arrayWithHoles(e)||_iterableToArrayLimit(e,
 
 
 
-							getStyleBySelector(mainRules,'.gray').setProperty('background-color',colours.GrayCoverage);
+							getStyleBySelector(mainRules,'.gray').setProperty('background-color',theme.GrayCoverageColour);
 
 
 
-							getStyleBySelector(mainRules,'html').setProperty('background-color',colours.BackgroundColour);
+							getStyleBySelector(mainRules,'html').setProperty('background-color',theme.BackgroundColour);
 
-							getStyleBySelector(mainRules,'.container').setProperty('background-color',colours.BackgroundColour);
+							getStyleBySelector(mainRules,'.container').setProperty('background-color',theme.BackgroundColour);
 
 
 
-							var overviewTableBorder = '1px solid ' + colours.TableBorderColour;
+							var overviewTableBorder = '1px solid ' + theme.TableBorderColour;
 
 							var overviewStyle = getStyleBySelector(mainRules,'.overview');
 
@@ -1894,7 +1952,7 @@ function _slicedToArray(e,t){return _arrayWithHoles(e)||_iterableToArrayLimit(e,
 
 							var overviewThStyle = getStyleBySelector(mainRules,'.overview th');
 
-							overviewThStyle.setProperty('background-color',colours.BackgroundColour);
+							overviewThStyle.setProperty('background-color',theme.BackgroundColour);
 
 							overviewThStyle.setProperty('border',overviewTableBorder);
 
@@ -1906,13 +1964,13 @@ function _slicedToArray(e,t){return _arrayWithHoles(e)||_iterableToArrayLimit(e,
 
 							var overviewHeaderLinksStyle = getStyleBySelector(mainRules,'.overview th a');
 
-							overviewHeaderLinksStyle.setProperty('color',colours.CoverageTableHeaderFontColour);
+							overviewHeaderLinksStyle.setProperty('color',theme.CoverageTableHeaderFontColour);
 
 
 
 							var overviewTrHoverStyle = getStyleBySelector(mainRules,'.overview tr:hover');
 
-							overviewTrHoverStyle.setProperty('background',colours.CoverageTableRowHoverBackgroundColour);
+							overviewTrHoverStyle.setProperty('background',theme.CoverageTableRowHoverBackgroundColour);
 
 
 
@@ -1920,31 +1978,31 @@ function _slicedToArray(e,t){return _arrayWithHoles(e)||_iterableToArrayLimit(e,
 
 							var linkHoverStyle = getStyleBySelector(mainRules,'a:hover');
 
-							linkStyle.setProperty('color',colours.LinkColour);
+							linkStyle.setProperty('color',theme.LinkColour);
 
-							linkHoverStyle.setProperty('color',colours.LinkColour);
+							linkHoverStyle.setProperty('color',theme.LinkColour);
 
 
 
 							var iconPlusStyle = getStyleBySelector(mainRules,'.icon-plus');
 
-							iconPlusStyle.setProperty('background-image',colours.PlusBase64);
+							iconPlusStyle.setProperty('background-image',theme.PlusBase64);
 
 							var iconMinusStyle = getStyleBySelector(mainRules,'.icon-minus');
 
-							iconMinusStyle.setProperty('background-image',colours.MinusBase64);
+							iconMinusStyle.setProperty('background-image',theme.MinusBase64);
 
 							var iconDownActiveStyle = getStyleBySelector(mainRules,'.icon-down-dir_active');
 
-							iconDownActiveStyle.setProperty('background-image',colours.DownActiveBase64);
+							iconDownActiveStyle.setProperty('background-image',theme.DownActiveBase64);
 
 							var iconDownInactiveStyle = getStyleBySelector(mainRules,'.icon-down-dir');
 
-							iconDownInactiveStyle.setProperty('background-image',colours.DownInactiveBase64);
+							iconDownInactiveStyle.setProperty('background-image',theme.DownInactiveBase64);
 
 							var iconUpActiveStyle = getStyleBySelector(mainRules,'.icon-up-dir_active');
 
-							iconUpActiveStyle.setProperty('background-image',colours.UpActiveBase64);
+							iconUpActiveStyle.setProperty('background-image',theme.UpActiveBase64);
 
 					}
 
