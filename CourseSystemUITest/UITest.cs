@@ -1,63 +1,37 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.VisualStudio.TestTools.UITesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CourseSystemUITest
 {
-    [TestClass()]
+    /// <summary>
+    /// Summary description for MainFormUITest
+    /// </summary>
+    [CodedUITest]
     public class UITest
     {
-        private Robot _robot;
-        private string targetAppPath;
-        //private const string START_UP_FORM = "StartUpForm";
+        const string FILE_PATH = @"..\\..\\..\\CourseSystem\\bin\\Debug\\CourseSystem.exe";
+        private const string APP_TITLE = "StartUpForm";
 
-        private const string START_UP_FORM = "CourseSelectingForm";
-
-        // init
-        [TestInitialize]
+        // Initialize
+        [TestInitialize()]
         public void Initialize()
         {
-            var projectName = "CourseSystem";
-            string solutionPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\..\\"));
-            targetAppPath = Path.Combine(solutionPath, projectName, "bin", "Debug", "CourseSystem.exe");
-            _robot = new Robot(targetAppPath, START_UP_FORM);
-        }
-
-        [TestCleanup()]
-        public void Cleanup()
-        {
-            _robot.CleanUp();
+            Robot.Initialize(FILE_PATH, APP_TITLE);
         }
 
         [TestMethod]
         public void TestAdd()
         {
-            _robot.ClickButton("Course Selecting System");
-            _robot.AssertEnable("Course Selecting System", false);
+            Robot.ClickButton("Course Selecting System");
+            Robot.AssertButtonEnable("Course Selecting System", false);
         }
 
-        [TestMethod]
-        public void TestButtonControl()
+        // Cleanup
+        [TestCleanup()]
+        public void Cleanup()
         {
-            _robot.ClickButton("Course Selecting System");
-            _robot.AssertEnable("Course Selecting System", false);
-
-            _robot.SwitchTo("StartUpForm");
-            _robot.ClickButton("Course Management System");
-            _robot.AssertEnable("Course Management System", false);
-
-            _robot.SwitchTo("CourseSelectingForm");
-            _robot.CloseWindow();
-            _robot.AssertEnable("Course Selecting System", true);
-
-            _robot.SwitchTo("CourseManagementForm");
-            _robot.CloseWindow();
-            _robot.AssertEnable("Course Management System", true);
+            Robot.CleanUp();
         }
-    }
 
+    }
 }
