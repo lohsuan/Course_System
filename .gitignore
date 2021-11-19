@@ -378,3 +378,11 @@ InteropTests/NativeTests/out
 
 # Ignore smell files
 *.smell
+
+# Ignore bin obj directories
+CourseSystem/bin
+CourseSystem/obj
+CourseSystemTests/bin
+CourseSystemTests/obj
+CourseSystemUITests/bin
+CourseSystemUITests/obj
