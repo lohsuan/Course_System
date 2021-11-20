@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CourseSystem
 {
-    class ClassManagementPresentationModel
+    public class ClassManagementPresentationModel
     {
         private Model _model;
         private string _newCourseName;
@@ -17,25 +17,25 @@ namespace CourseSystem
         }
 
         // GetClassCourseByIndex
-        internal List<string> GetClassCourseNamesByIndex(int selectedIndex)
+        public List<string> GetClassCourseNamesByIndex(int selectedIndex)
         {
             return _model.GetClassCourseByDepartmentIndex(selectedIndex);
         }
 
         // SetNewCourseName
-        internal void SetNewCourseName(string text)
+        public void SetNewClassName(string text)
         {
             _newCourseName = text;
         }
 
         // IsAddButtonEnable
-        internal bool IsAddButtonEnable()
+        public bool IsAddButtonEnable()
         {
             return _newCourseName != "";
         }
 
         // AddClass
-        internal void AddClass()
+        public void AddClass()
         {
             _model.AddClass(_newCourseName);
             _model.NotifyClassAdd();

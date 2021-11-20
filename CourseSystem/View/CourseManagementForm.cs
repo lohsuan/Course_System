@@ -339,7 +339,7 @@ namespace CourseSystem
         // _classNameTextBox_TextChanged
         private void ChangedClassNameTextBoxText(object sender, EventArgs e)
         {
-            _classViewModel.SetNewCourseName(_classNameTextBox.Text);
+            _classViewModel.SetNewClassName(_classNameTextBox.Text);
 
             _addButton.Enabled = _classViewModel.IsAddButtonEnable();
         }

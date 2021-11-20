@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace CourseSystem.Tests
 {
     /// <summary>
-    /// Total Test amount: 6
+    /// Total Test amount: 7
     /// </summary>
     [TestClass()]
     public class DepartmentTests
@@ -91,6 +91,23 @@ namespace CourseSystem.Tests
             _department.RemoveCourse(courseInfo);
 
             Assert.AreEqual(0, _department.GetCourseInfoDtos().Count);
+        }
+
+        // GetCoursesNameTest
+        [TestMethod()]
+        public void GetCoursesNameTest()
+        {
+            CourseInfoDto courseInfo = new CourseInfoDto();
+            CourseInfoDto courseInfo1 = new CourseInfoDto();
+            courseInfo.Name = "course name";
+            courseInfo1.Name = "course1 name";
+
+            _department.AddCourse(courseInfo);
+            _department.AddCourse(courseInfo1);
+
+            Assert.AreEqual(2, _department.GetCoursesName().Count);
+            Assert.AreEqual("course name", _department.GetCoursesName()[0]);
+            Assert.AreEqual("course1 name", _department.GetCoursesName()[1]);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace CourseSystem
         }
 
         // GetCoursesName
-        internal List<string> GetCoursesName()
+        public List<string> GetCoursesName()
         {
             List<string> coursesName = new List<string>();
             foreach (var course in _courseInfoDtos)

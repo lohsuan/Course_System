@@ -78,6 +78,7 @@
     <Compile Include="Model\CurriculumTests.cs" />
     <Compile Include="Model\DepartmentTests.cs" />
     <Compile Include="Model\ModelTests.cs" />
+    <Compile Include="Model\PresentationModel\ClassManagementPresentationModelTests.cs" />
     <Compile Include="Model\PresentationModel\CourseManagementFormPresentationModelTests.cs" />
     <Compile Include="Model\PresentationModel\CourseSelectingFormPresentationModelTests.cs" />
     <Compile Include="Model\PresentationModel\CourseSelectionResultFormPresentationModelTests.cs" />

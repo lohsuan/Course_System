@@ -4,11 +4,11 @@ using System.Collections.Generic;
 namespace CourseSystem.Tests
 {
     /// <summary>
-    ///  Number of all test method for Course System: 103
+    ///  Number of all test method for Course System: 112
     /// </summary>
 
     /// <summary>
-    ///  Number of test method in ModelTest: 16
+    ///  Number of test method in ModelTest: 19
     /// </summary>
 
     [TestClass()]
@@ -101,6 +101,19 @@ namespace CourseSystem.Tests
             _model.NotifyCourseImport();
             Assert.AreEqual(1, _event);
             _model.NotifyCourseImport();
+            Assert.AreEqual(2, _event);
+        }
+
+        // on class add
+        [TestMethod()]
+        public void NotifyClassAddTest()
+        {
+            _event = 0;
+            _model._classAddEvent += MockEventHandler;
+
+            _model.NotifyClassAdd();
+            Assert.AreEqual(1, _event);
+            _model.NotifyClassAdd();
             Assert.AreEqual(2, _event);
         }
 
@@ -284,5 +297,23 @@ namespace CourseSystem.Tests
             Assert.AreEqual(2, _model.GetDepartmentAmount());
         }
 
+        // GetClassCourseByDepartmentIndexTest
+        [TestMethod()]
+        public void GetClassCourseByDepartmentIndexTest()
+        {
+            List<string> courseNames = _model.GetClassCourseByDepartmentIndex(0);
+            Assert.AreEqual("班週會及導師時間", courseNames[0]);
+            Assert.AreEqual("體育", courseNames[1]);
+            Assert.AreEqual("博雅選修課程", courseNames[2]);
+        }
+
+        // AddClassTest
+        [TestMethod()]
+        public void AddClassTest()
+        {
+            _model.AddClass("new class");
+            Assert.AreEqual(3, _model.GetDepartments().Count);
+            Assert.AreEqual("new class", _model.GetDepartmentName(2));
+        }
     }
 }
