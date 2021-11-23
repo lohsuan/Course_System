@@ -21,6 +21,7 @@ namespace CourseSystemUITest
         }
 
         // StartUpForm
+        // StartUpFormButtonControlTest
         [TestMethod]
         public void StartUpFormButtonControlTest()
         {
@@ -37,6 +38,7 @@ namespace CourseSystemUITest
             Robot.AssertButtonEnable("Course Management System", true);
         }
 
+        // OpenCourseSelectingSystemScript
         private static void OpenCourseSelectingSystemScript()
         {
             Robot.ClickButton("Course Selecting System");
@@ -50,6 +52,7 @@ namespace CourseSystemUITest
             Robot.AssertButtonEnable("確認送出", false);
         }
 
+        // OpenCourseManagementSystemScript
         private static void OpenCourseManagementSystemScript()
         {
             Robot.ClickButton("Course Management System");
@@ -61,6 +64,7 @@ namespace CourseSystemUITest
         }
 
         // CourseSelectingForm
+        // CourseSelectingFormSelectDropSuccessTest
         [TestMethod]
         public void CourseSelectingFormSelectDropSuccessTest()
         {
@@ -68,6 +72,7 @@ namespace CourseSystemUITest
             DropClassScript();
         }
 
+        // SelectTwoCourseSuccessScript
         private static void SelectTwoCourseSuccessScript()
         {
             OpenCourseSelectingSystemScript();
@@ -93,6 +98,7 @@ namespace CourseSystemUITest
             Robot.AssertNumberOfRowInDataGridView("DataGridView", 2);
         }
 
+        // DropClassScript
         private static void DropClassScript()
         {
             Robot.SetForm("CourseSelectionResultForm");
@@ -108,18 +114,21 @@ namespace CourseSystemUITest
             Robot.AssertNumberOfRowInDataGridView("DataGridView", 25);
         }
 
+        // CourseSelectingFormSelectFailOverlapTimeTest
         [TestMethod]
         public void CourseSelectingFormSelectFailOverlapTimeTest()
         {
             SelectCourseFailDueToOverlapTimeScript();
         }
 
+        // CourseSelectingFormSelectFailDuplicatedNameTest
         [TestMethod]
         public void CourseSelectingFormSelectFailDuplicatedNameTest()
         {
             SelectCourseFailDueToDuplicatedNameScript();
         }
 
+        // SelectCourseFailDueToOverlapTimeScript
         private static void SelectCourseFailDueToOverlapTimeScript()
         {
             OpenCourseSelectingSystemScript();
@@ -144,6 +153,7 @@ namespace CourseSystemUITest
             Robot.AssertNumberOfRowInDataGridView("DataGridView", 0);
         }
 
+        // SelectCourseFailDueToDuplicatedNameScript
         private static void SelectCourseFailDueToDuplicatedNameScript()
         {
             OpenCourseSelectingSystemScript();
@@ -199,25 +209,38 @@ namespace CourseSystemUITest
         public void CourseManagementFormBasicControlTest3()
         {
             OpenCourseManagementSystemScript();
+            Robot.SetForm("StartUpForm");
+            OpenCourseSelectingSystemScript();
 
+            Robot.ClickFirstCellOfRowInDataGridViewByRowOrder("DataGridView", "10");
+            Robot.ClickButton("確認送出");
+            Thread.Sleep(2000);
+            Robot.SendKeyEnterToMessageBox();
+            Robot.SetForm("CourseManagementForm");
             Robot.ClickListViewByValue("CourseManagementForm", "視窗程式設計");
+            Robot.SetEdit("課號(*)", "270915");
+            Robot.SetEdit("課程名稱(*)", "物件導向分析與設計");
+            Robot.SetEdit("學分(*)", "2");
+            Robot.SetComboBox("時數", "2");
+            Robot.SetComboBox("班級", "電子三甲");
+            Robot.CleanCache();
+            Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "3", 5);
+            Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "4", 5);
             Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "7", 5);
-            Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "6", 5);
-            Robot.AssertButtonEnable("儲存", true);
+            Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "3", 2);
+            Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "3", 3);
+            Robot.ClickButton("儲存");
+            Robot.AssertListViewContainsValue("CourseManagementForm", "物件導向分析與設計");
 
-            Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "7", 5);
-            Robot.AssertButtonEnable("儲存", false);
+            Robot.SetForm("CourseSelectionResultForm");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 1, "270915");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 2, "物件導向分析與設計");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 4, "2");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 5, "2");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 9, "3");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 10, "3");
+
         }
-
-        [TestMethod]
-        public void CourseManagementFormTest()
-        {
-            OpenCourseManagementSystemScript();
-            Robot.ClickOtherFormButton("StartUpForm", "Course Selecting System");
-
-        }
-
-
 
         // Cleanup
         [TestCleanup()]

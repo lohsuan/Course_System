@@ -88,10 +88,11 @@ namespace CourseSystem
             // 
             this._tabControl.Controls.Add(this._courseManageTabPage);
             this._tabControl.Controls.Add(this._classManageTabPage);
-            this._tabControl.Location = new System.Drawing.Point(7, 7);
+            this._tabControl.Location = new System.Drawing.Point(5, 6);
+            this._tabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._tabControl.Name = "_tabControl";
             this._tabControl.SelectedIndex = 0;
-            this._tabControl.Size = new System.Drawing.Size(1277, 673);
+            this._tabControl.Size = new System.Drawing.Size(958, 538);
             this._tabControl.TabIndex = 0;
             // 
             // _courseManageTabPage
@@ -101,19 +102,21 @@ namespace CourseSystem
             this._courseManageTabPage.Controls.Add(this._addCourseButton);
             this._courseManageTabPage.Controls.Add(this._editCourseGroupBox);
             this._courseManageTabPage.Controls.Add(this._courseListBox);
-            this._courseManageTabPage.Location = new System.Drawing.Point(4, 25);
+            this._courseManageTabPage.Location = new System.Drawing.Point(4, 22);
+            this._courseManageTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._courseManageTabPage.Name = "_courseManageTabPage";
-            this._courseManageTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this._courseManageTabPage.Size = new System.Drawing.Size(1269, 644);
+            this._courseManageTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._courseManageTabPage.Size = new System.Drawing.Size(950, 512);
             this._courseManageTabPage.TabIndex = 0;
             this._courseManageTabPage.Text = "課程管理";
             this._courseManageTabPage.UseVisualStyleBackColor = true;
             // 
             // _importClassButton
             // 
-            this._importClassButton.Location = new System.Drawing.Point(143, 580);
+            this._importClassButton.Location = new System.Drawing.Point(107, 464);
+            this._importClassButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._importClassButton.Name = "_importClassButton";
-            this._importClassButton.Size = new System.Drawing.Size(129, 52);
+            this._importClassButton.Size = new System.Drawing.Size(97, 42);
             this._importClassButton.TabIndex = 4;
             this._importClassButton.Text = "匯入資工系全部課程";
             this._importClassButton.UseVisualStyleBackColor = true;
@@ -121,9 +124,10 @@ namespace CourseSystem
             // 
             // _saveButton
             // 
-            this._saveButton.Location = new System.Drawing.Point(1020, 580);
+            this._saveButton.Location = new System.Drawing.Point(765, 464);
+            this._saveButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._saveButton.Name = "_saveButton";
-            this._saveButton.Size = new System.Drawing.Size(153, 53);
+            this._saveButton.Size = new System.Drawing.Size(115, 42);
             this._saveButton.TabIndex = 3;
             this._saveButton.Text = "儲存";
             this._saveButton.UseVisualStyleBackColor = true;
@@ -131,9 +135,10 @@ namespace CourseSystem
             // 
             // _addCourseButton
             // 
-            this._addCourseButton.Location = new System.Drawing.Point(14, 580);
+            this._addCourseButton.Location = new System.Drawing.Point(10, 464);
+            this._addCourseButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._addCourseButton.Name = "_addCourseButton";
-            this._addCourseButton.Size = new System.Drawing.Size(123, 53);
+            this._addCourseButton.Size = new System.Drawing.Size(92, 42);
             this._addCourseButton.TabIndex = 2;
             this._addCourseButton.Text = "新增課程";
             this._addCourseButton.UseVisualStyleBackColor = true;
@@ -165,9 +170,11 @@ namespace CourseSystem
             this._editCourseGroupBox.Controls.Add(this._requireTypeComboBox);
             this._editCourseGroupBox.Controls.Add(this._courseStatusComboBox);
             this._editCourseGroupBox.Controls.Add(this._classTimeDataGridView);
-            this._editCourseGroupBox.Location = new System.Drawing.Point(286, 15);
+            this._editCourseGroupBox.Location = new System.Drawing.Point(214, 12);
+            this._editCourseGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._editCourseGroupBox.Name = "_editCourseGroupBox";
-            this._editCourseGroupBox.Size = new System.Drawing.Size(920, 559);
+            this._editCourseGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._editCourseGroupBox.Size = new System.Drawing.Size(690, 447);
             this._editCourseGroupBox.TabIndex = 1;
             this._editCourseGroupBox.TabStop = false;
             this._editCourseGroupBox.Text = "編輯課程";
@@ -175,103 +182,115 @@ namespace CourseSystem
             // _class
             // 
             this._class.AutoSize = true;
-            this._class.Location = new System.Drawing.Point(252, 211);
+            this._class.Location = new System.Drawing.Point(189, 169);
+            this._class.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._class.Name = "_class";
-            this._class.Size = new System.Drawing.Size(54, 15);
+            this._class.Size = new System.Drawing.Size(43, 12);
             this._class.TabIndex = 23;
             this._class.Text = "班級(*)";
             // 
             // _hour
             // 
             this._hour.AutoSize = true;
-            this._hour.Location = new System.Drawing.Point(39, 211);
+            this._hour.Location = new System.Drawing.Point(29, 169);
+            this._hour.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._hour.Name = "_hour";
-            this._hour.Size = new System.Drawing.Size(54, 15);
+            this._hour.Size = new System.Drawing.Size(43, 12);
             this._hour.TabIndex = 22;
             this._hour.Text = "時數(*)";
             // 
             // _syllabusTextBox
             // 
-            this._syllabusTextBox.Location = new System.Drawing.Point(101, 165);
+            this._syllabusTextBox.Location = new System.Drawing.Point(76, 132);
+            this._syllabusTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._syllabusTextBox.Name = "_syllabusTextBox";
-            this._syllabusTextBox.Size = new System.Drawing.Size(795, 25);
+            this._syllabusTextBox.Size = new System.Drawing.Size(597, 22);
             this._syllabusTextBox.TabIndex = 21;
             this._syllabusTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             // 
             // _syllabus
             // 
             this._syllabus.AutoSize = true;
-            this._syllabus.Location = new System.Drawing.Point(51, 172);
+            this._syllabus.Location = new System.Drawing.Point(38, 138);
+            this._syllabus.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._syllabus.Name = "_syllabus";
-            this._syllabus.Size = new System.Drawing.Size(37, 15);
+            this._syllabus.Size = new System.Drawing.Size(29, 12);
             this._syllabus.TabIndex = 20;
             this._syllabus.Text = "備註";
             // 
             // _languageTextBox
             // 
-            this._languageTextBox.Location = new System.Drawing.Point(546, 118);
+            this._languageTextBox.Location = new System.Drawing.Point(410, 94);
+            this._languageTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._languageTextBox.Name = "_languageTextBox";
-            this._languageTextBox.Size = new System.Drawing.Size(350, 25);
+            this._languageTextBox.Size = new System.Drawing.Size(264, 22);
             this._languageTextBox.TabIndex = 19;
             this._languageTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             // 
             // _language
             // 
             this._language.AutoSize = true;
-            this._language.Location = new System.Drawing.Point(473, 124);
+            this._language.Location = new System.Drawing.Point(355, 99);
+            this._language.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._language.Name = "_language";
-            this._language.Size = new System.Drawing.Size(67, 15);
+            this._language.Size = new System.Drawing.Size(53, 12);
             this._language.TabIndex = 18;
             this._language.Text = "授課語言";
             // 
             // _teacherAssistantTextBox
             // 
-            this._teacherAssistantTextBox.Location = new System.Drawing.Point(101, 119);
+            this._teacherAssistantTextBox.Location = new System.Drawing.Point(76, 95);
+            this._teacherAssistantTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._teacherAssistantTextBox.Name = "_teacherAssistantTextBox";
-            this._teacherAssistantTextBox.Size = new System.Drawing.Size(337, 25);
+            this._teacherAssistantTextBox.Size = new System.Drawing.Size(254, 22);
             this._teacherAssistantTextBox.TabIndex = 17;
             this._teacherAssistantTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             // 
             // _teacherAssistant
             // 
             this._teacherAssistant.AutoSize = true;
-            this._teacherAssistant.Location = new System.Drawing.Point(27, 125);
+            this._teacherAssistant.Location = new System.Drawing.Point(20, 100);
+            this._teacherAssistant.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._teacherAssistant.Name = "_teacherAssistant";
-            this._teacherAssistant.Size = new System.Drawing.Size(67, 15);
+            this._teacherAssistant.Size = new System.Drawing.Size(53, 12);
             this._teacherAssistant.TabIndex = 16;
             this._teacherAssistant.Text = "教學助理";
             // 
             // _requireType
             // 
             this._requireType.AutoSize = true;
-            this._requireType.Location = new System.Drawing.Point(777, 30);
+            this._requireType.Location = new System.Drawing.Point(583, 24);
+            this._requireType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._requireType.Name = "_requireType";
-            this._requireType.Size = new System.Drawing.Size(39, 15);
+            this._requireType.Size = new System.Drawing.Size(31, 12);
             this._requireType.TabIndex = 15;
             this._requireType.Text = "修(*)";
             // 
             // _teacherTextBox
             // 
-            this._teacherTextBox.Location = new System.Drawing.Point(546, 71);
+            this._teacherTextBox.Location = new System.Drawing.Point(410, 57);
+            this._teacherTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._teacherTextBox.Name = "_teacherTextBox";
-            this._teacherTextBox.Size = new System.Drawing.Size(350, 25);
+            this._teacherTextBox.Size = new System.Drawing.Size(264, 22);
             this._teacherTextBox.TabIndex = 14;
             this._teacherTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             // 
             // _teacher
             // 
             this._teacher.AutoSize = true;
-            this._teacher.Location = new System.Drawing.Point(486, 77);
+            this._teacher.Location = new System.Drawing.Point(364, 62);
+            this._teacher.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._teacher.Name = "_teacher";
-            this._teacher.Size = new System.Drawing.Size(54, 15);
+            this._teacher.Size = new System.Drawing.Size(43, 12);
             this._teacher.TabIndex = 13;
             this._teacher.Text = "教師(*)";
             // 
             // _creditTextBox
             // 
-            this._creditTextBox.Location = new System.Drawing.Point(321, 73);
+            this._creditTextBox.Location = new System.Drawing.Point(241, 58);
+            this._creditTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._creditTextBox.Name = "_creditTextBox";
-            this._creditTextBox.Size = new System.Drawing.Size(118, 25);
+            this._creditTextBox.Size = new System.Drawing.Size(90, 22);
             this._creditTextBox.TabIndex = 12;
             this._creditTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             this._creditTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckNumberInput);
@@ -279,17 +298,19 @@ namespace CourseSystem
             // _credit
             // 
             this._credit.AutoSize = true;
-            this._credit.Location = new System.Drawing.Point(253, 79);
+            this._credit.Location = new System.Drawing.Point(190, 63);
+            this._credit.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._credit.Name = "_credit";
-            this._credit.Size = new System.Drawing.Size(54, 15);
+            this._credit.Size = new System.Drawing.Size(43, 12);
             this._credit.TabIndex = 11;
             this._credit.Text = "學分(*)";
             // 
             // _stageTextBox
             // 
-            this._stageTextBox.Location = new System.Drawing.Point(101, 73);
+            this._stageTextBox.Location = new System.Drawing.Point(76, 58);
+            this._stageTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._stageTextBox.Name = "_stageTextBox";
-            this._stageTextBox.Size = new System.Drawing.Size(118, 25);
+            this._stageTextBox.Size = new System.Drawing.Size(90, 22);
             this._stageTextBox.TabIndex = 10;
             this._stageTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             this._stageTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckNumberInput);
@@ -297,34 +318,38 @@ namespace CourseSystem
             // _stage
             // 
             this._stage.AutoSize = true;
-            this._stage.Location = new System.Drawing.Point(41, 78);
+            this._stage.Location = new System.Drawing.Point(31, 62);
+            this._stage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._stage.Name = "_stage";
-            this._stage.Size = new System.Drawing.Size(54, 15);
+            this._stage.Size = new System.Drawing.Size(43, 12);
             this._stage.TabIndex = 9;
             this._stage.Text = "階段(*)";
             // 
             // _nameTextBox
             // 
-            this._nameTextBox.Location = new System.Drawing.Point(546, 25);
+            this._nameTextBox.Location = new System.Drawing.Point(410, 20);
+            this._nameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._nameTextBox.Name = "_nameTextBox";
-            this._nameTextBox.Size = new System.Drawing.Size(220, 25);
+            this._nameTextBox.Size = new System.Drawing.Size(166, 22);
             this._nameTextBox.TabIndex = 8;
             this._nameTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             // 
             // _name
             // 
             this._name.AutoSize = true;
-            this._name.Location = new System.Drawing.Point(456, 32);
+            this._name.Location = new System.Drawing.Point(342, 26);
+            this._name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._name.Name = "_name";
-            this._name.Size = new System.Drawing.Size(84, 15);
+            this._name.Size = new System.Drawing.Size(67, 12);
             this._name.TabIndex = 7;
             this._name.Text = "課程名稱(*)";
             // 
             // _numberTextBox
             // 
-            this._numberTextBox.Location = new System.Drawing.Point(320, 28);
+            this._numberTextBox.Location = new System.Drawing.Point(240, 22);
+            this._numberTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._numberTextBox.Name = "_numberTextBox";
-            this._numberTextBox.Size = new System.Drawing.Size(118, 25);
+            this._numberTextBox.Size = new System.Drawing.Size(90, 22);
             this._numberTextBox.TabIndex = 6;
             this._numberTextBox.TextChanged += new System.EventHandler(this.EditedTextBox);
             this._numberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckNumberInput);
@@ -332,38 +357,44 @@ namespace CourseSystem
             // _number
             // 
             this._number.AutoSize = true;
-            this._number.Location = new System.Drawing.Point(253, 32);
+            this._number.Location = new System.Drawing.Point(190, 26);
+            this._number.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._number.Name = "_number";
-            this._number.Size = new System.Drawing.Size(54, 15);
+            this._number.Size = new System.Drawing.Size(43, 12);
             this._number.TabIndex = 5;
             this._number.Text = "課號(*)";
             // 
             // _classComboBox
             // 
+            this._classComboBox.AccessibleName = "班級";
             this._classComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._classComboBox.FormattingEnabled = true;
-            this._classComboBox.Location = new System.Drawing.Point(325, 208);
+            this._classComboBox.Location = new System.Drawing.Point(244, 166);
+            this._classComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._classComboBox.Name = "_classComboBox";
-            this._classComboBox.Size = new System.Drawing.Size(121, 23);
+            this._classComboBox.Size = new System.Drawing.Size(92, 20);
             this._classComboBox.TabIndex = 4;
             this._classComboBox.SelectedIndexChanged += new System.EventHandler(this.ChangedComboBoxSelectedIndex);
             // 
             // _hourComboBox
             // 
+            this._hourComboBox.AccessibleName = "時數";
             this._hourComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._hourComboBox.FormattingEnabled = true;
             this._hourComboBox.Items.AddRange(new object[] {
             "1",
             "2",
             "3"});
-            this._hourComboBox.Location = new System.Drawing.Point(101, 208);
+            this._hourComboBox.Location = new System.Drawing.Point(76, 166);
+            this._hourComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._hourComboBox.Name = "_hourComboBox";
-            this._hourComboBox.Size = new System.Drawing.Size(121, 23);
+            this._hourComboBox.Size = new System.Drawing.Size(92, 20);
             this._hourComboBox.TabIndex = 3;
             this._hourComboBox.SelectedIndexChanged += new System.EventHandler(this.ChangedComboBoxSelectedIndex);
             // 
             // _requireTypeComboBox
             // 
+            this._requireTypeComboBox.AccessibleName = "修";
             this._requireTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._requireTypeComboBox.FormattingEnabled = true;
             this._requireTypeComboBox.Items.AddRange(new object[] {
@@ -373,22 +404,25 @@ namespace CourseSystem
             "●",
             "▲",
             "★"});
-            this._requireTypeComboBox.Location = new System.Drawing.Point(823, 26);
+            this._requireTypeComboBox.Location = new System.Drawing.Point(617, 21);
+            this._requireTypeComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._requireTypeComboBox.Name = "_requireTypeComboBox";
-            this._requireTypeComboBox.Size = new System.Drawing.Size(73, 23);
+            this._requireTypeComboBox.Size = new System.Drawing.Size(56, 20);
             this._requireTypeComboBox.TabIndex = 2;
             this._requireTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.ChangedComboBoxSelectedIndex);
             // 
             // _courseStatusComboBox
             // 
+            this._courseStatusComboBox.AccessibleName = "開課";
             this._courseStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._courseStatusComboBox.FormattingEnabled = true;
             this._courseStatusComboBox.Items.AddRange(new object[] {
             "開課",
             "停開"});
-            this._courseStatusComboBox.Location = new System.Drawing.Point(99, 30);
+            this._courseStatusComboBox.Location = new System.Drawing.Point(74, 24);
+            this._courseStatusComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._courseStatusComboBox.Name = "_courseStatusComboBox";
-            this._courseStatusComboBox.Size = new System.Drawing.Size(121, 23);
+            this._courseStatusComboBox.Size = new System.Drawing.Size(92, 20);
             this._courseStatusComboBox.TabIndex = 1;
             this._courseStatusComboBox.SelectedIndexChanged += new System.EventHandler(this.ChangedComboBoxSelectedIndex);
             // 
@@ -406,12 +440,13 @@ namespace CourseSystem
             this._thursday,
             this._friday,
             this._saturday});
-            this._classTimeDataGridView.Location = new System.Drawing.Point(25, 251);
+            this._classTimeDataGridView.Location = new System.Drawing.Point(19, 201);
+            this._classTimeDataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._classTimeDataGridView.Name = "_classTimeDataGridView";
             this._classTimeDataGridView.RowHeadersVisible = false;
             this._classTimeDataGridView.RowHeadersWidth = 51;
             this._classTimeDataGridView.RowTemplate.Height = 27;
-            this._classTimeDataGridView.Size = new System.Drawing.Size(869, 300);
+            this._classTimeDataGridView.Size = new System.Drawing.Size(652, 240);
             this._classTimeDataGridView.TabIndex = 0;
             this._classTimeDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CheckClassTimeDataGridView);
             // 
@@ -467,10 +502,11 @@ namespace CourseSystem
             // _courseListBox
             // 
             this._courseListBox.FormattingEnabled = true;
-            this._courseListBox.ItemHeight = 15;
-            this._courseListBox.Location = new System.Drawing.Point(11, 15);
+            this._courseListBox.ItemHeight = 12;
+            this._courseListBox.Location = new System.Drawing.Point(8, 12);
+            this._courseListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._courseListBox.Name = "_courseListBox";
-            this._courseListBox.Size = new System.Drawing.Size(265, 559);
+            this._courseListBox.Size = new System.Drawing.Size(200, 448);
             this._courseListBox.TabIndex = 0;
             this._courseListBox.SelectedIndexChanged += new System.EventHandler(this.ChangeCourseListBoxIndex);
             // 
@@ -480,10 +516,11 @@ namespace CourseSystem
             this._classManageTabPage.Controls.Add(this._classGroupBox);
             this._classManageTabPage.Controls.Add(this._addClassButton);
             this._classManageTabPage.Controls.Add(this._classListBox);
-            this._classManageTabPage.Location = new System.Drawing.Point(4, 25);
+            this._classManageTabPage.Location = new System.Drawing.Point(4, 22);
+            this._classManageTabPage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._classManageTabPage.Name = "_classManageTabPage";
-            this._classManageTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this._classManageTabPage.Size = new System.Drawing.Size(1269, 644);
+            this._classManageTabPage.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._classManageTabPage.Size = new System.Drawing.Size(950, 512);
             this._classManageTabPage.TabIndex = 1;
             this._classManageTabPage.Text = "班級管理";
             this._classManageTabPage.UseVisualStyleBackColor = true;
@@ -491,9 +528,10 @@ namespace CourseSystem
             // _addButton
             // 
             this._addButton.Enabled = false;
-            this._addButton.Location = new System.Drawing.Point(1063, 570);
+            this._addButton.Location = new System.Drawing.Point(797, 456);
+            this._addButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._addButton.Name = "_addButton";
-            this._addButton.Size = new System.Drawing.Size(131, 61);
+            this._addButton.Size = new System.Drawing.Size(98, 49);
             this._addButton.TabIndex = 5;
             this._addButton.Text = "新增";
             this._addButton.UseVisualStyleBackColor = true;
@@ -504,9 +542,11 @@ namespace CourseSystem
             this._classGroupBox.Controls.Add(this._classCourseListBox);
             this._classGroupBox.Controls.Add(this._classNameTextBox);
             this._classGroupBox.Controls.Add(this._classNameLabel);
-            this._classGroupBox.Location = new System.Drawing.Point(290, 20);
+            this._classGroupBox.Location = new System.Drawing.Point(218, 16);
+            this._classGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._classGroupBox.Name = "_classGroupBox";
-            this._classGroupBox.Size = new System.Drawing.Size(916, 535);
+            this._classGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this._classGroupBox.Size = new System.Drawing.Size(687, 428);
             this._classGroupBox.TabIndex = 4;
             this._classGroupBox.TabStop = false;
             this._classGroupBox.Text = "班級";
@@ -514,35 +554,39 @@ namespace CourseSystem
             // _classCourseListBox
             // 
             this._classCourseListBox.FormattingEnabled = true;
-            this._classCourseListBox.ItemHeight = 15;
-            this._classCourseListBox.Location = new System.Drawing.Point(23, 168);
+            this._classCourseListBox.ItemHeight = 12;
+            this._classCourseListBox.Location = new System.Drawing.Point(17, 134);
+            this._classCourseListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._classCourseListBox.Name = "_classCourseListBox";
-            this._classCourseListBox.Size = new System.Drawing.Size(867, 349);
+            this._classCourseListBox.Size = new System.Drawing.Size(651, 280);
             this._classCourseListBox.TabIndex = 9;
             // 
             // _classNameTextBox
             // 
             this._classNameTextBox.Enabled = false;
-            this._classNameTextBox.Location = new System.Drawing.Point(134, 83);
+            this._classNameTextBox.Location = new System.Drawing.Point(100, 66);
+            this._classNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._classNameTextBox.Name = "_classNameTextBox";
-            this._classNameTextBox.Size = new System.Drawing.Size(737, 25);
+            this._classNameTextBox.Size = new System.Drawing.Size(554, 22);
             this._classNameTextBox.TabIndex = 8;
             this._classNameTextBox.TextChanged += new System.EventHandler(this.ChangedClassNameTextBoxText);
             // 
             // _classNameLabel
             // 
             this._classNameLabel.AutoSize = true;
-            this._classNameLabel.Location = new System.Drawing.Point(30, 87);
+            this._classNameLabel.Location = new System.Drawing.Point(22, 70);
+            this._classNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this._classNameLabel.Name = "_classNameLabel";
-            this._classNameLabel.Size = new System.Drawing.Size(84, 15);
+            this._classNameLabel.Size = new System.Drawing.Size(67, 12);
             this._classNameLabel.TabIndex = 7;
             this._classNameLabel.Text = "班級名稱(*)";
             // 
             // _addClassButton
             // 
-            this._addClassButton.Location = new System.Drawing.Point(6, 577);
+            this._addClassButton.Location = new System.Drawing.Point(4, 462);
+            this._addClassButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._addClassButton.Name = "_addClassButton";
-            this._addClassButton.Size = new System.Drawing.Size(265, 61);
+            this._addClassButton.Size = new System.Drawing.Size(199, 49);
             this._addClassButton.TabIndex = 3;
             this._addClassButton.Text = "新增班級";
             this._addClassButton.UseVisualStyleBackColor = true;
@@ -551,19 +595,21 @@ namespace CourseSystem
             // _classListBox
             // 
             this._classListBox.FormattingEnabled = true;
-            this._classListBox.ItemHeight = 15;
-            this._classListBox.Location = new System.Drawing.Point(6, 6);
+            this._classListBox.ItemHeight = 12;
+            this._classListBox.Location = new System.Drawing.Point(4, 5);
+            this._classListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this._classListBox.Name = "_classListBox";
-            this._classListBox.Size = new System.Drawing.Size(265, 559);
+            this._classListBox.Size = new System.Drawing.Size(200, 448);
             this._classListBox.TabIndex = 1;
             this._classListBox.SelectedIndexChanged += new System.EventHandler(this.ChangedClassListBoxSelectedIndex);
             // 
             // CourseManagementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1229, 684);
+            this.ClientSize = new System.Drawing.Size(922, 547);
             this.Controls.Add(this._tabControl);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CourseManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CourseManagementForm";

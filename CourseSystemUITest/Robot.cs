@@ -319,11 +319,28 @@ namespace CourseSystemUITest
         }
 
         // test
-        public static void AssertDataGridViewByIndex(string name, string index, string[] data)
+        public static void AssertListViewContainsValue(string name, string value)
+        {
+            WinWindow window = new WinWindow();
+            window.SearchProperties[WinWindow.PropertyNames.Name] = name;
+            WinList list = new WinList(window);
+            list.WindowTitles.Add("Task Type");
+            UITestControlCollection collection = list.Items;
+            bool flag = false;
+            for (int i = 0; i < collection.Count; i++)
+            {
+                if (value == collection[i].Name)
+                    flag = true;
+            }
+            Assert.IsTrue(flag);
+        }
+
+        // test
+        public static void AssertDataGridViewByRowIndex(string name, string rowIndex, string[] data)
         {
             WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
             WinRow _Winrow = new WinRow(table);
-            _Winrow.SearchProperties.Add(WinRow.PropertyNames.RowIndex, index);
+            _Winrow.SearchProperties.Add(WinRow.PropertyNames.RowIndex, rowIndex);
             _Winrow.Find();
             UITestControlCollection collection = _Winrow.GetChildren();
             for (int i = 0; i < collection.Count; i++)
@@ -334,8 +351,22 @@ namespace CourseSystemUITest
         }
 
         // test
+        public static void AssertDataGridViewCell(string name, int rowOrder, int columnIndex, string data)
+        {
+            CleanCache();
+            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
+            WinRow _Winrow = new WinRow(table);
+            _Winrow.SearchProperties.Add(WinRow.PropertyNames.RowIndex, rowOrder.ToString());
+            _Winrow.Find();
+            UITestControlCollection collection = _Winrow.GetChildren();
+            WinCell cell = collection[columnIndex] as WinCell;
+            Assert.AreEqual(data, cell.Value);
+        }
+
+        // test
         public static void ClickFirstCellOfRowInDataGridViewByRowOrder(string datGridViewName, string rowOrder)
         {
+            CleanCache();
             WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), datGridViewName, _root);
             WinRow row = new WinRow(table);
 
@@ -348,6 +379,7 @@ namespace CourseSystemUITest
         // test
         public static void ClickDataGridViewCellByRowOrderAndColumnIndex(string datGridViewName, string rowOrder, int columnIndex)
         {
+            CleanCache();
             WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), datGridViewName, _root);
             WinRow row = new WinRow(table);
 
