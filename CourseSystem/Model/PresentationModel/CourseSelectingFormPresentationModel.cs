@@ -13,8 +13,8 @@ namespace CourseSystem
         private const string OVERLAP_HEAD = "\n衝堂 : ";
         private const string CHANGE_LINE = "\n";
         private const string SAME_COURSE_NAME_HEAD = "\n課程名稱相同 : ";
-        private const string ADD_COURSE_SUCCESS = "加選成功\n";
-        private const string ADD_COURSE_FAIL = "加選失敗\n";
+        private const string ADD_COURSE_SUCCESS = "加選成功";
+        private const string ADD_COURSE_FAIL = "加選失敗";
         Model _model;
         bool _isAddCourseSuccess = false;
         List<CourseInfoDto> _notCheckedCourses = new List<CourseInfoDto>();

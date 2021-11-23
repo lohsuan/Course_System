@@ -41,6 +41,12 @@ namespace CourseSystemUITest
         }
 
         // test
+        public static void CleanCache()
+        {
+            _cache.Clear();
+        }
+
+        // test
         public static void CleanUp()
         {
             _cache.Clear();
@@ -327,21 +333,36 @@ namespace CourseSystemUITest
             }
         }
 
-        //"DataGridView"
-
         // test
-        public static void ClickCellsInDataGridView(string name, int items)
+        public static void ClickFirstCellOfRowInDataGridViewByRowOrder(string datGridViewName, string rowOrder)
         {
-            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
-            //table.Cells[0]
-            Assert.AreEqual(table.Rows.Count, items);
+            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), datGridViewName, _root);
+            WinRow row = new WinRow(table);
+
+            row.SearchProperties.Add(WinRow.PropertyNames.RowIndex, rowOrder);
+            row.Find();
+            UITestControlCollection collection = row.GetChildren();
+            Mouse.Click(collection[0]);
         }
 
         // test
-        public static void AssertDataItemsInDataGridView(string name, int items)
+        public static void ClickDataGridViewCellByRowOrderAndColumnIndex(string datGridViewName, string rowOrder, int columnIndex)
         {
+            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), datGridViewName, _root);
+            WinRow row = new WinRow(table);
+
+            row.SearchProperties.Add(WinRow.PropertyNames.RowIndex, rowOrder);
+            row.Find();
+            UITestControlCollection collection = row.GetChildren();
+            Mouse.Click(collection[columnIndex]);
+        }
+
+        // test
+        public static void AssertNumberOfRowInDataGridView(string name, int rowCount)
+        {
+            CleanCache();
             WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
-            Assert.AreEqual(table.Rows.Count, items);
+            Assert.AreEqual(table.Rows.Count, rowCount);
         }
 
         // test
@@ -360,9 +381,9 @@ namespace CourseSystemUITest
         }
 
         // test
-        public static void SendKeyEnterToMessageBox(string caption)
+        public static void SendKeyEnterToMessageBox()
         {
-            WinControl control = (WinControl)Robot.FindWinControl(typeof(WinControl), caption, null);
+            //WinControl control = (WinControl)Robot.FindWinControl(typeof(WinControl), caption, null);
             Keyboard.SendKeys("{Enter}");
         }
 
