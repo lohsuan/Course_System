@@ -351,6 +351,48 @@ namespace CourseSystemUITest
         }
 
         // test
+        public static void AssertDataGridViewContainsClass(string name, int numberOfRow, string className)
+        {
+            CleanCache();
+            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
+            WinRow _Winrow = new WinRow(table);
+            bool flag = false;
+            for (int i = 1; i <= numberOfRow; i++)
+            {
+                _Winrow.SearchProperties.Add(WinRow.PropertyNames.RowIndex, i.ToString());
+                _Winrow.Find();
+                UITestControlCollection collection = _Winrow.GetChildren();
+                WinCell cell = collection[2] as WinCell;
+                if (cell.Value == className)
+                {
+                    flag = true;
+                }
+            }
+            Assert.IsTrue(flag);
+        }
+
+        // test
+        public static void AssertDataGridViewDoesNotContainClass(string name, int numberOfRow, string className)
+        {
+            CleanCache();
+            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
+            WinRow _Winrow = new WinRow(table);
+            bool flag = false;
+            for (int i = 1; i <= numberOfRow; i++)
+            {
+                _Winrow.SearchProperties.Add(WinRow.PropertyNames.RowIndex, i.ToString());
+                _Winrow.Find();
+                UITestControlCollection collection = _Winrow.GetChildren();
+                WinCell cell = collection[2] as WinCell;
+                if (cell.Value == className)
+                {
+                    flag = true;
+                }
+            }
+            Assert.IsFalse(flag);
+        }
+
+        // test
         public static void AssertDataGridViewCell(string name, int rowOrder, int columnIndex, string data)
         {
             CleanCache();

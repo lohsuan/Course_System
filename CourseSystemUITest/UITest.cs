@@ -91,11 +91,17 @@ namespace CourseSystemUITest
             Robot.SendKeyEnterToMessageBox();
 
             Robot.AssertNumberOfRowInDataGridView("DataGridView", 24);
+            Robot.AssertDataGridViewDoesNotContainClass("DataGridView", 24, "通訊系統實習");
+
             Robot.ClickTabControl("資工三");
             Robot.AssertNumberOfRowInDataGridView("DataGridView", 11);
+            Robot.AssertDataGridViewDoesNotContainClass("DataGridView", 11, "視窗程式設計");
 
             Robot.SetForm("CourseSelectionResultForm");
             Robot.AssertNumberOfRowInDataGridView("DataGridView", 2);
+            Robot.AssertDataGridViewContainsClass("DataGridView", 2, "通訊系統實習");
+            Robot.AssertDataGridViewContainsClass("DataGridView", 2, "視窗程式設計");
+
         }
 
         // DropClassScript
@@ -146,6 +152,7 @@ namespace CourseSystemUITest
             Robot.SendKeyEnterToMessageBox();
 
             Robot.AssertNumberOfRowInDataGridView("DataGridView", 25);
+
             Robot.ClickTabControl("資工三");
             Robot.AssertNumberOfRowInDataGridView("DataGridView", 12);
 
@@ -204,7 +211,7 @@ namespace CourseSystemUITest
             Robot.AssertButtonEnable("儲存", false);
         }
 
-        // Scenario 3
+        // Scenario 3: assert sellecting form after editting course
         [TestMethod]
         public void CourseManagementFormBasicControlTest3()
         {
@@ -212,11 +219,56 @@ namespace CourseSystemUITest
             Robot.SetForm("StartUpForm");
             OpenCourseSelectingSystemScript();
 
+            Robot.SetForm("CourseManagementForm");
+            EditWindowsProgrammingCourse();
+            Robot.AssertListViewContainsValue("CourseManagementForm", "物件導向分析與設計");
+
+            Robot.SetForm("CourseSelectingForm");
+            Robot.AssertNumberOfRowInDataGridView("DataGridView", 11);
+            Robot.AssertDataGridViewDoesNotContainClass("DataGridView", 11, "視窗程式設計");
+            Robot.AssertDataGridViewDoesNotContainClass("DataGridView", 11, "物件導向分析與設計");
+
+            Robot.ClickTabControl("電子三甲");
+            Robot.AssertNumberOfRowInDataGridView("DataGridView", 26);
+            Robot.AssertDataGridViewContainsClass("DataGridView", 26, "物件導向分析與設計");
+
+            Robot.AssertDataGridViewCell("DataGridView", 26, 1, "270915");
+            Robot.AssertDataGridViewCell("DataGridView", 26, 2, "物件導向分析與設計");
+            Robot.AssertDataGridViewCell("DataGridView", 26, 4, "2");
+            Robot.AssertDataGridViewCell("DataGridView", 26, 5, "2");
+            Robot.AssertDataGridViewCell("DataGridView", 26, 9, "3");
+            Robot.AssertDataGridViewCell("DataGridView", 26, 10, "3");
+        }
+
+        // Scenario 4: select course and assert result form after editting course
+        [TestMethod]
+        public void CourseManagementFormBasicControlTest4()
+        {
+            OpenCourseManagementSystemScript();
+            Robot.SetForm("StartUpForm");
+            OpenCourseSelectingSystemScript();
+            
             Robot.ClickFirstCellOfRowInDataGridViewByRowOrder("DataGridView", "10");
             Robot.ClickButton("確認送出");
             Thread.Sleep(2000);
             Robot.SendKeyEnterToMessageBox();
+
             Robot.SetForm("CourseManagementForm");
+            EditWindowsProgrammingCourse();
+            Robot.AssertListViewContainsValue("CourseManagementForm", "物件導向分析與設計");
+
+            Robot.SetForm("CourseSelectionResultForm");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 1, "270915");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 2, "物件導向分析與設計");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 4, "2");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 5, "2");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 9, "3");
+            Robot.AssertDataGridViewCell("DataGridView", 1, 10, "3");
+        }
+
+        // EditWindowsProgrammingCourse
+        private static void EditWindowsProgrammingCourse()
+        {
             Robot.ClickListViewByValue("CourseManagementForm", "視窗程式設計");
             Robot.SetEdit("課號(*)", "270915");
             Robot.SetEdit("課程名稱(*)", "物件導向分析與設計");
@@ -230,16 +282,104 @@ namespace CourseSystemUITest
             Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "3", 2);
             Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "3", 3);
             Robot.ClickButton("儲存");
+        }
+
+        // add course test
+        [TestMethod]
+        public void CourseManagementFormAddCourseTest()
+        {
+            OpenCourseManagementSystemScript();
+            Robot.SetForm("StartUpForm");
+            OpenCourseSelectingSystemScript();
+
+            Robot.SetForm("CourseManagementForm");
+            Robot.ClickButton("新增課程");
+            Robot.AssertButtonEnable("新增", false);
+            Robot.AssertButtonEnable("新增課程", false);
+
+            Robot.SetEdit("課號(*)", "270915");
+            Robot.SetEdit("課程名稱(*)", "物件導向分析與設計");
+            Robot.SetEdit("階段(*)", "1");
+            Robot.SetEdit("學分(*)", "2.0");
+            Robot.SetEdit("教師(*)", "教師");
+            Robot.SetComboBox("時數", "2");
+            Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "3", 2);
+            Robot.ClickDataGridViewCellByRowOrderAndColumnIndex("DataGridView", "3", 3);
+            Robot.AssertButtonEnable("新增", true);
+            Robot.ClickButton("新增");
+            
             Robot.AssertListViewContainsValue("CourseManagementForm", "物件導向分析與設計");
 
-            Robot.SetForm("CourseSelectionResultForm");
-            Robot.AssertDataGridViewCell("DataGridView", 1, 1, "270915");
-            Robot.AssertDataGridViewCell("DataGridView", 1, 2, "物件導向分析與設計");
-            Robot.AssertDataGridViewCell("DataGridView", 1, 4, "2");
-            Robot.AssertDataGridViewCell("DataGridView", 1, 5, "2");
-            Robot.AssertDataGridViewCell("DataGridView", 1, 9, "3");
-            Robot.AssertDataGridViewCell("DataGridView", 1, 10, "3");
+            Robot.SetForm("CourseSelectingForm");
+            Robot.AssertDataGridViewCell("DataGridView", 13, 1, "270915");
+            Robot.AssertDataGridViewCell("DataGridView", 13, 2, "物件導向分析與設計");
+            Robot.AssertDataGridViewCell("DataGridView", 13, 3, "1");
+            Robot.AssertDataGridViewCell("DataGridView", 13, 4, "2.0");
+            Robot.AssertDataGridViewCell("DataGridView", 13, 5, "2");
+            Robot.AssertDataGridViewCell("DataGridView", 13, 7, "教師");
+            Robot.AssertDataGridViewCell("DataGridView", 13, 9, "3");
+            Robot.AssertDataGridViewCell("DataGridView", 13, 10, "3");
+        }
 
+        // import course test
+        [TestMethod]
+        public void CourseManagementFormImportCourseTest()
+        {
+            OpenCourseManagementSystemScript();
+            Robot.SetForm("StartUpForm");
+            OpenCourseSelectingSystemScript();
+
+            Robot.SetForm("CourseManagementForm");
+            Robot.SetDelayBetweenActions(5500);
+            Robot.ClickButton("匯入資工系全部課程");
+            Robot.SetDelayBetweenActions(500);
+
+            Robot.AssertListViewContainsValue("CourseManagementForm", "物理");
+            Robot.AssertListViewContainsValue("CourseManagementForm", "網路程式設計");
+            Robot.ClickListViewByValue("CourseManagementForm", "網路程式設計");
+            Robot.AssertListViewContainsValue("CourseManagementForm", "社群媒體與對話機器人系統設計");
+
+            Robot.SetForm("CourseSelectingForm");
+            Robot.ClickTabControl("資工一");
+            Robot.AssertNumberOfRowInDataGridView("DataGridView", 13);
+            Robot.ClickTabControl("資工二");
+            Robot.AssertNumberOfRowInDataGridView("DataGridView", 12);
+            Robot.ClickTabControl("資工四");
+            Robot.AssertNumberOfRowInDataGridView("DataGridView", 12);
+            Robot.ClickTabControl("資工所");
+            Robot.AssertNumberOfRowInDataGridView("DataGridView", 18);
+        }
+
+        // add class test
+        [TestMethod]
+        public void CourseManagementFormAddClassTest()
+        {
+            OpenCourseManagementSystemScript();
+            Robot.SetForm("StartUpForm");
+            OpenCourseSelectingSystemScript();
+
+            Robot.SetForm("CourseManagementForm");
+            Robot.ClickTabControl("班級管理");
+            Robot.CleanCache();
+            Robot.ClickListViewByValue("CourseManagementForm", "資工三");
+            Robot.AssertEdit("班級名稱(*)", "資工三");
+            Robot.AssertButtonEnable("新增班級", true);
+            Robot.ClickButton("新增班級");
+            Robot.AssertButtonEnable("新增", false);
+
+            Robot.SetEdit("班級名稱(*)", "電資三");
+            Robot.AssertButtonEnable("新增", true);
+
+            Robot.ClickButton("新增");
+
+            Robot.AssertButtonEnable("新增班級", true);
+            Robot.AssertButtonEnable("新增", false);
+            Robot.ClickListViewByValue("CourseManagementForm", "資工三");
+            Robot.AssertButtonEnable("新增班級", true);
+            Robot.AssertListViewContainsValue("CourseManagementForm", "電資三");
+
+            Robot.SetForm("CourseSelectingForm");
+            Robot.ClickTabControl("電資三");
         }
 
         // Cleanup

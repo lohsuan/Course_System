@@ -348,6 +348,10 @@ namespace CourseSystem
         private void ClickAddButton(object sender, EventArgs e)
         {
             _classViewModel.AddClass();
+            _addButton.Enabled = false;
+            _addClassButton.Enabled = true;
+            _classNameTextBox.Text = "";
+            _classNameTextBox.Enabled = false;
         }
     }
 }
