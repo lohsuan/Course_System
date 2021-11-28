@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UITest.Input;
 
 namespace CourseSystemUITest
 {
-    public class Robot
+    public class RobotTest
     {
         private static Dictionary<string, UITestControl> _cache;
         private static ApplicationUnderTest _aut;
@@ -57,7 +57,7 @@ namespace CourseSystemUITest
         // test
         public static UITestControl SetForm(string formName)
         {
-            WinWindow window = (WinWindow)Robot.FindWinControl(typeof(WinWindow), formName, null);
+            WinWindow window = (WinWindow)RobotTest.FindWinControl(typeof(WinWindow), formName, null);
             window.SearchProperties[WinWindow.PropertyNames.Name] = formName;
             window.WindowTitles.Add(formName);
             _root = window;
@@ -96,34 +96,34 @@ namespace CourseSystemUITest
         {
             foreach (string item in path)
             {
-                Mouse.Click((WinMenuItem)Robot.FindWinControl(typeof(WinMenuItem), item, _root));
+                Mouse.Click((WinMenuItem)RobotTest.FindWinControl(typeof(WinMenuItem), item, _root));
             }
         }
 
         // test
         public static void ClickDateTimePicker(string[] data)
         {
-            WinDateTimePicker dateTimePicker = (WinDateTimePicker)Robot.FindWinControl(typeof(WinDateTimePicker), data[0], _root);
+            WinDateTimePicker dateTimePicker = (WinDateTimePicker)RobotTest.FindWinControl(typeof(WinDateTimePicker), data[0], _root);
             dateTimePicker.SetProperty("DateTime", data[1] + "/" + data[2] + "/" + data[3]);
         }
 
         // test
         public static void ClickButton(string name)
         {
-            WinButton button = (WinButton)Robot.FindWinControl(typeof(WinButton), name, _root);
+            WinButton button = (WinButton)RobotTest.FindWinControl(typeof(WinButton), name, _root);
             Mouse.Click(button);
         }
 
         // test
         public static void ClickTabControl(string name)
         {
-            Mouse.Click((WinTabPage)Robot.FindWinControl(typeof(WinTabPage), name, _root));
+            Mouse.Click((WinTabPage)RobotTest.FindWinControl(typeof(WinTabPage), name, _root));
         }
 
         // test
         public static void SetEdit(string name, string keys)
         {
-            WinEdit edit = (WinEdit)Robot.FindWinControl(typeof(WinEdit), name, _root);
+            WinEdit edit = (WinEdit)RobotTest.FindWinControl(typeof(WinEdit), name, _root);
             if (edit.Text != keys)
                 edit.Text = keys;
         }
@@ -188,7 +188,7 @@ namespace CourseSystemUITest
         // test
         public static void DeleteDataGridViewByIndex(string[] data)
         {
-            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), data[0], _root);
+            WinTable table = (WinTable)RobotTest.FindWinControl(typeof(WinTable), data[0], _root);
             WinRow row = new WinRow(table);
             if (data[3] == string.Empty)
             {
@@ -240,7 +240,7 @@ namespace CourseSystemUITest
         // test
         public static void SetNumericUpDown(string name, string keys)
         {
-            WinComboBox spinner = (WinComboBox)Robot.FindWinControl(typeof(WinComboBox), name, _root);
+            WinComboBox spinner = (WinComboBox)RobotTest.FindWinControl(typeof(WinComboBox), name, _root);
             if (spinner.SelectedItem != keys)
                 spinner.SelectedItem = keys;
             Keyboard.SendKeys("{Enter}");
@@ -249,7 +249,7 @@ namespace CourseSystemUITest
         // test
         public static void SetComboBox(string name, string targetName)
         {
-            WinComboBox comboBox = (WinComboBox)Robot.FindWinControl(typeof(WinComboBox), name, _root);
+            WinComboBox comboBox = (WinComboBox)RobotTest.FindWinControl(typeof(WinComboBox), name, _root);
             if (comboBox.SelectedItem != targetName)
                 comboBox.SelectedItem = targetName;
         }
@@ -257,7 +257,7 @@ namespace CourseSystemUITest
         // test
         public static void SetCheckBox(string name, bool isChecked)
         {
-            WinCheckBox checkBox = (WinCheckBox)Robot.FindWinControl(typeof(WinCheckBox), name, _root);
+            WinCheckBox checkBox = (WinCheckBox)RobotTest.FindWinControl(typeof(WinCheckBox), name, _root);
             if (checkBox.Checked != isChecked)
                 checkBox.Checked = isChecked;
         }
@@ -265,34 +265,34 @@ namespace CourseSystemUITest
         // test
         public static void AssertEdit(string name, string assertValue)
         {
-            WinEdit edit = (WinEdit)Robot.FindWinControl(typeof(WinEdit), name, _root);
+            WinEdit edit = (WinEdit)RobotTest.FindWinControl(typeof(WinEdit), name, _root);
             Assert.AreEqual(edit.Text, assertValue);
         }
 
         // test
         public static void AssertText(string name, string assertValue)
         {
-            WinText edit = (WinText)Robot.FindWinControl(typeof(WinText), name, _root);
+            WinText edit = (WinText)RobotTest.FindWinControl(typeof(WinText), name, _root);
             Assert.AreEqual(edit.DisplayText, assertValue);
         }
 
         // test
         public static void AssertCheckBox(string name, bool isChecked)
         {
-            WinCheckBox checkBox = (WinCheckBox)Robot.FindWinControl(typeof(WinCheckBox), name, _root);
+            WinCheckBox checkBox = (WinCheckBox)RobotTest.FindWinControl(typeof(WinCheckBox), name, _root);
             Assert.AreEqual(checkBox.Checked, isChecked);
         }
 
         // test
         public static void AssertNumericUpDown(string name, string keys)
         {
-            WinComboBox spinner = (WinComboBox)Robot.FindWinControl(typeof(WinComboBox), name, _root);
+            WinComboBox spinner = (WinComboBox)RobotTest.FindWinControl(typeof(WinComboBox), name, _root);
             Assert.AreEqual(spinner.SelectedItem, keys);
         }
         // test
         public static void AssertDateTimePicker(string[] data)
         {
-            WinDateTimePicker dateTimePicker = (WinDateTimePicker)Robot.FindWinControl(typeof(WinDateTimePicker), data[0], _root);
+            WinDateTimePicker dateTimePicker = (WinDateTimePicker)RobotTest.FindWinControl(typeof(WinDateTimePicker), data[0], _root);
             Assert.AreEqual(dateTimePicker.DateTime.Year, int.Parse(data[1]));
             Assert.AreEqual(dateTimePicker.DateTime.Month, int.Parse(data[2]));
             Assert.AreEqual(dateTimePicker.DateTime.Day, int.Parse(data[3]));
@@ -300,7 +300,7 @@ namespace CourseSystemUITest
         // test
         public static void AssertComboBox(string name, string assertValue)
         {
-            WinComboBox comboBox = (WinComboBox)Robot.FindWinControl(typeof(WinComboBox), name, _root);
+            WinComboBox comboBox = (WinComboBox)RobotTest.FindWinControl(typeof(WinComboBox), name, _root);
             Assert.AreEqual(comboBox.SelectedItem, assertValue);
         }
 
@@ -338,7 +338,7 @@ namespace CourseSystemUITest
         // test
         public static void AssertDataGridViewByRowIndex(string name, string rowIndex, string[] data)
         {
-            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
+            WinTable table = (WinTable)RobotTest.FindWinControl(typeof(WinTable), name, _root);
             WinRow _Winrow = new WinRow(table);
             _Winrow.SearchProperties.Add(WinRow.PropertyNames.RowIndex, rowIndex);
             _Winrow.Find();
@@ -354,7 +354,7 @@ namespace CourseSystemUITest
         public static void AssertDataGridViewContainsClass(string name, int numberOfRow, string className)
         {
             CleanCache();
-            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
+            WinTable table = (WinTable)RobotTest.FindWinControl(typeof(WinTable), name, _root);
             WinRow _Winrow = new WinRow(table);
             bool flag = false;
             for (int i = 1; i <= numberOfRow; i++)
@@ -375,7 +375,7 @@ namespace CourseSystemUITest
         public static void AssertDataGridViewDoesNotContainClass(string name, int numberOfRow, string className)
         {
             CleanCache();
-            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
+            WinTable table = (WinTable)RobotTest.FindWinControl(typeof(WinTable), name, _root);
             WinRow _Winrow = new WinRow(table);
             bool flag = false;
             for (int i = 1; i <= numberOfRow; i++)
@@ -396,7 +396,7 @@ namespace CourseSystemUITest
         public static void AssertDataGridViewCell(string name, int rowOrder, int columnIndex, string data)
         {
             CleanCache();
-            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
+            WinTable table = (WinTable)RobotTest.FindWinControl(typeof(WinTable), name, _root);
             WinRow _Winrow = new WinRow(table);
             _Winrow.SearchProperties.Add(WinRow.PropertyNames.RowIndex, rowOrder.ToString());
             _Winrow.Find();
@@ -409,7 +409,7 @@ namespace CourseSystemUITest
         public static void ClickFirstCellOfRowInDataGridViewByRowOrder(string datGridViewName, string rowOrder)
         {
             CleanCache();
-            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), datGridViewName, _root);
+            WinTable table = (WinTable)RobotTest.FindWinControl(typeof(WinTable), datGridViewName, _root);
             WinRow row = new WinRow(table);
 
             row.SearchProperties.Add(WinRow.PropertyNames.RowIndex, rowOrder);
@@ -422,7 +422,7 @@ namespace CourseSystemUITest
         public static void ClickDataGridViewCellByRowOrderAndColumnIndex(string datGridViewName, string rowOrder, int columnIndex)
         {
             CleanCache();
-            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), datGridViewName, _root);
+            WinTable table = (WinTable)RobotTest.FindWinControl(typeof(WinTable), datGridViewName, _root);
             WinRow row = new WinRow(table);
 
             row.SearchProperties.Add(WinRow.PropertyNames.RowIndex, rowOrder);
@@ -435,14 +435,14 @@ namespace CourseSystemUITest
         public static void AssertNumberOfRowInDataGridView(string name, int rowCount)
         {
             CleanCache();
-            WinTable table = (WinTable)Robot.FindWinControl(typeof(WinTable), name, _root);
+            WinTable table = (WinTable)RobotTest.FindWinControl(typeof(WinTable), name, _root);
             Assert.AreEqual(table.Rows.Count, rowCount);
         }
 
         // test
         public static void AssertButtonEnable(string name, bool state)
         {
-            WinButton button = (WinButton)Robot.FindWinControl(typeof(WinButton), name, _root);
+            WinButton button = (WinButton)RobotTest.FindWinControl(typeof(WinButton), name, _root);
             Assert.AreEqual(button.Enabled, state);
         }
 
@@ -450,7 +450,7 @@ namespace CourseSystemUITest
         public static void AssertWindow(string name)
         {
             const string KEY_TEXT = "\n";
-            WinWindow window = (WinWindow)Robot.FindWinControl(typeof(WinWindow), name, null);
+            WinWindow window = (WinWindow)RobotTest.FindWinControl(typeof(WinWindow), name, null);
             Keyboard.SendKeys(window, KEY_TEXT);
         }
 
@@ -464,14 +464,14 @@ namespace CourseSystemUITest
         // test
         public static void ClickRadioButton(string name)
         {
-            WinRadioButton radio = (WinRadioButton)Robot.FindWinControl(typeof(WinRadioButton), name, _root);
+            WinRadioButton radio = (WinRadioButton)RobotTest.FindWinControl(typeof(WinRadioButton), name, _root);
             Mouse.Click(radio);
         }
 
         // test
         public static void ClickHyperlink(string name)
         {
-            WinHyperlink hyperink = (WinHyperlink)Robot.FindWinControl(typeof(WinHyperlink), name, _root);
+            WinHyperlink hyperink = (WinHyperlink)RobotTest.FindWinControl(typeof(WinHyperlink), name, _root);
             Mouse.Click(hyperink);
         }
     }
