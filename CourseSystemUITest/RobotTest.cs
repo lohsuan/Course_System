@@ -462,6 +462,12 @@ namespace CourseSystemUITest
         }
 
         // test
+        public static void AssertMessageBoxText(string caption)
+        {
+            WinWindow window = (WinWindow)RobotTest.FindWinControl(typeof(WinWindow), caption, null);
+        }
+
+        // test
         public static void ClickRadioButton(string name)
         {
             WinRadioButton radio = (WinRadioButton)RobotTest.FindWinControl(typeof(WinRadioButton), name, _root);

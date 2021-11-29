@@ -88,6 +88,8 @@ namespace CourseSystemUITest
             RobotTest.ClickFirstCellOfRowInDataGridViewByRowOrder("DataGridView", "4");
             RobotTest.ClickButton("確認送出");
             RobotTest.AssertButtonEnable("確認送出", false);
+            RobotTest.AssertMessageBoxText("加選成功");
+
             Thread.Sleep(2000);
             RobotTest.SendKeyEnterToMessageBox();
 
@@ -147,7 +149,8 @@ namespace CourseSystemUITest
             RobotTest.ClickFirstCellOfRowInDataGridViewByRowOrder("DataGridView", "9");
             RobotTest.ClickFirstCellOfRowInDataGridViewByRowOrder("DataGridView", "13");
             RobotTest.ClickButton("確認送出");
-            
+            RobotTest.AssertMessageBoxText("加選失敗\n衝堂 : 「291539-數位信號處理」、「291548-FPGA系統設計實務」\n");
+
             Thread.Sleep(2000);
             RobotTest.SendKeyEnterToMessageBox();
 
@@ -171,7 +174,7 @@ namespace CourseSystemUITest
             RobotTest.ClickFirstCellOfRowInDataGridViewByRowOrder("DataGridView", "4");
             RobotTest.ClickFirstCellOfRowInDataGridViewByRowOrder("DataGridView", "5");
             RobotTest.ClickButton("確認送出");
-
+            RobotTest.AssertMessageBoxText("加選失敗\n課程名稱相同 : 「291703 博雅選修課程」、「291704 博雅選修課程」\n");
             Thread.Sleep(2000);
             RobotTest.SendKeyEnterToMessageBox();
 

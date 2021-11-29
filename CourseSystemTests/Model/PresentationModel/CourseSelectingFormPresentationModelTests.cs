@@ -100,9 +100,9 @@ namespace CourseSystem.Tests
             courseInfoDtos[1].ClassTimeMonday = "1";
             courseInfoDtos[2].ClassTimeMonday = "1";
             _viewModel.UpdateCourseChecked(0, courseInfoDtos[1].Id);
-            Assert.AreEqual("加選成功\n", _viewModel.CheckCoursesValidMessage());
+            Assert.AreEqual("加選成功", _viewModel.CheckCoursesValidMessage());
             _viewModel.UpdateCourseChecked(0, courseInfoDtos[2].Id);
-            Assert.AreEqual("加選失敗\n\n衝堂 : 「291702-體育」、「291703-博雅選修課程」\n", _viewModel.CheckCoursesValidMessage());
+            Assert.AreEqual("加選失敗\n衝堂 : 「291702-體育」、「291703-博雅選修課程」\n", _viewModel.CheckCoursesValidMessage());
         }
 
         // CheckAnyCourseOverlapMessageTest
